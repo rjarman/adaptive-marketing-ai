@@ -8,6 +8,8 @@ engine = create_engine(settings.database_url, connect_args={"check_same_thread":
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+from models.models import Integration, ChatMessage, Customer
+
 Base.metadata.create_all(bind=engine)
 
 

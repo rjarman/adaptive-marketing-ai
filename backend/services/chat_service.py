@@ -22,9 +22,15 @@ class ChatService:
                 {
                     "role": "system",
                     "content": SYSTEM_PROMPT
-                },
-                {"role": "user", "content": message}
+                }
             ]
+
+            chat_history = self.repository.get_history(limit=100)
+            for chat in reversed(chat_history):
+                messages.append({"role": "user", "content": chat.message})
+                messages.append({"role": "assistant", "content": chat.response})
+
+            messages.append({"role": "user", "content": message})
 
             stream = await openai_client.chat.completions.create(
                 model=settings.openai_model,

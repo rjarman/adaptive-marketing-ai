@@ -6,7 +6,7 @@ from apis.routes import api_router
 app = FastAPI(
     title="Adaptive Marketing AI API",
     description="Adaptive marketing engine that connects to multiple platforms to generate campaign queries and answer natural language questions across channels.",
-    version="0.1.0",
+    version="0.2.0",
 )
 
 app.add_middleware(

@@ -10,19 +10,19 @@ class LlmResponseTypes(str, Enum):
     END_OF_STREAM = "END_OF_STREAM"
 
 
-class DataSourceEnum(str, Enum):
+class DataSourceTypes(str, Enum):
     WEBSITE = "WEBSITE"
     SHOPIFY = "SHOPIFY"
     CRMS = "CRMS"
 
 
 class IntegrationCreate(BaseModel):
-    dataSource: DataSourceEnum
+    dataSource: DataSourceTypes
 
 
 class IntegrationResponse(BaseModel):
     id: str
-    dataSource: DataSourceEnum
+    dataSource: DataSourceTypes
     createdAt: datetime
 
     class Config:
@@ -41,3 +41,9 @@ class ChatMessageResponse(BaseModel):
 
 class ChatHistoryResponse(BaseModel):
     messages: List[ChatMessageResponse]
+
+
+class IntegrationDeleteResponse(BaseModel):
+    message: str
+    customers_removed: int
+    data_cleanup: str

@@ -1,0 +1,3446 @@
+[
+  {
+    "customer_id": "web_001",
+    "email": "alice.johnson@email.com",
+    "first_name": "Alice",
+    "last_name": "Johnson",
+    "phone": "+1234567890",
+    "page_views": 45,
+    "session_count": 12,
+    "time_on_site": 2340,
+    "last_visit": "2024-10-18T14:30:00Z",
+    "first_visit": "2024-09-15T09:00:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "New York, NY",
+    "interests": [
+      "fashion",
+      "technology"
+    ],
+    "behavior_score": 85,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.54,
+      "whatsapp": 0.71,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_002",
+    "email": "bob.smith@email.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "phone": "+1234567891",
+    "page_views": 8,
+    "session_count": 3,
+    "time_on_site": 450,
+    "last_visit": "2024-10-17T11:15:00Z",
+    "first_visit": "2024-10-10T16:45:00Z",
+    "referrer": "facebook",
+    "utm_source": "facebook",
+    "utm_medium": "social",
+    "utm_campaign": "summer_sale",
+    "device_type": "mobile",
+    "browser": "Safari",
+    "location": "Los Angeles, CA",
+    "interests": [
+      "sports",
+      "fitness"
+    ],
+    "behavior_score": 35,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.35,
+      "whatsapp": 0.62,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_003",
+    "email": "carol.davis@email.com",
+    "first_name": "Carol",
+    "last_name": "Davis",
+    "phone": "+1234567892",
+    "page_views": 23,
+    "session_count": 7,
+    "time_on_site": 1280,
+    "last_visit": "2024-10-19T09:30:00Z",
+    "first_visit": "2024-10-05T12:00:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Chicago, IL",
+    "interests": [
+      "home_decor",
+      "cooking"
+    ],
+    "behavior_score": 65,
+    "conversion_status": "engaged",
+    "newsletter_signup": true,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.42,
+      "whatsapp": 0.63,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_004",
+    "email": "david.wilson@email.com",
+    "first_name": "David",
+    "last_name": "Wilson",
+    "phone": "+1234567893",
+    "page_views": 67,
+    "session_count": 18,
+    "time_on_site": 4200,
+    "last_visit": "2024-10-20T16:45:00Z",
+    "first_visit": "2024-08-20T10:30:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "paid",
+    "utm_campaign": "brand_awareness",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Houston, TX",
+    "interests": [
+      "electronics",
+      "gaming"
+    ],
+    "behavior_score": 92,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.53,
+      "whatsapp": 0.78,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_005",
+    "email": "emma.brown@email.com",
+    "first_name": "Emma",
+    "last_name": "Brown",
+    "phone": "+1234567894",
+    "page_views": 15,
+    "session_count": 5,
+    "time_on_site": 890,
+    "last_visit": "2024-10-16T13:20:00Z",
+    "first_visit": "2024-09-28T11:20:00Z",
+    "referrer": "instagram",
+    "utm_source": "instagram",
+    "utm_medium": "social",
+    "utm_campaign": "influencer_collab",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Phoenix, AZ",
+    "interests": [
+      "beauty",
+      "lifestyle"
+    ],
+    "behavior_score": 55,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.37,
+      "whatsapp": 0.75,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_006",
+    "email": "frank.miller@email.com",
+    "first_name": "Frank",
+    "last_name": "Miller",
+    "phone": "+1234567895",
+    "page_views": 31,
+    "session_count": 9,
+    "time_on_site": 1650,
+    "last_visit": "2024-10-18T15:45:00Z",
+    "first_visit": "2024-09-05T14:00:00Z",
+    "referrer": "email",
+    "utm_source": "newsletter",
+    "utm_medium": "email",
+    "utm_campaign": "monthly_digest",
+    "device_type": "desktop",
+    "browser": "Edge",
+    "location": "Philadelphia, PA",
+    "interests": [
+      "books",
+      "education"
+    ],
+    "behavior_score": 72,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.36,
+      "whatsapp": 0.8,
+      "ads": 0.12
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "web_007",
+    "email": "grace.taylor@email.com",
+    "first_name": "Grace",
+    "last_name": "Taylor",
+    "phone": "+1234567896",
+    "page_views": 5,
+    "session_count": 2,
+    "time_on_site": 180,
+    "last_visit": "2024-10-15T14:45:00Z",
+    "first_visit": "2024-10-12T09:15:00Z",
+    "referrer": "twitter",
+    "utm_source": "twitter",
+    "utm_medium": "social",
+    "utm_campaign": "product_launch",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "San Antonio, TX",
+    "interests": [
+      "travel",
+      "photography"
+    ],
+    "behavior_score": 25,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.43,
+      "whatsapp": 0.75,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_008",
+    "email": "henry.anderson@email.com",
+    "first_name": "Henry",
+    "last_name": "Anderson",
+    "phone": "+1234567897",
+    "page_views": 42,
+    "session_count": 11,
+    "time_on_site": 2890,
+    "last_visit": "2024-10-19T11:00:00Z",
+    "first_visit": "2024-08-15T16:30:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "San Diego, CA",
+    "interests": [
+      "automotive",
+      "tools"
+    ],
+    "behavior_score": 78,
+    "conversion_status": "converted",
+    "newsletter_signup": false,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.48,
+      "whatsapp": 0.76,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_009",
+    "email": "iris.thomas@email.com",
+    "first_name": "Iris",
+    "last_name": "Thomas",
+    "phone": "+1234567898",
+    "page_views": 12,
+    "session_count": 4,
+    "time_on_site": 620,
+    "last_visit": "2024-10-14T10:15:00Z",
+    "first_visit": "2024-09-30T12:00:00Z",
+    "referrer": "pinterest",
+    "utm_source": "pinterest",
+    "utm_medium": "social",
+    "utm_campaign": "diy_inspiration",
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Dallas, TX",
+    "interests": [
+      "crafts",
+      "diy"
+    ],
+    "behavior_score": 48,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.42,
+      "whatsapp": 0.68,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_010",
+    "email": "jack.jackson@email.com",
+    "first_name": "Jack",
+    "last_name": "Jackson",
+    "phone": "+1234567899",
+    "page_views": 89,
+    "session_count": 22,
+    "time_on_site": 5670,
+    "last_visit": "2024-10-20T14:20:00Z",
+    "first_visit": "2024-07-10T08:45:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "San Jose, CA",
+    "interests": [
+      "technology",
+      "software"
+    ],
+    "behavior_score": 95,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.51,
+      "whatsapp": 0.72,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_011",
+    "email": "karen.white@email.com",
+    "first_name": "Karen",
+    "last_name": "White",
+    "phone": "+1234567800",
+    "page_views": 18,
+    "session_count": 6,
+    "time_on_site": 1120,
+    "last_visit": "2024-10-17T13:30:00Z",
+    "first_visit": "2024-10-02T12:00:00Z",
+    "referrer": "youtube",
+    "utm_source": "youtube",
+    "utm_medium": "video",
+    "utm_campaign": "product_demo",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Austin, TX",
+    "interests": [
+      "fitness",
+      "health"
+    ],
+    "behavior_score": 60,
+    "conversion_status": "engaged",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.52,
+      "whatsapp": 0.6,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_012",
+    "email": "liam.harris@email.com",
+    "first_name": "Liam",
+    "last_name": "Harris",
+    "phone": "+1234567801",
+    "page_views": 26,
+    "session_count": 8,
+    "time_on_site": 1450,
+    "last_visit": "2024-10-18T12:15:00Z",
+    "first_visit": "2024-09-12T15:00:00Z",
+    "referrer": "linkedin",
+    "utm_source": "linkedin",
+    "utm_medium": "social",
+    "utm_campaign": "b2b_outreach",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Jacksonville, FL",
+    "interests": [
+      "business",
+      "finance"
+    ],
+    "behavior_score": 68,
+    "conversion_status": "converted",
+    "newsletter_signup": false,
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.49,
+      "whatsapp": 0.7,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "web_013",
+    "email": "mia.clark@email.com",
+    "first_name": "Mia",
+    "last_name": "Clark",
+    "phone": "+1234567802",
+    "page_views": 54,
+    "session_count": 15,
+    "time_on_site": 3420,
+    "last_visit": "2024-10-19T16:45:00Z",
+    "first_visit": "2024-08-05T11:20:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "paid",
+    "utm_campaign": "retargeting",
+    "device_type": "desktop",
+    "browser": "Safari",
+    "location": "San Francisco, CA",
+    "interests": [
+      "fashion",
+      "luxury"
+    ],
+    "behavior_score": 88,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.38,
+      "whatsapp": 0.66,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_014",
+    "email": "noah.lewis@email.com",
+    "first_name": "Noah",
+    "last_name": "Lewis",
+    "phone": "+1234567803",
+    "page_views": 7,
+    "session_count": 3,
+    "time_on_site": 320,
+    "last_visit": "2024-10-16T12:00:00Z",
+    "first_visit": "2024-10-08T10:30:00Z",
+    "referrer": "reddit",
+    "utm_source": "reddit",
+    "utm_medium": "social",
+    "utm_campaign": "community_engagement",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Columbus, OH",
+    "interests": [
+      "gaming",
+      "entertainment"
+    ],
+    "behavior_score": 32,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.35,
+      "whatsapp": 0.73,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "web_015",
+    "email": "olivia.walker@email.com",
+    "first_name": "Olivia",
+    "last_name": "Walker",
+    "phone": "+1234567804",
+    "page_views": 38,
+    "session_count": 10,
+    "time_on_site": 2150,
+    "last_visit": "2024-10-18T08:15:00Z",
+    "first_visit": "2024-09-18T14:45:00Z",
+    "referrer": "email",
+    "utm_source": "promotional",
+    "utm_medium": "email",
+    "utm_campaign": "flash_sale",
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Charlotte, NC",
+    "interests": [
+      "home_garden",
+      "outdoor"
+    ],
+    "behavior_score": 75,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.2,
+      "sms": 0.39,
+      "whatsapp": 0.62,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_016",
+    "email": "paul.hall@email.com",
+    "first_name": "Paul",
+    "last_name": "Hall",
+    "phone": "+1234567805",
+    "page_views": 3,
+    "session_count": 1,
+    "time_on_site": 95,
+    "last_visit": "2024-10-20T16:00:00Z",
+    "first_visit": "2024-10-20T16:00:00Z",
+    "referrer": "bing",
+    "utm_source": "bing",
+    "utm_medium": "paid",
+    "utm_campaign": "competitor_keywords",
+    "device_type": "desktop",
+    "browser": "Edge",
+    "location": "Fort Worth, TX",
+    "interests": [
+      "unknown"
+    ],
+    "behavior_score": 15,
+    "conversion_status": "new_visitor",
+    "newsletter_signup": false,
+    "timezone": "America/Phoenix",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.53,
+      "whatsapp": 0.76,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_017",
+    "email": "quinn.allen@email.com",
+    "first_name": "Quinn",
+    "last_name": "Allen",
+    "phone": "+1234567806",
+    "page_views": 76,
+    "session_count": 19,
+    "time_on_site": 4890,
+    "last_visit": "2024-10-20T13:45:00Z",
+    "first_visit": "2024-07-15T09:30:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Detroit, MI",
+    "interests": [
+      "business",
+      "technology"
+    ],
+    "behavior_score": 93,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.47,
+      "whatsapp": 0.79,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_018",
+    "email": "rachel.young@email.com",
+    "first_name": "Rachel",
+    "last_name": "Young",
+    "phone": "+1234567807",
+    "page_views": 21,
+    "session_count": 7,
+    "time_on_site": 1340,
+    "last_visit": "2024-10-17T15:20:00Z",
+    "first_visit": "2024-09-25T12:15:00Z",
+    "referrer": "tiktok",
+    "utm_source": "tiktok",
+    "utm_medium": "social",
+    "utm_campaign": "viral_trend",
+    "device_type": "mobile",
+    "browser": "Safari",
+    "location": "El Paso, TX",
+    "interests": [
+      "beauty",
+      "fashion"
+    ],
+    "behavior_score": 63,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.35,
+      "whatsapp": 0.69,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_019",
+    "email": "sam.king@email.com",
+    "first_name": "Sam",
+    "last_name": "King",
+    "phone": "+1234567808",
+    "page_views": 44,
+    "session_count": 12,
+    "time_on_site": 2680,
+    "last_visit": "2024-10-19T10:30:00Z",
+    "first_visit": "2024-08-30T16:00:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Memphis, TN",
+    "interests": [
+      "music",
+      "arts"
+    ],
+    "behavior_score": 79,
+    "conversion_status": "converted",
+    "newsletter_signup": false,
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.36,
+      "whatsapp": 0.78,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_020",
+    "email": "tina.wright@email.com",
+    "first_name": "Tina",
+    "last_name": "Wright",
+    "phone": "+1234567809",
+    "page_views": 9,
+    "session_count": 3,
+    "time_on_site": 480,
+    "last_visit": "2024-10-18T11:45:00Z",
+    "first_visit": "2024-10-10T11:45:00Z",
+    "referrer": "snapchat",
+    "utm_source": "snapchat",
+    "utm_medium": "social",
+    "utm_campaign": "gen_z_targeting",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Boston, MA",
+    "interests": [
+      "lifestyle",
+      "food"
+    ],
+    "behavior_score": 42,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.35,
+      "whatsapp": 0.72,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_021",
+    "email": "uma.lopez@email.com",
+    "first_name": "Uma",
+    "last_name": "Lopez",
+    "phone": "+1234567810",
+    "page_views": 58,
+    "session_count": 16,
+    "time_on_site": 3780,
+    "last_visit": "2024-10-18T12:15:00Z",
+    "first_visit": "2024-07-25T14:20:00Z",
+    "referrer": "email",
+    "utm_source": "welcome_series",
+    "utm_medium": "email",
+    "utm_campaign": "onboarding",
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Seattle, WA",
+    "interests": [
+      "sustainability",
+      "eco_friendly"
+    ],
+    "behavior_score": 87,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.51,
+      "whatsapp": 0.6,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_022",
+    "email": "victor.hill@email.com",
+    "first_name": "Victor",
+    "last_name": "Hill",
+    "phone": "+1234567811",
+    "page_views": 11,
+    "session_count": 4,
+    "time_on_site": 650,
+    "last_visit": "2024-10-16T09:00:00Z",
+    "first_visit": "2024-10-05T16:30:00Z",
+    "referrer": "quora",
+    "utm_source": "quora",
+    "utm_medium": "social",
+    "utm_campaign": "thought_leadership",
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Denver, CO",
+    "interests": [
+      "education",
+      "self_improvement"
+    ],
+    "behavior_score": 50,
+    "conversion_status": "interested",
+    "newsletter_signup": false,
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.47,
+      "whatsapp": 0.71,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_023",
+    "email": "wendy.scott@email.com",
+    "first_name": "Wendy",
+    "last_name": "Scott",
+    "phone": "+1234567812",
+    "page_views": 29,
+    "session_count": 9,
+    "time_on_site": 1890,
+    "last_visit": "2024-10-19T15:45:00Z",
+    "first_visit": "2024-09-08T10:00:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "paid",
+    "utm_campaign": "local_search",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Washington, DC",
+    "interests": [
+      "politics",
+      "news"
+    ],
+    "behavior_score": 71,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.38,
+      "whatsapp": 0.77,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_024",
+    "email": "xander.green@email.com",
+    "first_name": "Xander",
+    "last_name": "Green",
+    "phone": "+1234567813",
+    "page_views": 4,
+    "session_count": 2,
+    "time_on_site": 210,
+    "last_visit": "2024-10-19T08:30:00Z",
+    "first_visit": "2024-10-16T14:00:00Z",
+    "referrer": "discord",
+    "utm_source": "discord",
+    "utm_medium": "social",
+    "utm_campaign": "community_building",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Nashville, TN",
+    "interests": [
+      "gaming",
+      "streaming"
+    ],
+    "behavior_score": 28,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.38,
+      "whatsapp": 0.75,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_025",
+    "email": "yara.adams@email.com",
+    "first_name": "Yara",
+    "last_name": "Adams",
+    "phone": "+1234567814",
+    "page_views": 72,
+    "session_count": 20,
+    "time_on_site": 4560,
+    "last_visit": "2024-10-20T14:00:00Z",
+    "first_visit": "2024-06-30T11:15:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Safari",
+    "location": "Portland, OR",
+    "interests": [
+      "art",
+      "design"
+    ],
+    "behavior_score": 91,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.38,
+      "whatsapp": 0.76,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_026",
+    "email": "zack.baker@email.com",
+    "first_name": "Zack",
+    "last_name": "Baker",
+    "phone": "+1234567815",
+    "page_views": 16,
+    "session_count": 5,
+    "time_on_site": 920,
+    "last_visit": "2024-10-17T11:30:00Z",
+    "first_visit": "2024-09-22T15:45:00Z",
+    "referrer": "twitch",
+    "utm_source": "twitch",
+    "utm_medium": "streaming",
+    "utm_campaign": "gamer_outreach",
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Las Vegas, NV",
+    "interests": [
+      "gaming",
+      "esports"
+    ],
+    "behavior_score": 56,
+    "conversion_status": "interested",
+    "newsletter_signup": false,
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.5,
+      "whatsapp": 0.67,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_027",
+    "email": "anna.gonzalez@email.com",
+    "first_name": "Anna",
+    "last_name": "Gonzalez",
+    "phone": "+1234567816",
+    "page_views": 33,
+    "session_count": 10,
+    "time_on_site": 2100,
+    "last_visit": "2024-10-18T13:20:00Z",
+    "first_visit": "2024-08-12T09:00:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "mobile",
+    "browser": "Safari",
+    "location": "Miami, FL",
+    "interests": [
+      "travel",
+      "culture"
+    ],
+    "behavior_score": 74,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.42,
+      "whatsapp": 0.76,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_028",
+    "email": "brian.nelson@email.com",
+    "first_name": "Brian",
+    "last_name": "Nelson",
+    "phone": "+1234567817",
+    "page_views": 6,
+    "session_count": 2,
+    "time_on_site": 280,
+    "last_visit": "2024-10-20T12:45:00Z",
+    "first_visit": "2024-10-18T12:45:00Z",
+    "referrer": "medium",
+    "utm_source": "medium",
+    "utm_medium": "content",
+    "utm_campaign": "blog_promotion",
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Atlanta, GA",
+    "interests": [
+      "writing",
+      "content"
+    ],
+    "behavior_score": 33,
+    "conversion_status": "browsing",
+    "newsletter_signup": true,
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.54,
+      "whatsapp": 0.78,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_029",
+    "email": "claire.carter@email.com",
+    "first_name": "Claire",
+    "last_name": "Carter",
+    "phone": "+1234567818",
+    "page_views": 61,
+    "session_count": 17,
+    "time_on_site": 3950,
+    "last_visit": "2024-10-19T10:45:00Z",
+    "first_visit": "2024-07-05T16:20:00Z",
+    "referrer": "email",
+    "utm_source": "loyalty_program",
+    "utm_medium": "email",
+    "utm_campaign": "vip_exclusive",
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Cleveland, OH",
+    "interests": [
+      "luxury",
+      "premium"
+    ],
+    "behavior_score": 89,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.41,
+      "whatsapp": 0.67,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_030",
+    "email": "derek.mitchell@email.com",
+    "first_name": "Derek",
+    "last_name": "Mitchell",
+    "phone": "+1234567819",
+    "page_views": 13,
+    "session_count": 4,
+    "time_on_site": 750,
+    "last_visit": "2024-10-16T14:15:00Z",
+    "first_visit": "2024-09-28T11:30:00Z",
+    "referrer": "whatsapp",
+    "utm_source": "whatsapp",
+    "utm_medium": "messaging",
+    "utm_campaign": "referral_program",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "New Orleans, LA",
+    "interests": [
+      "food",
+      "local_culture"
+    ],
+    "behavior_score": 52,
+    "conversion_status": "interested",
+    "newsletter_signup": false,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.36,
+      "whatsapp": 0.73,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_031",
+    "email": "eva.perez@email.com",
+    "first_name": "Eva",
+    "last_name": "Perez",
+    "phone": "+1234567820",
+    "page_views": 47,
+    "session_count": 13,
+    "time_on_site": 2980,
+    "last_visit": "2024-10-18T16:30:00Z",
+    "first_visit": "2024-08-18T12:15:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "paid",
+    "utm_campaign": "shopping_ads",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Tampa, FL",
+    "interests": [
+      "shopping",
+      "deals"
+    ],
+    "behavior_score": 81,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.39,
+      "whatsapp": 0.72,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_032",
+    "email": "felix.roberts@email.com",
+    "first_name": "Felix",
+    "last_name": "Roberts",
+    "phone": "+1234567821",
+    "page_views": 8,
+    "session_count": 3,
+    "time_on_site": 420,
+    "last_visit": "2024-10-17T14:00:00Z",
+    "first_visit": "2024-10-08T14:00:00Z",
+    "referrer": "telegram",
+    "utm_source": "telegram",
+    "utm_medium": "messaging",
+    "utm_campaign": "crypto_community",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Honolulu, HI",
+    "interests": [
+      "cryptocurrency",
+      "investing"
+    ],
+    "behavior_score": 38,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.51,
+      "whatsapp": 0.68,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_033",
+    "email": "gina.turner@email.com",
+    "first_name": "Gina",
+    "last_name": "Turner",
+    "phone": "+1234567822",
+    "page_views": 83,
+    "session_count": 21,
+    "time_on_site": 5340,
+    "last_visit": "2024-10-20T11:15:00Z",
+    "first_visit": "2024-06-20T08:45:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Safari",
+    "location": "Raleigh, NC",
+    "interests": [
+      "health",
+      "wellness"
+    ],
+    "behavior_score": 96,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.52,
+      "whatsapp": 0.62,
+      "ads": 0.05
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "web_034",
+    "email": "hugo.phillips@email.com",
+    "first_name": "Hugo",
+    "last_name": "Phillips",
+    "phone": "+1234567823",
+    "page_views": 10,
+    "session_count": 3,
+    "time_on_site": 540,
+    "last_visit": "2024-10-19T09:45:00Z",
+    "first_visit": "2024-10-05T13:20:00Z",
+    "referrer": "clubhouse",
+    "utm_source": "clubhouse",
+    "utm_medium": "audio",
+    "utm_campaign": "startup_discussion",
+    "device_type": "mobile",
+    "browser": "Safari",
+    "location": "Oklahoma City, OK",
+    "interests": [
+      "startups",
+      "entrepreneurship"
+    ],
+    "behavior_score": 45,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.41,
+      "whatsapp": 0.78,
+      "ads": 0.05
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_035",
+    "email": "ivy.campbell@email.com",
+    "first_name": "Ivy",
+    "last_name": "Campbell",
+    "phone": "+1234567824",
+    "page_views": 36,
+    "session_count": 11,
+    "time_on_site": 2240,
+    "last_visit": "2024-10-17T12:00:00Z",
+    "first_visit": "2024-08-28T16:45:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Louisville, KY",
+    "interests": [
+      "pets",
+      "animals"
+    ],
+    "behavior_score": 76,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.47,
+      "whatsapp": 0.73,
+      "ads": 0.11
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "web_036",
+    "email": "james.parker@email.com",
+    "first_name": "James",
+    "last_name": "Parker",
+    "phone": "+1234567825",
+    "page_views": 2,
+    "session_count": 1,
+    "time_on_site": 85,
+    "last_visit": "2024-10-20T10:30:00Z",
+    "first_visit": "2024-10-20T10:30:00Z",
+    "referrer": "duckduckgo",
+    "utm_source": "duckduckgo",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Milwaukee, WI",
+    "interests": [
+      "privacy",
+      "security"
+    ],
+    "behavior_score": 12,
+    "conversion_status": "new_visitor",
+    "newsletter_signup": false,
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.5,
+      "whatsapp": 0.63,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_037",
+    "email": "kate.evans@email.com",
+    "first_name": "Kate",
+    "last_name": "Evans",
+    "phone": "+1234567826",
+    "page_views": 52,
+    "session_count": 14,
+    "time_on_site": 3280,
+    "last_visit": "2024-10-18T15:30:00Z",
+    "first_visit": "2024-07-18T11:00:00Z",
+    "referrer": "email",
+    "utm_source": "abandoned_cart",
+    "utm_medium": "email",
+    "utm_campaign": "recovery_sequence",
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Albuquerque, NM",
+    "interests": [
+      "outdoor",
+      "adventure"
+    ],
+    "behavior_score": 84,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.48,
+      "whatsapp": 0.71,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_038",
+    "email": "leo.edwards@email.com",
+    "first_name": "Leo",
+    "last_name": "Edwards",
+    "phone": "+1234567827",
+    "page_views": 19,
+    "session_count": 6,
+    "time_on_site": 1180,
+    "last_visit": "2024-10-16T13:45:00Z",
+    "first_visit": "2024-09-20T15:15:00Z",
+    "referrer": "spotify",
+    "utm_source": "spotify",
+    "utm_medium": "audio",
+    "utm_campaign": "podcast_sponsorship",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "Tucson, AZ",
+    "interests": [
+      "music",
+      "podcasts"
+    ],
+    "behavior_score": 61,
+    "conversion_status": "interested",
+    "newsletter_signup": false,
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.4,
+      "whatsapp": 0.6,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "web_039",
+    "email": "maya.collins@email.com",
+    "first_name": "Maya",
+    "last_name": "Collins",
+    "phone": "+1234567828",
+    "page_views": 1,
+    "session_count": 1,
+    "time_on_site": 45,
+    "last_visit": "2024-10-20T09:15:00Z",
+    "first_visit": "2024-10-20T09:15:00Z",
+    "referrer": "yahoo",
+    "utm_source": "yahoo",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "mobile",
+    "browser": "Safari",
+    "location": "Fresno, CA",
+    "interests": [
+      "unknown"
+    ],
+    "behavior_score": 8,
+    "conversion_status": "new_visitor",
+    "newsletter_signup": false,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.26,
+      "sms": 0.5,
+      "whatsapp": 0.64,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_040",
+    "email": "nick.stewart@email.com",
+    "first_name": "Nick",
+    "last_name": "Stewart",
+    "phone": "+1234567829",
+    "page_views": 41,
+    "session_count": 12,
+    "time_on_site": 2590,
+    "last_visit": "2024-10-17T14:20:00Z",
+    "first_visit": "2024-08-25T12:30:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "paid",
+    "utm_campaign": "competitor_analysis",
+    "device_type": "desktop",
+    "browser": "Edge",
+    "location": "Mesa, AZ",
+    "interests": [
+      "business",
+      "analytics"
+    ],
+    "behavior_score": 77,
+    "conversion_status": "converted",
+    "newsletter_signup": false,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.26,
+      "sms": 0.42,
+      "whatsapp": 0.74,
+      "ads": 0.08
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_041",
+    "email": "oscar.sanchez@email.com",
+    "first_name": "Oscar",
+    "last_name": "Sanchez",
+    "phone": "+1234567830",
+    "page_views": 95,
+    "session_count": 24,
+    "time_on_site": 6120,
+    "last_visit": "2024-10-20T10:15:00Z",
+    "first_visit": "2024-05-15T14:45:00Z",
+    "referrer": "direct",
+    "utm_source": "direct",
+    "utm_medium": "none",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Virginia Beach, VA",
+    "interests": [
+      "technology",
+      "innovation"
+    ],
+    "behavior_score": 98,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.47,
+      "whatsapp": 0.72,
+      "ads": 0.12
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_042",
+    "email": "penny.morris@email.com",
+    "first_name": "Penny",
+    "last_name": "Morris",
+    "phone": "+1234567831",
+    "page_views": 14,
+    "session_count": 4,
+    "time_on_site": 820,
+    "last_visit": "2024-10-18T16:00:00Z",
+    "first_visit": "2024-10-02T11:45:00Z",
+    "referrer": "ecosia",
+    "utm_source": "ecosia",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "tablet",
+    "browser": "Firefox",
+    "location": "Atlanta, GA",
+    "interests": [
+      "environment",
+      "sustainability"
+    ],
+    "behavior_score": 54,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.54,
+      "whatsapp": 0.71,
+      "ads": 0.1
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "web_043",
+    "email": "quinn.rogers@email.com",
+    "first_name": "Quinn",
+    "last_name": "Rogers",
+    "phone": "+1234567832",
+    "page_views": 22,
+    "session_count": 7,
+    "time_on_site": 1420,
+    "last_visit": "2024-10-19T15:20:00Z",
+    "first_visit": "2024-09-14T15:20:00Z",
+    "referrer": "signal",
+    "utm_source": "signal",
+    "utm_medium": "messaging",
+    "utm_campaign": "privacy_focused",
+    "device_type": "mobile",
+    "browser": "Firefox",
+    "location": "Long Beach, CA",
+    "interests": [
+      "privacy",
+      "technology"
+    ],
+    "behavior_score": 66,
+    "conversion_status": "engaged",
+    "newsletter_signup": false,
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.54,
+      "whatsapp": 0.75,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_044",
+    "email": "rose.reed@email.com",
+    "first_name": "Rose",
+    "last_name": "Reed",
+    "phone": "+1234567833",
+    "page_views": 39,
+    "session_count": 11,
+    "time_on_site": 2470,
+    "last_visit": "2024-10-19T11:30:00Z",
+    "first_visit": "2024-08-10T09:15:00Z",
+    "referrer": "email",
+    "utm_source": "birthday_campaign",
+    "utm_medium": "email",
+    "utm_campaign": "personalized_offers",
+    "device_type": "desktop",
+    "browser": "Safari",
+    "location": "Kansas City, MO",
+    "interests": [
+      "personal_care",
+      "wellness"
+    ],
+    "behavior_score": 80,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.52,
+      "whatsapp": 0.79,
+      "ads": 0.05
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_045",
+    "email": "steve.cook@email.com",
+    "first_name": "Steve",
+    "last_name": "Cook",
+    "phone": "+1234567834",
+    "page_views": 66,
+    "session_count": 18,
+    "time_on_site": 4180,
+    "last_visit": "2024-10-19T13:15:00Z",
+    "first_visit": "2024-06-12T16:30:00Z",
+    "referrer": "google",
+    "utm_source": "google",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Chrome",
+    "location": "Omaha, NE",
+    "interests": [
+      "cooking",
+      "food"
+    ],
+    "behavior_score": 86,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.42,
+      "whatsapp": 0.61,
+      "ads": 0.09
+    },
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_046",
+    "email": "tara.bailey@email.com",
+    "first_name": "Tara",
+    "last_name": "Bailey",
+    "phone": "+1234567835",
+    "page_views": 5,
+    "session_count": 2,
+    "time_on_site": 240,
+    "last_visit": "2024-10-20T08:45:00Z",
+    "first_visit": "2024-10-19T08:45:00Z",
+    "referrer": "mastodon",
+    "utm_source": "mastodon",
+    "utm_medium": "social",
+    "utm_campaign": "decentralized_social",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Tulsa, OK",
+    "interests": [
+      "social_media",
+      "decentralization"
+    ],
+    "behavior_score": 29,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.2,
+      "sms": 0.49,
+      "whatsapp": 0.72,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "web_047",
+    "email": "ulrich.rivera@email.com",
+    "first_name": "Ulrich",
+    "last_name": "Rivera",
+    "phone": "+1234567836",
+    "page_views": 27,
+    "session_count": 8,
+    "time_on_site": 1680,
+    "last_visit": "2024-10-18T12:45:00Z",
+    "first_visit": "2024-09-03T14:00:00Z",
+    "referrer": "hacker_news",
+    "utm_source": "hackernews",
+    "utm_medium": "social",
+    "utm_campaign": "tech_community",
+    "device_type": "desktop",
+    "browser": "Firefox",
+    "location": "Minneapolis, MN",
+    "interests": [
+      "technology",
+      "programming"
+    ],
+    "behavior_score": 69,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.5,
+      "whatsapp": 0.7,
+      "ads": 0.1
+    },
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_048",
+    "email": "vera.cooper@email.com",
+    "first_name": "Vera",
+    "last_name": "Cooper",
+    "phone": "+1234567837",
+    "page_views": 49,
+    "session_count": 13,
+    "time_on_site": 3120,
+    "last_visit": "2024-10-18T09:30:00Z",
+    "first_visit": "2024-07-22T11:15:00Z",
+    "referrer": "email",
+    "utm_source": "win_back",
+    "utm_medium": "email",
+    "utm_campaign": "inactive_users",
+    "device_type": "tablet",
+    "browser": "Safari",
+    "location": "Wichita, KS",
+    "interests": [
+      "home_improvement",
+      "diy"
+    ],
+    "behavior_score": 82,
+    "conversion_status": "converted",
+    "newsletter_signup": true,
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.39,
+      "whatsapp": 0.76,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "web_049",
+    "email": "walt.richardson@email.com",
+    "first_name": "Walt",
+    "last_name": "Richardson",
+    "phone": "+1234567838",
+    "page_views": 17,
+    "session_count": 5,
+    "time_on_site": 1020,
+    "last_visit": "2024-10-17T15:10:00Z",
+    "first_visit": "2024-09-26T13:30:00Z",
+    "referrer": "substack",
+    "utm_source": "substack",
+    "utm_medium": "newsletter",
+    "utm_campaign": "thought_leadership",
+    "device_type": "mobile",
+    "browser": "Chrome",
+    "location": "New Orleans, LA",
+    "interests": [
+      "writing",
+      "journalism"
+    ],
+    "behavior_score": 58,
+    "conversion_status": "interested",
+    "newsletter_signup": true,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.45,
+      "whatsapp": 0.76,
+      "ads": 0.07
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "web_050",
+    "email": "xenia.cox@email.com",
+    "first_name": "Xenia",
+    "last_name": "Cox",
+    "phone": "+1234567839",
+    "page_views": 6,
+    "session_count": 2,
+    "time_on_site": 310,
+    "last_visit": "2024-10-20T16:25:00Z",
+    "first_visit": "2024-10-18T16:25:00Z",
+    "referrer": "brave_search",
+    "utm_source": "brave",
+    "utm_medium": "organic",
+    "utm_campaign": null,
+    "device_type": "desktop",
+    "browser": "Brave",
+    "location": "Bakersfield, CA",
+    "interests": [
+      "privacy",
+      "alternative_tech"
+    ],
+    "behavior_score": 34,
+    "conversion_status": "browsing",
+    "newsletter_signup": false,
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.32,
+      "sms": 0.36,
+      "whatsapp": 0.8,
+      "ads": 0.06
+    },
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  }
+]

@@ -1,0 +1,3458 @@
+[
+  {
+    "customer_id": "crm_001",
+    "email": "alice.johnson@email.com",
+    "first_name": "Alice",
+    "last_name": "Johnson",
+    "phone": "+1234567890",
+    "company": "TechCorp Inc",
+    "job_title": "Marketing Manager",
+    "industry": "Technology",
+    "lead_source": "Website",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 15000.0,
+    "last_contact": "2024-10-18T14:30:00Z",
+    "next_followup": null,
+    "created_at": "2024-01-15T09:00:00Z",
+    "tags": [
+      "high_value",
+      "decision_maker"
+    ],
+    "notes": "Excellent customer, very satisfied with our service. Potential for upsell.",
+    "engagement_score": 90,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.4,
+      "whatsapp": 0.61,
+      "ads": 0.12
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin",
+      "twitter",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "crm_002",
+    "email": "bob.smith@email.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "phone": "+1234567891",
+    "company": "StartupXYZ",
+    "job_title": "Founder",
+    "industry": "Startup",
+    "lead_source": "Social Media",
+    "lead_status": "Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 8500.0,
+    "last_contact": "2024-10-16T11:15:00Z",
+    "next_followup": "2024-10-22T10:00:00Z",
+    "created_at": "2024-09-28T16:45:00Z",
+    "tags": [
+      "startup",
+      "budget_conscious"
+    ],
+    "notes": "Interested in our basic package. Price sensitive but engaged.",
+    "engagement_score": 65,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.38,
+      "whatsapp": 0.62,
+      "ads": 0.1
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "youtube",
+      "linkedin",
+      "twitter",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_003",
+    "email": "carol.davis@email.com",
+    "first_name": "Carol",
+    "last_name": "Davis",
+    "phone": "+1234567892",
+    "company": "Design Studio LLC",
+    "job_title": "Creative Director",
+    "industry": "Design",
+    "lead_source": "Referral",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 5000.0,
+    "last_contact": "2024-10-14T09:30:00Z",
+    "next_followup": "2024-10-21T14:00:00Z",
+    "created_at": "2024-10-05T12:00:00Z",
+    "tags": [
+      "creative",
+      "referral"
+    ],
+    "notes": "Referred by existing customer. Interested in creative services package.",
+    "engagement_score": 55,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.15,
+      "sms": 0.44,
+      "whatsapp": 0.67,
+      "ads": 0.08
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "crm_004",
+    "email": "david.wilson@email.com",
+    "first_name": "David",
+    "last_name": "Wilson",
+    "phone": "+1234567893",
+    "company": "Enterprise Solutions Corp",
+    "job_title": "VP of Operations",
+    "industry": "Enterprise Software",
+    "lead_source": "Trade Show",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 45000.0,
+    "last_contact": "2024-10-17T16:45:00Z",
+    "next_followup": "2024-11-01T09:00:00Z",
+    "created_at": "2023-12-01T10:30:00Z",
+    "tags": [
+      "enterprise",
+      "high_value",
+      "renewal_due"
+    ],
+    "notes": "Long-term customer. Contract renewal coming up in Q4. Very satisfied.",
+    "engagement_score": 95,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.51,
+      "whatsapp": 0.7,
+      "ads": 0.09
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_005",
+    "email": "emma.brown@email.com",
+    "first_name": "Emma",
+    "last_name": "Brown",
+    "phone": "+1234567894",
+    "company": "Fashion Forward",
+    "job_title": "Brand Manager",
+    "industry": "Fashion",
+    "lead_source": "Content Marketing",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Negotiation",
+    "deal_value": 12000.0,
+    "last_contact": "2024-10-19T15:45:00Z",
+    "next_followup": "2024-10-23T11:00:00Z",
+    "created_at": "2024-08-15T11:20:00Z",
+    "tags": [
+      "fashion",
+      "brand_focused"
+    ],
+    "notes": "Very interested in our branding package. In final negotiation phase.",
+    "engagement_score": 80,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.26,
+      "sms": 0.53,
+      "whatsapp": 0.64,
+      "ads": 0.11
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "pinterest",
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_006",
+    "email": "frank.miller@email.com",
+    "first_name": "Frank",
+    "last_name": "Miller",
+    "phone": "+1234567895",
+    "company": "Local Bookstore",
+    "job_title": "Owner",
+    "industry": "Retail",
+    "lead_source": "Google Ads",
+    "lead_status": "Lead",
+    "deal_stage": "Qualification",
+    "deal_value": 2500.0,
+    "last_contact": "2024-10-12T13:30:00Z",
+    "next_followup": "2024-10-25T15:00:00Z",
+    "created_at": "2024-09-01T14:00:00Z",
+    "tags": [
+      "small_business",
+      "local"
+    ],
+    "notes": "Small business owner. Needs basic digital marketing help.",
+    "engagement_score": 40,
+    "purchase_intent": "low",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.44,
+      "whatsapp": 0.66,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_007",
+    "email": "grace.taylor@email.com",
+    "first_name": "Grace",
+    "last_name": "Taylor",
+    "phone": "+1234567896",
+    "company": "Travel Adventures Inc",
+    "job_title": "Marketing Coordinator",
+    "industry": "Travel",
+    "lead_source": "Email Campaign",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 7500.0,
+    "last_contact": "2024-10-10T14:45:00Z",
+    "next_followup": "2024-10-24T10:30:00Z",
+    "created_at": "2024-10-05T09:15:00Z",
+    "tags": [
+      "travel",
+      "seasonal"
+    ],
+    "notes": "Travel company looking for seasonal marketing campaigns.",
+    "engagement_score": 50,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.32,
+      "sms": 0.49,
+      "whatsapp": 0.77,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_008",
+    "email": "henry.anderson@email.com",
+    "first_name": "Henry",
+    "last_name": "Anderson",
+    "phone": "+1234567897",
+    "company": "Manufacturing Plus",
+    "job_title": "Sales Director",
+    "industry": "Manufacturing",
+    "lead_source": "LinkedIn",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 22000.0,
+    "last_contact": "2024-10-18T11:00:00Z",
+    "next_followup": "2024-10-30T14:00:00Z",
+    "created_at": "2024-07-20T16:30:00Z",
+    "tags": [
+      "manufacturing",
+      "b2b",
+      "expansion_opportunity"
+    ],
+    "notes": "Great customer. Interested in expanding to additional product lines.",
+    "engagement_score": 85,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.53,
+      "whatsapp": 0.72,
+      "ads": 0.06
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_009",
+    "email": "iris.thomas@email.com",
+    "first_name": "Iris",
+    "last_name": "Thomas",
+    "phone": "+1234567898",
+    "company": "Health & Wellness Co",
+    "job_title": "Operations Manager",
+    "industry": "Healthcare",
+    "lead_source": "Website",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 18000.0,
+    "last_contact": "2024-10-15T10:15:00Z",
+    "next_followup": "2024-10-22T13:00:00Z",
+    "created_at": "2024-09-20T12:00:00Z",
+    "tags": [
+      "healthcare",
+      "compliance_focused"
+    ],
+    "notes": "Healthcare company with specific compliance requirements.",
+    "engagement_score": 70,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.47,
+      "whatsapp": 0.74,
+      "ads": 0.11
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_010",
+    "email": "jack.jackson@email.com",
+    "first_name": "Jack",
+    "last_name": "Jackson",
+    "phone": "+1234567899",
+    "company": "Tech Innovations LLC",
+    "job_title": "CTO",
+    "industry": "Technology",
+    "lead_source": "Conference",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 35000.0,
+    "last_contact": "2024-10-20T14:20:00Z",
+    "next_followup": "2024-11-05T10:00:00Z",
+    "created_at": "2024-02-10T08:45:00Z",
+    "tags": [
+      "tech",
+      "innovation",
+      "strategic_partner"
+    ],
+    "notes": "Strategic technology partner. Excellent relationship, multiple projects.",
+    "engagement_score": 98,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.35,
+      "whatsapp": 0.64,
+      "ads": 0.06
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin",
+      "twitter",
+      "youtube"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_011",
+    "email": "karen.white@email.com",
+    "first_name": "Karen",
+    "last_name": "White",
+    "phone": "+1234567800",
+    "company": "Fitness First",
+    "job_title": "Studio Manager",
+    "industry": "Fitness",
+    "lead_source": "Social Media",
+    "lead_status": "Lead",
+    "deal_stage": "Initial Contact",
+    "deal_value": 4000.0,
+    "last_contact": "2024-10-08T13:30:00Z",
+    "next_followup": "2024-10-26T16:00:00Z",
+    "created_at": "2024-10-01T13:30:00Z",
+    "tags": [
+      "fitness",
+      "local_business"
+    ],
+    "notes": "Local fitness studio interested in social media marketing.",
+    "engagement_score": 35,
+    "purchase_intent": "low",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.49,
+      "whatsapp": 0.76,
+      "ads": 0.12
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "crm_012",
+    "email": "liam.harris@email.com",
+    "first_name": "Liam",
+    "last_name": "Harris",
+    "phone": "+1234567801",
+    "company": "Financial Advisors Group",
+    "job_title": "Partner",
+    "industry": "Financial Services",
+    "lead_source": "Referral",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 28000.0,
+    "last_contact": "2024-10-17T12:15:00Z",
+    "next_followup": "2024-11-02T09:30:00Z",
+    "created_at": "2024-08-01T15:00:00Z",
+    "tags": [
+      "financial",
+      "referral",
+      "compliance"
+    ],
+    "notes": "Financial services client. Strong compliance requirements met successfully.",
+    "engagement_score": 88,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Phoenix",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.54,
+      "whatsapp": 0.78,
+      "ads": 0.06
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "crm_013",
+    "email": "mia.clark@email.com",
+    "first_name": "Mia",
+    "last_name": "Clark",
+    "phone": "+1234567802",
+    "company": "Luxury Brands Inc",
+    "job_title": "Marketing Director",
+    "industry": "Luxury Goods",
+    "lead_source": "Trade Show",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 50000.0,
+    "last_contact": "2024-10-19T16:45:00Z",
+    "next_followup": "2024-11-10T11:00:00Z",
+    "created_at": "2024-03-15T11:20:00Z",
+    "tags": [
+      "luxury",
+      "high_value",
+      "premium"
+    ],
+    "notes": "Premium luxury brand client. Highest tier service package.",
+    "engagement_score": 92,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.52,
+      "whatsapp": 0.66,
+      "ads": 0.06
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_014",
+    "email": "noah.lewis@email.com",
+    "first_name": "Noah",
+    "last_name": "Lewis",
+    "phone": "+1234567803",
+    "company": "Gaming Studio Pro",
+    "job_title": "Marketing Lead",
+    "industry": "Gaming",
+    "lead_source": "Content Marketing",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 9500.0,
+    "last_contact": "2024-10-13T12:00:00Z",
+    "next_followup": "2024-10-27T14:30:00Z",
+    "created_at": "2024-09-28T10:30:00Z",
+    "tags": [
+      "gaming",
+      "creative",
+      "young_demographic"
+    ],
+    "notes": "Gaming studio targeting younger demographics. Creative campaign needs.",
+    "engagement_score": 60,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.39,
+      "whatsapp": 0.69,
+      "ads": 0.11
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "crm_015",
+    "email": "olivia.walker@email.com",
+    "first_name": "Olivia",
+    "last_name": "Walker",
+    "phone": "+1234567804",
+    "company": "Green Solutions Ltd",
+    "job_title": "Sustainability Manager",
+    "industry": "Environmental",
+    "lead_source": "Website",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Negotiation",
+    "deal_value": 16000.0,
+    "last_contact": "2024-10-16T08:15:00Z",
+    "next_followup": "2024-10-23T15:00:00Z",
+    "created_at": "2024-06-10T14:45:00Z",
+    "tags": [
+      "environmental",
+      "sustainability",
+      "values_driven"
+    ],
+    "notes": "Environmental company with strong values alignment. In final negotiations.",
+    "engagement_score": 78,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.37,
+      "whatsapp": 0.71,
+      "ads": 0.1
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_016",
+    "email": "paul.hall@email.com",
+    "first_name": "Paul",
+    "last_name": "Hall",
+    "phone": "+1234567805",
+    "company": "Construction Co",
+    "job_title": "Project Manager",
+    "industry": "Construction",
+    "lead_source": "Google Ads",
+    "lead_status": "Lead",
+    "deal_stage": "Qualification",
+    "deal_value": 6000.0,
+    "last_contact": "2024-10-11T16:00:00Z",
+    "next_followup": "2024-10-28T12:00:00Z",
+    "created_at": "2024-10-12T16:00:00Z",
+    "tags": [
+      "construction",
+      "project_based"
+    ],
+    "notes": "Construction company looking for project-based marketing support.",
+    "engagement_score": 45,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.39,
+      "whatsapp": 0.78,
+      "ads": 0.11
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "crm_017",
+    "email": "quinn.allen@email.com",
+    "first_name": "Quinn",
+    "last_name": "Allen",
+    "phone": "+1234567806",
+    "company": "Consulting Experts",
+    "job_title": "Senior Consultant",
+    "industry": "Consulting",
+    "lead_source": "LinkedIn",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 32000.0,
+    "last_contact": "2024-10-20T13:45:00Z",
+    "next_followup": "2024-11-08T10:30:00Z",
+    "created_at": "2023-11-05T09:30:00Z",
+    "tags": [
+      "consulting",
+      "b2b",
+      "thought_leadership"
+    ],
+    "notes": "Management consulting firm. Focus on thought leadership content.",
+    "engagement_score": 90,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.37,
+      "whatsapp": 0.73,
+      "ads": 0.08
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_018",
+    "email": "rachel.young@email.com",
+    "first_name": "Rachel",
+    "last_name": "Young",
+    "phone": "+1234567807",
+    "company": "Beauty Boutique",
+    "job_title": "Owner",
+    "industry": "Beauty",
+    "lead_source": "Instagram",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 3500.0,
+    "last_contact": "2024-10-14T15:20:00Z",
+    "next_followup": "2024-10-29T11:00:00Z",
+    "created_at": "2024-09-15T12:15:00Z",
+    "tags": [
+      "beauty",
+      "social_media",
+      "influencer"
+    ],
+    "notes": "Beauty boutique owner. Strong social media presence, influencer connections.",
+    "engagement_score": 55,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.49,
+      "whatsapp": 0.73,
+      "ads": 0.12
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "crm_019",
+    "email": "sam.king@email.com",
+    "first_name": "Sam",
+    "last_name": "King",
+    "phone": "+1234567808",
+    "company": "Music Production House",
+    "job_title": "Creative Director",
+    "industry": "Entertainment",
+    "lead_source": "Referral",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 19000.0,
+    "last_contact": "2024-10-18T10:30:00Z",
+    "next_followup": "2024-11-01T14:00:00Z",
+    "created_at": "2024-05-20T16:00:00Z",
+    "tags": [
+      "entertainment",
+      "creative",
+      "audio_visual"
+    ],
+    "notes": "Music production company. Excellent creative collaboration.",
+    "engagement_score": 82,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.42,
+      "whatsapp": 0.69,
+      "ads": 0.06
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "crm_020",
+    "email": "tina.wright@email.com",
+    "first_name": "Tina",
+    "last_name": "Wright",
+    "phone": "+1234567809",
+    "company": "Food Delivery Plus",
+    "job_title": "Growth Manager",
+    "industry": "Food Service",
+    "lead_source": "Content Marketing",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 11000.0,
+    "last_contact": "2024-10-17T11:45:00Z",
+    "next_followup": "2024-10-24T16:00:00Z",
+    "created_at": "2024-10-08T11:45:00Z",
+    "tags": [
+      "food_service",
+      "delivery",
+      "growth_focused"
+    ],
+    "notes": "Food delivery service focused on rapid growth and customer acquisition.",
+    "engagement_score": 68,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.35,
+      "whatsapp": 0.72,
+      "ads": 0.08
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_021",
+    "email": "uma.lopez@email.com",
+    "first_name": "Uma",
+    "last_name": "Lopez",
+    "phone": "+1234567810",
+    "company": "Real Estate Pro",
+    "job_title": "Broker",
+    "industry": "Real Estate",
+    "lead_source": "Website",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 24000.0,
+    "last_contact": "2024-10-19T12:15:00Z",
+    "next_followup": "2024-11-03T09:00:00Z",
+    "created_at": "2024-01-30T14:20:00Z",
+    "tags": [
+      "real_estate",
+      "local_market",
+      "seasonal"
+    ],
+    "notes": "Real estate broker. Strong local market knowledge, seasonal campaigns.",
+    "engagement_score": 86,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.41,
+      "whatsapp": 0.62,
+      "ads": 0.06
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "crm_022",
+    "email": "victor.hill@email.com",
+    "first_name": "Victor",
+    "last_name": "Hill",
+    "phone": "+1234567811",
+    "company": "Education First",
+    "job_title": "Program Director",
+    "industry": "Education",
+    "lead_source": "Conference",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 8000.0,
+    "last_contact": "2024-10-12T09:00:00Z",
+    "next_followup": "2024-10-30T13:30:00Z",
+    "created_at": "2024-10-02T16:30:00Z",
+    "tags": [
+      "education",
+      "non_profit",
+      "community"
+    ],
+    "notes": "Educational organization with community focus. Budget considerations important.",
+    "engagement_score": 52,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Los_Angeles",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.53,
+      "whatsapp": 0.77,
+      "ads": 0.06
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "crm_023",
+    "email": "wendy.scott@email.com",
+    "first_name": "Wendy",
+    "last_name": "Scott",
+    "phone": "+1234567812",
+    "company": "Legal Associates",
+    "job_title": "Marketing Partner",
+    "industry": "Legal",
+    "lead_source": "LinkedIn",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Negotiation",
+    "deal_value": 21000.0,
+    "last_contact": "2024-10-18T15:45:00Z",
+    "next_followup": "2024-10-25T10:00:00Z",
+    "created_at": "2024-08-25T10:00:00Z",
+    "tags": [
+      "legal",
+      "professional_services",
+      "reputation"
+    ],
+    "notes": "Law firm focused on reputation management and thought leadership.",
+    "engagement_score": 75,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.39,
+      "whatsapp": 0.68,
+      "ads": 0.11
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_024",
+    "email": "xander.green@email.com",
+    "first_name": "Xander",
+    "last_name": "Green",
+    "phone": "+1234567813",
+    "company": "Startup Accelerator",
+    "job_title": "Program Manager",
+    "industry": "Venture Capital",
+    "lead_source": "Email Campaign",
+    "lead_status": "Lead",
+    "deal_stage": "Initial Contact",
+    "deal_value": 15000.0,
+    "last_contact": "2024-10-09T08:30:00Z",
+    "next_followup": "2024-10-31T14:00:00Z",
+    "created_at": "2024-10-14T08:30:00Z",
+    "tags": [
+      "venture_capital",
+      "startups",
+      "innovation"
+    ],
+    "notes": "Startup accelerator program. Interested in marketing support for portfolio companies.",
+    "engagement_score": 48,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.53,
+      "whatsapp": 0.74,
+      "ads": 0.08
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_025",
+    "email": "yara.adams@email.com",
+    "first_name": "Yara",
+    "last_name": "Adams",
+    "phone": "+1234567814",
+    "company": "Art Gallery Modern",
+    "job_title": "Curator",
+    "industry": "Arts",
+    "lead_source": "Trade Show",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 13500.0,
+    "last_contact": "2024-10-20T14:00:00Z",
+    "next_followup": "2024-11-15T11:30:00Z",
+    "created_at": "2023-12-20T11:15:00Z",
+    "tags": [
+      "arts",
+      "culture",
+      "events"
+    ],
+    "notes": "Modern art gallery. Focus on event marketing and cultural campaigns.",
+    "engagement_score": 79,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Phoenix",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.52,
+      "whatsapp": 0.71,
+      "ads": 0.06
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "crm_026",
+    "email": "zack.baker@email.com",
+    "first_name": "Zack",
+    "last_name": "Baker",
+    "phone": "+1234567815",
+    "company": "Sports Equipment Co",
+    "job_title": "Brand Manager",
+    "industry": "Sports",
+    "lead_source": "Google Ads",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 7200.0,
+    "last_contact": "2024-10-15T11:30:00Z",
+    "next_followup": "2024-11-01T15:30:00Z",
+    "created_at": "2024-09-10T15:45:00Z",
+    "tags": [
+      "sports",
+      "equipment",
+      "seasonal"
+    ],
+    "notes": "Sports equipment company. Seasonal campaigns important for business.",
+    "engagement_score": 58,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.42,
+      "whatsapp": 0.66,
+      "ads": 0.12
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_027",
+    "email": "anna.gonzalez@email.com",
+    "first_name": "Anna",
+    "last_name": "Gonzalez",
+    "phone": "+1234567816",
+    "company": "International Trade Corp",
+    "job_title": "Business Development",
+    "industry": "Import/Export",
+    "lead_source": "Referral",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 27500.0,
+    "last_contact": "2024-10-17T13:20:00Z",
+    "next_followup": "2024-11-07T10:00:00Z",
+    "created_at": "2024-07-15T09:00:00Z",
+    "tags": [
+      "international",
+      "trade",
+      "b2b"
+    ],
+    "notes": "International trade company. Multi-market campaigns and cultural sensitivity important.",
+    "engagement_score": 84,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.49,
+      "whatsapp": 0.63,
+      "ads": 0.1
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_028",
+    "email": "brian.nelson@email.com",
+    "first_name": "Brian",
+    "last_name": "Nelson",
+    "phone": "+1234567817",
+    "company": "Automotive Repair Plus",
+    "job_title": "Service Manager",
+    "industry": "Automotive",
+    "lead_source": "Local Search",
+    "lead_status": "Lead",
+    "deal_stage": "Qualification",
+    "deal_value": 3800.0,
+    "last_contact": "2024-10-16T12:45:00Z",
+    "next_followup": "2024-11-02T16:00:00Z",
+    "created_at": "2024-10-16T12:45:00Z",
+    "tags": [
+      "automotive",
+      "local",
+      "service"
+    ],
+    "notes": "Local automotive repair shop. Focus on local SEO and reputation management.",
+    "engagement_score": 42,
+    "purchase_intent": "low",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.36,
+      "whatsapp": 0.79,
+      "ads": 0.12
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_029",
+    "email": "claire.carter@email.com",
+    "first_name": "Claire",
+    "last_name": "Carter",
+    "phone": "+1234567818",
+    "company": "Premium Hotels Group",
+    "job_title": "Marketing VP",
+    "industry": "Hospitality",
+    "lead_source": "Trade Show",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 38000.0,
+    "last_contact": "2024-10-19T10:45:00Z",
+    "next_followup": "2024-11-12T14:30:00Z",
+    "created_at": "2024-02-28T16:20:00Z",
+    "tags": [
+      "hospitality",
+      "premium",
+      "multi_location"
+    ],
+    "notes": "Premium hotel group with multiple locations. Sophisticated marketing needs.",
+    "engagement_score": 93,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.32,
+      "sms": 0.39,
+      "whatsapp": 0.73,
+      "ads": 0.05
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_030",
+    "email": "derek.mitchell@email.com",
+    "first_name": "Derek",
+    "last_name": "Mitchell",
+    "phone": "+1234567819",
+    "company": "Pet Care Solutions",
+    "job_title": "Operations Director",
+    "industry": "Pet Care",
+    "lead_source": "Social Media",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 5500.0,
+    "last_contact": "2024-10-13T14:15:00Z",
+    "next_followup": "2024-11-03T12:00:00Z",
+    "created_at": "2024-09-15T11:30:00Z",
+    "tags": [
+      "pet_care",
+      "emotional",
+      "community"
+    ],
+    "notes": "Pet care company with strong community focus and emotional marketing needs.",
+    "engagement_score": 62,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Phoenix",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.47,
+      "whatsapp": 0.66,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "crm_031",
+    "email": "eva.perez@email.com",
+    "first_name": "Eva",
+    "last_name": "Perez",
+    "phone": "+1234567820",
+    "company": "Insurance Advisors",
+    "job_title": "Account Manager",
+    "industry": "Insurance",
+    "lead_source": "Website",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 14500.0,
+    "last_contact": "2024-10-18T16:30:00Z",
+    "next_followup": "2024-10-26T09:00:00Z",
+    "created_at": "2024-06-05T12:15:00Z",
+    "tags": [
+      "insurance",
+      "trust_building",
+      "education"
+    ],
+    "notes": "Insurance company focused on trust-building and educational content.",
+    "engagement_score": 72,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.47,
+      "whatsapp": 0.72,
+      "ads": 0.09
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_032",
+    "email": "felix.roberts@email.com",
+    "first_name": "Felix",
+    "last_name": "Roberts",
+    "phone": "+1234567821",
+    "company": "Software Startup",
+    "job_title": "Co-Founder",
+    "industry": "Software",
+    "lead_source": "Content Marketing",
+    "lead_status": "Lead",
+    "deal_stage": "Initial Contact",
+    "deal_value": 6800.0,
+    "last_contact": "2024-10-11T14:00:00Z",
+    "next_followup": "2024-11-04T11:00:00Z",
+    "created_at": "2024-10-03T14:00:00Z",
+    "tags": [
+      "software",
+      "startup",
+      "technical"
+    ],
+    "notes": "Software startup with technical product. Need help with technical marketing.",
+    "engagement_score": 46,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.42,
+      "whatsapp": 0.65,
+      "ads": 0.12
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "crm_033",
+    "email": "gina.turner@email.com",
+    "first_name": "Gina",
+    "last_name": "Turner",
+    "phone": "+1234567822",
+    "company": "Wellness Center Elite",
+    "job_title": "Director",
+    "industry": "Wellness",
+    "lead_source": "Referral",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 31000.0,
+    "last_contact": "2024-10-20T11:15:00Z",
+    "next_followup": "2024-11-09T13:00:00Z",
+    "created_at": "2023-10-15T08:45:00Z",
+    "tags": [
+      "wellness",
+      "premium",
+      "holistic"
+    ],
+    "notes": "Premium wellness center with holistic approach. Excellent long-term client.",
+    "engagement_score": 91,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.39,
+      "whatsapp": 0.63,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_034",
+    "email": "hugo.phillips@email.com",
+    "first_name": "Hugo",
+    "last_name": "Phillips",
+    "phone": "+1234567823",
+    "company": "E-commerce Plus",
+    "job_title": "Digital Manager",
+    "industry": "E-commerce",
+    "lead_source": "Google Ads",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Negotiation",
+    "deal_value": 17500.0,
+    "last_contact": "2024-10-19T09:45:00Z",
+    "next_followup": "2024-10-27T10:30:00Z",
+    "created_at": "2024-09-27T13:20:00Z",
+    "tags": [
+      "ecommerce",
+      "digital",
+      "conversion"
+    ],
+    "notes": "E-commerce company focused on conversion optimization and digital growth.",
+    "engagement_score": 74,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.28,
+      "sms": 0.4,
+      "whatsapp": 0.72,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_035",
+    "email": "ivy.campbell@email.com",
+    "first_name": "Ivy",
+    "last_name": "Campbell",
+    "phone": "+1234567824",
+    "company": "Non-Profit Foundation",
+    "job_title": "Development Coordinator",
+    "industry": "Non-Profit",
+    "lead_source": "Email Campaign",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 4200.0,
+    "last_contact": "2024-10-14T12:00:00Z",
+    "next_followup": "2024-11-05T14:00:00Z",
+    "created_at": "2024-07-08T16:45:00Z",
+    "tags": [
+      "non_profit",
+      "cause_marketing",
+      "community"
+    ],
+    "notes": "Non-profit foundation focused on cause marketing and community engagement.",
+    "engagement_score": 64,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.51,
+      "whatsapp": 0.76,
+      "ads": 0.08
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "crm_036",
+    "email": "james.parker@email.com",
+    "first_name": "James",
+    "last_name": "Parker",
+    "phone": "+1234567825",
+    "company": "Architecture Firm",
+    "job_title": "Principal Architect",
+    "industry": "Architecture",
+    "lead_source": "Website",
+    "lead_status": "Lead",
+    "deal_stage": "Qualification",
+    "deal_value": 9200.0,
+    "last_contact": "2024-10-17T10:30:00Z",
+    "next_followup": "2024-11-06T15:00:00Z",
+    "created_at": "2024-10-11T10:30:00Z",
+    "tags": [
+      "architecture",
+      "design",
+      "portfolio"
+    ],
+    "notes": "Architecture firm needing portfolio showcase and thought leadership content.",
+    "engagement_score": 51,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.47,
+      "whatsapp": 0.74,
+      "ads": 0.11
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_037",
+    "email": "kate.evans@email.com",
+    "first_name": "Kate",
+    "last_name": "Evans",
+    "phone": "+1234567826",
+    "company": "Outdoor Adventures Co",
+    "job_title": "Adventure Guide Manager",
+    "industry": "Outdoor Recreation",
+    "lead_source": "Social Media",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 12800.0,
+    "last_contact": "2024-10-18T15:30:00Z",
+    "next_followup": "2024-11-14T12:00:00Z",
+    "created_at": "2024-03-10T11:00:00Z",
+    "tags": [
+      "outdoor",
+      "adventure",
+      "seasonal"
+    ],
+    "notes": "Outdoor adventure company with strong seasonal business patterns.",
+    "engagement_score": 80,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.38,
+      "whatsapp": 0.62,
+      "ads": 0.11
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "crm_038",
+    "email": "leo.edwards@email.com",
+    "first_name": "Leo",
+    "last_name": "Edwards",
+    "phone": "+1234567827",
+    "company": "Photography Studio",
+    "job_title": "Lead Photographer",
+    "industry": "Photography",
+    "lead_source": "Instagram",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 4800.0,
+    "last_contact": "2024-10-15T13:45:00Z",
+    "next_followup": "2024-11-07T16:30:00Z",
+    "created_at": "2024-09-12T15:15:00Z",
+    "tags": [
+      "photography",
+      "creative",
+      "visual"
+    ],
+    "notes": "Photography studio with strong visual content needs and social media focus.",
+    "engagement_score": 59,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.42,
+      "whatsapp": 0.65,
+      "ads": 0.09
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_039",
+    "email": "maya.collins@email.com",
+    "first_name": "Maya",
+    "last_name": "Collins",
+    "phone": "+1234567828",
+    "company": "Logistics Solutions",
+    "job_title": "Operations VP",
+    "industry": "Logistics",
+    "lead_source": "Trade Show",
+    "lead_status": "Lead",
+    "deal_stage": "Initial Contact",
+    "deal_value": 20000.0,
+    "last_contact": "2024-10-18T09:15:00Z",
+    "next_followup": "2024-11-08T13:00:00Z",
+    "created_at": "2024-10-18T09:15:00Z",
+    "tags": [
+      "logistics",
+      "b2b",
+      "efficiency"
+    ],
+    "notes": "Logistics company focused on B2B marketing and efficiency messaging.",
+    "engagement_score": 43,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.4,
+      "whatsapp": 0.63,
+      "ads": 0.05
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_040",
+    "email": "nick.stewart@email.com",
+    "first_name": "Nick",
+    "last_name": "Stewart",
+    "phone": "+1234567829",
+    "company": "Data Analytics Pro",
+    "job_title": "Analytics Director",
+    "industry": "Data Analytics",
+    "lead_source": "LinkedIn",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 29500.0,
+    "last_contact": "2024-10-17T14:20:00Z",
+    "next_followup": "2024-11-11T10:00:00Z",
+    "created_at": "2024-04-22T12:30:00Z",
+    "tags": [
+      "analytics",
+      "data",
+      "technical"
+    ],
+    "notes": "Data analytics company requiring technical content and thought leadership.",
+    "engagement_score": 87,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.54,
+      "whatsapp": 0.62,
+      "ads": 0.05
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_041",
+    "email": "oscar.sanchez@email.com",
+    "first_name": "Oscar",
+    "last_name": "Sanchez",
+    "phone": "+1234567830",
+    "company": "Innovation Labs",
+    "job_title": "Research Director",
+    "industry": "Research",
+    "lead_source": "Conference",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 42000.0,
+    "last_contact": "2024-10-20T10:15:00Z",
+    "next_followup": "2024-11-18T11:30:00Z",
+    "created_at": "2023-09-30T14:45:00Z",
+    "tags": [
+      "research",
+      "innovation",
+      "cutting_edge"
+    ],
+    "notes": "Research and innovation lab. Cutting-edge projects and thought leadership focus.",
+    "engagement_score": 95,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/London",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.48,
+      "whatsapp": 0.69,
+      "ads": 0.09
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_042",
+    "email": "penny.morris@email.com",
+    "first_name": "Penny",
+    "last_name": "Morris",
+    "phone": "+1234567831",
+    "company": "Catering Services",
+    "job_title": "Event Coordinator",
+    "industry": "Catering",
+    "lead_source": "Referral",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 3900.0,
+    "last_contact": "2024-10-16T16:00:00Z",
+    "next_followup": "2024-11-09T14:30:00Z",
+    "created_at": "2024-09-25T11:45:00Z",
+    "tags": [
+      "catering",
+      "events",
+      "local"
+    ],
+    "notes": "Catering service company focusing on local events and word-of-mouth marketing.",
+    "engagement_score": 56,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Chicago",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.37,
+      "whatsapp": 0.6,
+      "ads": 0.06
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "crm_043",
+    "email": "quinn.rogers@email.com",
+    "first_name": "Quinn",
+    "last_name": "Rogers",
+    "phone": "+1234567832",
+    "company": "Security Systems Inc",
+    "job_title": "Security Manager",
+    "industry": "Security",
+    "lead_source": "Google Ads",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 16800.0,
+    "last_contact": "2024-10-19T15:20:00Z",
+    "next_followup": "2024-10-28T11:00:00Z",
+    "created_at": "2024-10-07T15:20:00Z",
+    "tags": [
+      "security",
+      "b2b",
+      "trust"
+    ],
+    "notes": "Security systems company requiring trust-building and B2B focused campaigns.",
+    "engagement_score": 71,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/Toronto",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.48,
+      "whatsapp": 0.68,
+      "ads": 0.06
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_044",
+    "email": "rose.reed@email.com",
+    "first_name": "Rose",
+    "last_name": "Reed",
+    "phone": "+1234567833",
+    "company": "Spa & Wellness",
+    "job_title": "Spa Manager",
+    "industry": "Spa Services",
+    "lead_source": "Social Media",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 10500.0,
+    "last_contact": "2024-10-19T11:30:00Z",
+    "next_followup": "2024-11-13T15:00:00Z",
+    "created_at": "2024-05-18T09:15:00Z",
+    "tags": [
+      "spa",
+      "wellness",
+      "relaxation"
+    ],
+    "notes": "Spa and wellness center with focus on relaxation and self-care messaging.",
+    "engagement_score": 76,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Europe/Paris",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.52,
+      "whatsapp": 0.71,
+      "ads": 0.07
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_045",
+    "email": "steve.cook@email.com",
+    "first_name": "Steve",
+    "last_name": "Cook",
+    "phone": "+1234567834",
+    "company": "Culinary Institute",
+    "job_title": "Chef Instructor",
+    "industry": "Culinary Education",
+    "lead_source": "Content Marketing",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 13200.0,
+    "last_contact": "2024-10-19T13:15:00Z",
+    "next_followup": "2024-11-16T12:30:00Z",
+    "created_at": "2024-01-08T16:30:00Z",
+    "tags": [
+      "culinary",
+      "education",
+      "expertise"
+    ],
+    "notes": "Culinary institute focusing on expertise positioning and educational content.",
+    "engagement_score": 83,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "Asia/Tokyo",
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.49,
+      "whatsapp": 0.8,
+      "ads": 0.09
+    },
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_046",
+    "email": "tara.bailey@email.com",
+    "first_name": "Tara",
+    "last_name": "Bailey",
+    "phone": "+1234567835",
+    "company": "Interior Design Co",
+    "job_title": "Design Director",
+    "industry": "Interior Design",
+    "lead_source": "Pinterest",
+    "lead_status": "Lead",
+    "deal_stage": "Initial Contact",
+    "deal_value": 7800.0,
+    "last_contact": "2024-10-19T08:45:00Z",
+    "next_followup": "2024-11-10T16:00:00Z",
+    "created_at": "2024-10-19T08:45:00Z",
+    "tags": [
+      "interior_design",
+      "visual",
+      "portfolio"
+    ],
+    "notes": "Interior design company needing strong visual portfolio and social media presence.",
+    "engagement_score": 41,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.51,
+      "whatsapp": 0.63,
+      "ads": 0.09
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "crm_047",
+    "email": "ulrich.rivera@email.com",
+    "first_name": "Ulrich",
+    "last_name": "Rivera",
+    "phone": "+1234567836",
+    "company": "Marketing Agency Small",
+    "job_title": "Agency Owner",
+    "industry": "Marketing",
+    "lead_source": "Networking",
+    "lead_status": "Marketing Qualified Lead",
+    "deal_stage": "Discovery",
+    "deal_value": 5600.0,
+    "last_contact": "2024-10-18T12:45:00Z",
+    "next_followup": "2024-11-12T13:45:00Z",
+    "created_at": "2024-08-20T14:00:00Z",
+    "tags": [
+      "marketing",
+      "agency",
+      "partnership"
+    ],
+    "notes": "Small marketing agency looking for partnership opportunities and white-label services.",
+    "engagement_score": 63,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.54,
+      "whatsapp": 0.63,
+      "ads": 0.11
+    },
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "crm_048",
+    "email": "vera.cooper@email.com",
+    "first_name": "Vera",
+    "last_name": "Cooper",
+    "phone": "+1234567837",
+    "company": "Home Services Pro",
+    "job_title": "Operations Manager",
+    "industry": "Home Services",
+    "lead_source": "Local Search",
+    "lead_status": "Customer",
+    "deal_stage": "Closed Won",
+    "deal_value": 8900.0,
+    "last_contact": "2024-10-18T09:30:00Z",
+    "next_followup": "2024-12-01T14:00:00Z",
+    "created_at": "2024-04-05T11:15:00Z",
+    "tags": [
+      "home_services",
+      "local",
+      "seasonal"
+    ],
+    "notes": "Home services company with strong local focus and seasonal service patterns.",
+    "engagement_score": 77,
+    "purchase_intent": "high",
+    "lifecycle_stage": "customer",
+    "timezone": "America/Denver",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.45,
+      "whatsapp": 0.79,
+      "ads": 0.07
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "crm_049",
+    "email": "walt.richardson@email.com",
+    "first_name": "Walt",
+    "last_name": "Richardson",
+    "phone": "+1234567838",
+    "company": "Publishing House",
+    "job_title": "Marketing Editor",
+    "industry": "Publishing",
+    "lead_source": "Content Marketing",
+    "lead_status": "Sales Qualified Lead",
+    "deal_stage": "Proposal",
+    "deal_value": 11800.0,
+    "last_contact": "2024-10-17T15:10:00Z",
+    "next_followup": "2024-10-29T12:00:00Z",
+    "created_at": "2024-09-20T13:30:00Z",
+    "tags": [
+      "publishing",
+      "content",
+      "literary"
+    ],
+    "notes": "Publishing house focused on literary content marketing and author promotion.",
+    "engagement_score": 69,
+    "purchase_intent": "high",
+    "lifecycle_stage": "opportunity",
+    "timezone": "America/New_York",
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.36,
+      "whatsapp": 0.68,
+      "ads": 0.09
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "crm_050",
+    "email": "xenia.cox@email.com",
+    "first_name": "Xenia",
+    "last_name": "Cox",
+    "phone": "+1234567839",
+    "company": "Renewable Energy Co",
+    "job_title": "Sustainability Director",
+    "industry": "Renewable Energy",
+    "lead_source": "Conference",
+    "lead_status": "Lead",
+    "deal_stage": "Qualification",
+    "deal_value": 25000.0,
+    "last_contact": "2024-10-20T16:25:00Z",
+    "next_followup": "2024-11-15T10:30:00Z",
+    "created_at": "2024-10-15T16:25:00Z",
+    "tags": [
+      "renewable_energy",
+      "sustainability",
+      "future_focused"
+    ],
+    "notes": "Renewable energy company with sustainability focus and forward-thinking approach.",
+    "engagement_score": 49,
+    "purchase_intent": "medium",
+    "lifecycle_stage": "lead",
+    "timezone": "Australia/Sydney",
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.36,
+      "whatsapp": 0.78,
+      "ads": 0.1
+    },
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin"
+    ],
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 5
+    }
+  }
+]
