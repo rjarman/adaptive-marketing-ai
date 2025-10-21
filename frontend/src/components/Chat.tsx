@@ -8,6 +8,15 @@ interface ChatProps {
   onNewMessage: (message: ChatMessage) => void;
 }
 
+const promptSuggestions = [
+  "Create a campaign for customers who added an item to their cart but didn't buy in the last 7 days",
+  "Make a 7-day re-engagement campaign for abandoned carts",
+  "Generate a welcome email series for new subscribers",
+  "Create a personalized product recommendation campaign",
+  "Design a win-back campaign for inactive customers",
+  "Build a seasonal promotion campaign for high-value customers"
+];
+
 const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
   const [message, setMessage] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
@@ -25,6 +34,10 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
   useEffect(() => {
     scrollToBottom();
   }, [chatHistory, currentResponse]);
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setMessage(suggestion);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,6 +113,31 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
   return (
     <div className="flex flex-col h-full overflow-hidden">
       <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-6">
+        {chatHistory.length === 0 && !isStreaming && (
+          <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold text-gray-800">Welcome to Adaptive Marketing AI</h2>
+              <p className="text-gray-600 max-w-2xl">
+                I'm your adaptive marketing engine that connects to multiple platforms to generate campaign queries and answer natural language questions across channels.
+              </p>
+            </div>
+            <div className="w-full max-w-4xl">
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">Try these campaign suggestions:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {promptSuggestions.map((suggestion, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    className="text-left p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors duration-200 shadow-sm"
+                  >
+                    <span className="text-gray-700">{suggestion}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        
         {chatHistory.map((chat) => (
           <div key={chat.id} className="space-y-4">
             <div className="flex justify-end">
