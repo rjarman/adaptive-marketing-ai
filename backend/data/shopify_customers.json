@@ -1,0 +1,3215 @@
+[
+  {
+    "customer_id": "shop_001",
+    "email": "alice.johnson@email.com",
+    "first_name": "Alice",
+    "last_name": "Johnson",
+    "phone": "+1234567890",
+    "total_spent": 1250.75,
+    "orders_count": 8,
+    "last_order_date": "2024-10-15T10:30:00Z",
+    "created_at": "2024-01-15T09:00:00Z",
+    "tags": [
+      "VIP",
+      "repeat_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1250.75,
+    "segment": "high_value",
+    "timezone": "Europe/Paris",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.45,
+      "whatsapp": 0.75,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_002",
+    "email": "bob.smith@email.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "phone": "+1234567891",
+    "total_spent": 89.99,
+    "orders_count": 1,
+    "last_order_date": "2024-10-01T14:20:00Z",
+    "created_at": "2024-09-28T16:45:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-13T11:15:00Z",
+    "cart_value": 156.5,
+    "lifetime_value": 89.99,
+    "segment": "new_customer",
+    "timezone": "America/Phoenix",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.44,
+      "whatsapp": 0.77,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_003",
+    "email": "carol.davis@email.com",
+    "first_name": "Carol",
+    "last_name": "Davis",
+    "phone": "+1234567892",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-10T12:00:00Z",
+    "tags": [
+      "subscriber"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-12T09:30:00Z",
+    "cart_value": 75.25,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Chicago",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.26,
+      "sms": 0.39,
+      "whatsapp": 0.74,
+      "ads": 0.11
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_004",
+    "email": "david.wilson@email.com",
+    "first_name": "David",
+    "last_name": "Wilson",
+    "phone": "+1234567893",
+    "total_spent": 2100.0,
+    "orders_count": 15,
+    "last_order_date": "2024-09-20T08:15:00Z",
+    "created_at": "2023-12-01T10:30:00Z",
+    "tags": [
+      "VIP",
+      "loyal_customer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 2100.0,
+    "segment": "high_value",
+    "timezone": "America/Phoenix",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.44,
+      "whatsapp": 0.61,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_005",
+    "email": "emma.brown@email.com",
+    "first_name": "Emma",
+    "last_name": "Brown",
+    "phone": "+1234567894",
+    "total_spent": 450.25,
+    "orders_count": 3,
+    "last_order_date": "2024-10-08T15:45:00Z",
+    "created_at": "2024-08-15T11:20:00Z",
+    "tags": [
+      "repeat_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 450.25,
+    "segment": "medium_value",
+    "timezone": "America/Chicago",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.32,
+      "sms": 0.42,
+      "whatsapp": 0.67,
+      "ads": 0.05
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_006",
+    "email": "frank.miller@email.com",
+    "first_name": "Frank",
+    "last_name": "Miller",
+    "phone": "+1234567895",
+    "total_spent": 125.5,
+    "orders_count": 2,
+    "last_order_date": "2024-09-15T13:30:00Z",
+    "created_at": "2024-09-01T14:00:00Z",
+    "tags": [
+      "occasional_buyer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-14T16:20:00Z",
+    "cart_value": 89.99,
+    "lifetime_value": 125.5,
+    "segment": "low_value",
+    "timezone": "Asia/Tokyo",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.49,
+      "whatsapp": 0.72,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_007",
+    "email": "grace.taylor@email.com",
+    "first_name": "Grace",
+    "last_name": "Taylor",
+    "phone": "+1234567896",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-05T09:15:00Z",
+    "tags": [
+      "newsletter_subscriber"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-11T14:45:00Z",
+    "cart_value": 199.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Denver",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.45,
+      "whatsapp": 0.68,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_008",
+    "email": "henry.anderson@email.com",
+    "first_name": "Henry",
+    "last_name": "Anderson",
+    "phone": "+1234567897",
+    "total_spent": 750.0,
+    "orders_count": 5,
+    "last_order_date": "2024-10-12T11:00:00Z",
+    "created_at": "2024-07-20T16:30:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 750.0,
+    "segment": "medium_value",
+    "timezone": "Europe/London",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.41,
+      "whatsapp": 0.78,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_009",
+    "email": "iris.thomas@email.com",
+    "first_name": "Iris",
+    "last_name": "Thomas",
+    "phone": "+1234567898",
+    "total_spent": 89.99,
+    "orders_count": 1,
+    "last_order_date": "2024-09-25T10:15:00Z",
+    "created_at": "2024-09-20T12:00:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-10T15:30:00Z",
+    "cart_value": 45.99,
+    "lifetime_value": 89.99,
+    "segment": "new_customer",
+    "timezone": "America/Toronto",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "email",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.43,
+      "whatsapp": 0.79,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_010",
+    "email": "jack.jackson@email.com",
+    "first_name": "Jack",
+    "last_name": "Jackson",
+    "phone": "+1234567899",
+    "total_spent": 1800.75,
+    "orders_count": 12,
+    "last_order_date": "2024-10-16T14:20:00Z",
+    "created_at": "2024-02-10T08:45:00Z",
+    "tags": [
+      "VIP",
+      "frequent_buyer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1800.75,
+    "segment": "high_value",
+    "timezone": "America/Chicago",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.52,
+      "whatsapp": 0.61,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_011",
+    "email": "karen.white@email.com",
+    "first_name": "Karen",
+    "last_name": "White",
+    "phone": "+1234567800",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-01T13:30:00Z",
+    "tags": [
+      "abandoned_cart"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-09T10:45:00Z",
+    "cart_value": 299.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "Europe/London",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.55,
+      "whatsapp": 0.7,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_012",
+    "email": "liam.harris@email.com",
+    "first_name": "Liam",
+    "last_name": "Harris",
+    "phone": "+1234567801",
+    "total_spent": 320.5,
+    "orders_count": 4,
+    "last_order_date": "2024-10-05T09:30:00Z",
+    "created_at": "2024-08-01T15:00:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-18T12:15:00Z",
+    "cart_value": 67.99,
+    "lifetime_value": 320.5,
+    "segment": "medium_value",
+    "timezone": "Europe/London",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.37,
+      "whatsapp": 0.77,
+      "ads": 0.08
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_013",
+    "email": "mia.clark@email.com",
+    "first_name": "Mia",
+    "last_name": "Clark",
+    "phone": "+1234567802",
+    "total_spent": 1650.25,
+    "orders_count": 9,
+    "last_order_date": "2024-10-14T16:45:00Z",
+    "created_at": "2024-03-15T11:20:00Z",
+    "tags": [
+      "VIP",
+      "loyal_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1650.25,
+    "segment": "high_value",
+    "timezone": "America/Phoenix",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.55,
+      "whatsapp": 0.69,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_014",
+    "email": "noah.lewis@email.com",
+    "first_name": "Noah",
+    "last_name": "Lewis",
+    "phone": "+1234567803",
+    "total_spent": 45.99,
+    "orders_count": 1,
+    "last_order_date": "2024-09-30T12:00:00Z",
+    "created_at": "2024-09-28T10:30:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-08T14:20:00Z",
+    "cart_value": 123.45,
+    "lifetime_value": 45.99,
+    "segment": "new_customer",
+    "timezone": "America/Denver",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.41,
+      "whatsapp": 0.75,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_015",
+    "email": "olivia.walker@email.com",
+    "first_name": "Olivia",
+    "last_name": "Walker",
+    "phone": "+1234567804",
+    "total_spent": 890.75,
+    "orders_count": 6,
+    "last_order_date": "2024-10-11T08:15:00Z",
+    "created_at": "2024-06-10T14:45:00Z",
+    "tags": [
+      "frequent_buyer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 890.75,
+    "segment": "medium_value",
+    "timezone": "America/Toronto",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.2,
+      "sms": 0.44,
+      "whatsapp": 0.61,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_016",
+    "email": "paul.hall@email.com",
+    "first_name": "Paul",
+    "last_name": "Hall",
+    "phone": "+1234567805",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-12T16:00:00Z",
+    "tags": [
+      "prospect"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-16T11:30:00Z",
+    "cart_value": 88.5,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/New_York",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.37,
+      "whatsapp": 0.64,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_017",
+    "email": "quinn.allen@email.com",
+    "first_name": "Quinn",
+    "last_name": "Allen",
+    "phone": "+1234567806",
+    "total_spent": 2500.0,
+    "orders_count": 18,
+    "last_order_date": "2024-10-17T13:45:00Z",
+    "created_at": "2023-11-05T09:30:00Z",
+    "tags": [
+      "VIP",
+      "champion"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 2500.0,
+    "segment": "high_value",
+    "timezone": "Australia/Sydney",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.37,
+      "whatsapp": 0.62,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_018",
+    "email": "rachel.young@email.com",
+    "first_name": "Rachel",
+    "last_name": "Young",
+    "phone": "+1234567807",
+    "total_spent": 156.99,
+    "orders_count": 2,
+    "last_order_date": "2024-09-28T15:20:00Z",
+    "created_at": "2024-09-15T12:15:00Z",
+    "tags": [
+      "occasional_buyer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-15T09:45:00Z",
+    "cart_value": 234.5,
+    "lifetime_value": 156.99,
+    "segment": "low_value",
+    "timezone": "Europe/Paris",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "tiktok",
+      "youtube"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.43,
+      "whatsapp": 0.75,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_019",
+    "email": "sam.king@email.com",
+    "first_name": "Sam",
+    "last_name": "King",
+    "phone": "+1234567808",
+    "total_spent": 675.25,
+    "orders_count": 7,
+    "last_order_date": "2024-10-13T10:30:00Z",
+    "created_at": "2024-05-20T16:00:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 675.25,
+    "segment": "medium_value",
+    "timezone": "Europe/Paris",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.48,
+      "whatsapp": 0.6,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_020",
+    "email": "tina.wright@email.com",
+    "first_name": "Tina",
+    "last_name": "Wright",
+    "phone": "+1234567809",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-08T11:45:00Z",
+    "tags": [
+      "newsletter_subscriber"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-17T14:30:00Z",
+    "cart_value": 145.75,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Phoenix",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.48,
+      "whatsapp": 0.67,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "shop_021",
+    "email": "uma.lopez@email.com",
+    "first_name": "Uma",
+    "last_name": "Lopez",
+    "phone": "+1234567810",
+    "total_spent": 1200.0,
+    "orders_count": 10,
+    "last_order_date": "2024-10-10T12:15:00Z",
+    "created_at": "2024-01-30T14:20:00Z",
+    "tags": [
+      "VIP",
+      "loyal_customer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1200.0,
+    "segment": "high_value",
+    "timezone": "Australia/Sydney",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.54,
+      "whatsapp": 0.69,
+      "ads": 0.11
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_022",
+    "email": "victor.hill@email.com",
+    "first_name": "Victor",
+    "last_name": "Hill",
+    "phone": "+1234567811",
+    "total_spent": 89.99,
+    "orders_count": 1,
+    "last_order_date": "2024-10-02T09:00:00Z",
+    "created_at": "2024-09-29T16:30:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-07T13:15:00Z",
+    "cart_value": 67.5,
+    "lifetime_value": 89.99,
+    "segment": "new_customer",
+    "timezone": "Australia/Sydney",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.41,
+      "whatsapp": 0.65,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_023",
+    "email": "wendy.scott@email.com",
+    "first_name": "Wendy",
+    "last_name": "Scott",
+    "phone": "+1234567812",
+    "total_spent": 345.75,
+    "orders_count": 3,
+    "last_order_date": "2024-10-09T15:45:00Z",
+    "created_at": "2024-08-25T10:00:00Z",
+    "tags": [
+      "repeat_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-19T11:20:00Z",
+    "cart_value": 112.25,
+    "lifetime_value": 345.75,
+    "segment": "medium_value",
+    "timezone": "America/Toronto",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.53,
+      "whatsapp": 0.61,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_024",
+    "email": "xander.green@email.com",
+    "first_name": "Xander",
+    "last_name": "Green",
+    "phone": "+1234567813",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-14T08:30:00Z",
+    "tags": [
+      "abandoned_cart"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-18T16:45:00Z",
+    "cart_value": 456.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Toronto",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.32,
+      "sms": 0.5,
+      "whatsapp": 0.69,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_025",
+    "email": "yara.adams@email.com",
+    "first_name": "Yara",
+    "last_name": "Adams",
+    "phone": "+1234567814",
+    "total_spent": 1850.5,
+    "orders_count": 14,
+    "last_order_date": "2024-10-18T14:00:00Z",
+    "created_at": "2023-12-20T11:15:00Z",
+    "tags": [
+      "VIP",
+      "champion"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1850.5,
+    "segment": "high_value",
+    "timezone": "America/Chicago",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.44,
+      "whatsapp": 0.64,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "shop_026",
+    "email": "zack.baker@email.com",
+    "first_name": "Zack",
+    "last_name": "Baker",
+    "phone": "+1234567815",
+    "total_spent": 234.99,
+    "orders_count": 2,
+    "last_order_date": "2024-09-22T11:30:00Z",
+    "created_at": "2024-09-10T15:45:00Z",
+    "tags": [
+      "occasional_buyer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-12T10:15:00Z",
+    "cart_value": 78.25,
+    "lifetime_value": 234.99,
+    "segment": "low_value",
+    "timezone": "America/Toronto",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.46,
+      "whatsapp": 0.64,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_027",
+    "email": "anna.gonzalez@email.com",
+    "first_name": "Anna",
+    "last_name": "Gonzalez",
+    "phone": "+1234567816",
+    "total_spent": 567.25,
+    "orders_count": 4,
+    "last_order_date": "2024-10-06T13:20:00Z",
+    "created_at": "2024-07-15T09:00:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 567.25,
+    "segment": "medium_value",
+    "timezone": "America/Chicago",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "whatsapp",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.45,
+      "whatsapp": 0.71,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_028",
+    "email": "brian.nelson@email.com",
+    "first_name": "Brian",
+    "last_name": "Nelson",
+    "phone": "+1234567817",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-16T12:45:00Z",
+    "tags": [
+      "prospect"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-20T15:30:00Z",
+    "cart_value": 189.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "Europe/Paris",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "sms",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.42,
+      "whatsapp": 0.63,
+      "ads": 0.11
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_029",
+    "email": "claire.carter@email.com",
+    "first_name": "Claire",
+    "last_name": "Carter",
+    "phone": "+1234567818",
+    "total_spent": 1456.75,
+    "orders_count": 11,
+    "last_order_date": "2024-10-15T10:45:00Z",
+    "created_at": "2024-02-28T16:20:00Z",
+    "tags": [
+      "VIP",
+      "frequent_buyer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1456.75,
+    "segment": "high_value",
+    "timezone": "America/Phoenix",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.24,
+      "sms": 0.52,
+      "whatsapp": 0.66,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_030",
+    "email": "derek.mitchell@email.com",
+    "first_name": "Derek",
+    "last_name": "Mitchell",
+    "phone": "+1234567819",
+    "total_spent": 123.5,
+    "orders_count": 1,
+    "last_order_date": "2024-09-18T14:15:00Z",
+    "created_at": "2024-09-15T11:30:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-11T09:20:00Z",
+    "cart_value": 95.75,
+    "lifetime_value": 123.5,
+    "segment": "new_customer",
+    "timezone": "Europe/Paris",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.42,
+      "whatsapp": 0.79,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_031",
+    "email": "eva.perez@email.com",
+    "first_name": "Eva",
+    "last_name": "Perez",
+    "phone": "+1234567820",
+    "total_spent": 789.99,
+    "orders_count": 6,
+    "last_order_date": "2024-10-07T16:30:00Z",
+    "created_at": "2024-06-05T12:15:00Z",
+    "tags": [
+      "frequent_buyer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-14T13:45:00Z",
+    "cart_value": 156.25,
+    "lifetime_value": 789.99,
+    "segment": "medium_value",
+    "timezone": "America/Los_Angeles",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.54,
+      "whatsapp": 0.64,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_032",
+    "email": "felix.roberts@email.com",
+    "first_name": "Felix",
+    "last_name": "Roberts",
+    "phone": "+1234567821",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-03T14:00:00Z",
+    "tags": [
+      "newsletter_subscriber"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-13T12:30:00Z",
+    "cart_value": 267.5,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Phoenix",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.54,
+      "whatsapp": 0.68,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_033",
+    "email": "gina.turner@email.com",
+    "first_name": "Gina",
+    "last_name": "Turner",
+    "phone": "+1234567822",
+    "total_spent": 2100.25,
+    "orders_count": 16,
+    "last_order_date": "2024-10-19T11:15:00Z",
+    "created_at": "2023-10-15T08:45:00Z",
+    "tags": [
+      "VIP",
+      "champion"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 2100.25,
+    "segment": "high_value",
+    "timezone": "America/New_York",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.33,
+      "sms": 0.42,
+      "whatsapp": 0.77,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_034",
+    "email": "hugo.phillips@email.com",
+    "first_name": "Hugo",
+    "last_name": "Phillips",
+    "phone": "+1234567823",
+    "total_spent": 67.99,
+    "orders_count": 1,
+    "last_order_date": "2024-10-01T09:45:00Z",
+    "created_at": "2024-09-27T13:20:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-16T15:10:00Z",
+    "cart_value": 134.75,
+    "lifetime_value": 67.99,
+    "segment": "new_customer",
+    "timezone": "Asia/Tokyo",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.26,
+      "sms": 0.5,
+      "whatsapp": 0.74,
+      "ads": 0.05
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_035",
+    "email": "ivy.campbell@email.com",
+    "first_name": "Ivy",
+    "last_name": "Campbell",
+    "phone": "+1234567824",
+    "total_spent": 445.5,
+    "orders_count": 5,
+    "last_order_date": "2024-10-04T12:00:00Z",
+    "created_at": "2024-07-08T16:45:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 445.5,
+    "segment": "medium_value",
+    "timezone": "Europe/Paris",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      8,
+      12,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "whatsapp",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.17,
+      "sms": 0.35,
+      "whatsapp": 0.74,
+      "ads": 0.05
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_036",
+    "email": "james.parker@email.com",
+    "first_name": "James",
+    "last_name": "Parker",
+    "phone": "+1234567825",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-11T10:30:00Z",
+    "tags": [
+      "abandoned_cart"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-17T14:20:00Z",
+    "cart_value": 345.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Los_Angeles",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.5,
+      "whatsapp": 0.72,
+      "ads": 0.08
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_037",
+    "email": "kate.evans@email.com",
+    "first_name": "Kate",
+    "last_name": "Evans",
+    "phone": "+1234567826",
+    "total_spent": 1325.75,
+    "orders_count": 9,
+    "last_order_date": "2024-10-12T15:30:00Z",
+    "created_at": "2024-03-10T11:00:00Z",
+    "tags": [
+      "VIP",
+      "loyal_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1325.75,
+    "segment": "high_value",
+    "timezone": "Asia/Tokyo",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "June",
+        "July"
+      ],
+      "low_months": [
+        "January",
+        "March"
+      ],
+      "preferred_seasons": [
+        "summer",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "whatsapp",
+      "sms",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.3,
+      "sms": 0.39,
+      "whatsapp": 0.61,
+      "ads": 0.06
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_038",
+    "email": "leo.edwards@email.com",
+    "first_name": "Leo",
+    "last_name": "Edwards",
+    "phone": "+1234567827",
+    "total_spent": 178.99,
+    "orders_count": 2,
+    "last_order_date": "2024-09-26T13:45:00Z",
+    "created_at": "2024-09-12T15:15:00Z",
+    "tags": [
+      "occasional_buyer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-09T11:50:00Z",
+    "cart_value": 89.25,
+    "lifetime_value": 178.99,
+    "segment": "low_value",
+    "timezone": "Europe/London",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "email",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.16,
+      "sms": 0.39,
+      "whatsapp": 0.78,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_039",
+    "email": "maya.collins@email.com",
+    "first_name": "Maya",
+    "last_name": "Collins",
+    "phone": "+1234567828",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-18T09:15:00Z",
+    "tags": [
+      "prospect"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-20T16:40:00Z",
+    "cart_value": 123.5,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "Europe/London",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.22,
+      "sms": 0.42,
+      "whatsapp": 0.61,
+      "ads": 0.09
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_040",
+    "email": "nick.stewart@email.com",
+    "first_name": "Nick",
+    "last_name": "Stewart",
+    "phone": "+1234567829",
+    "total_spent": 956.25,
+    "orders_count": 8,
+    "last_order_date": "2024-10-08T14:20:00Z",
+    "created_at": "2024-04-22T12:30:00Z",
+    "tags": [
+      "frequent_buyer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 956.25,
+    "segment": "medium_value",
+    "timezone": "Europe/Paris",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "daily",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "sms",
+      "ads",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.19,
+      "sms": 0.46,
+      "whatsapp": 0.74,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_041",
+    "email": "oscar.sanchez@email.com",
+    "first_name": "Oscar",
+    "last_name": "Sanchez",
+    "phone": "+1234567830",
+    "total_spent": 2750.0,
+    "orders_count": 20,
+    "last_order_date": "2024-10-20T10:15:00Z",
+    "created_at": "2023-09-30T14:45:00Z",
+    "tags": [
+      "VIP",
+      "champion"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 2750.0,
+    "segment": "high_value",
+    "timezone": "America/Los_Angeles",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "sms",
+      "whatsapp",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.25,
+      "sms": 0.44,
+      "whatsapp": 0.73,
+      "ads": 0.12
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "shop_042",
+    "email": "penny.morris@email.com",
+    "first_name": "Penny",
+    "last_name": "Morris",
+    "phone": "+1234567831",
+    "total_spent": 89.99,
+    "orders_count": 1,
+    "last_order_date": "2024-09-29T16:00:00Z",
+    "created_at": "2024-09-25T11:45:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-06T13:25:00Z",
+    "cart_value": 156.75,
+    "lifetime_value": 89.99,
+    "segment": "new_customer",
+    "timezone": "Australia/Sydney",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "email",
+      "ads",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.51,
+      "whatsapp": 0.74,
+      "ads": 0.11
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_043",
+    "email": "quinn.rogers@email.com",
+    "first_name": "Quinn",
+    "last_name": "Rogers",
+    "phone": "+1234567832",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-07T15:20:00Z",
+    "tags": [
+      "newsletter_subscriber"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-15T12:10:00Z",
+    "cart_value": 78.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Denver",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "ads",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.44,
+      "whatsapp": 0.73,
+      "ads": 0.08
+    },
+    "communication_limits": {
+      "email_per_week": 5,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 5
+    }
+  },
+  {
+    "customer_id": "shop_044",
+    "email": "rose.reed@email.com",
+    "first_name": "Rose",
+    "last_name": "Reed",
+    "phone": "+1234567833",
+    "total_spent": 634.5,
+    "orders_count": 7,
+    "last_order_date": "2024-10-17T11:30:00Z",
+    "created_at": "2024-05-18T09:15:00Z",
+    "tags": [
+      "regular_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-19T14:45:00Z",
+    "cart_value": 234.25,
+    "lifetime_value": 634.5,
+    "segment": "medium_value",
+    "timezone": "Australia/Sydney",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "linkedin",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "ads",
+      "email",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.31,
+      "sms": 0.44,
+      "whatsapp": 0.73,
+      "ads": 0.05
+    },
+    "communication_limits": {
+      "email_per_week": 3,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 8
+    }
+  },
+  {
+    "customer_id": "shop_045",
+    "email": "steve.cook@email.com",
+    "first_name": "Steve",
+    "last_name": "Cook",
+    "phone": "+1234567834",
+    "total_spent": 1789.99,
+    "orders_count": 13,
+    "last_order_date": "2024-10-16T13:15:00Z",
+    "created_at": "2024-01-08T16:30:00Z",
+    "tags": [
+      "VIP",
+      "frequent_buyer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1789.99,
+    "segment": "high_value",
+    "timezone": "America/New_York",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      8,
+      14,
+      19
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.29,
+      "sms": 0.49,
+      "whatsapp": 0.78,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 3
+    }
+  },
+  {
+    "customer_id": "shop_046",
+    "email": "tara.bailey@email.com",
+    "first_name": "Tara",
+    "last_name": "Bailey",
+    "phone": "+1234567835",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-19T08:45:00Z",
+    "tags": [
+      "abandoned_cart"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-21T10:20:00Z",
+    "cart_value": 567.75,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "America/Los_Angeles",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "facebook",
+      "twitter"
+    ],
+    "optimal_send_times": [
+      10,
+      15,
+      20
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.34,
+      "sms": 0.42,
+      "whatsapp": 0.62,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 2,
+      "ads_per_day": 7
+    }
+  },
+  {
+    "customer_id": "shop_047",
+    "email": "ulrich.rivera@email.com",
+    "first_name": "Ulrich",
+    "last_name": "Rivera",
+    "phone": "+1234567836",
+    "total_spent": 267.5,
+    "orders_count": 3,
+    "last_order_date": "2024-10-03T12:45:00Z",
+    "created_at": "2024-08-20T14:00:00Z",
+    "tags": [
+      "repeat_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-18T15:35:00Z",
+    "cart_value": 145.99,
+    "lifetime_value": 267.5,
+    "segment": "low_value",
+    "timezone": "America/Toronto",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "ads",
+      "email",
+      "whatsapp",
+      "sms"
+    ],
+    "channel_performance": {
+      "email": 0.18,
+      "sms": 0.44,
+      "whatsapp": 0.68,
+      "ads": 0.11
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 1,
+      "ads_per_day": 6
+    }
+  },
+  {
+    "customer_id": "shop_048",
+    "email": "vera.cooper@email.com",
+    "first_name": "Vera",
+    "last_name": "Cooper",
+    "phone": "+1234567837",
+    "total_spent": 1123.75,
+    "orders_count": 8,
+    "last_order_date": "2024-10-14T09:30:00Z",
+    "created_at": "2024-04-05T11:15:00Z",
+    "tags": [
+      "VIP",
+      "loyal_customer"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": null,
+    "cart_value": 0,
+    "lifetime_value": 1123.75,
+    "segment": "high_value",
+    "timezone": "America/Toronto",
+    "device_preference": "tablet",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      10,
+      13,
+      18
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "March",
+        "April"
+      ],
+      "low_months": [
+        "November",
+        "December"
+      ],
+      "preferred_seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    "preferred_channels": [
+      "whatsapp",
+      "ads",
+      "sms",
+      "email"
+    ],
+    "channel_performance": {
+      "email": 0.21,
+      "sms": 0.5,
+      "whatsapp": 0.75,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 2,
+      "sms_per_week": 2,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_049",
+    "email": "walt.richardson@email.com",
+    "first_name": "Walt",
+    "last_name": "Richardson",
+    "phone": "+1234567838",
+    "total_spent": 45.99,
+    "orders_count": 1,
+    "last_order_date": "2024-09-24T15:10:00Z",
+    "created_at": "2024-09-20T13:30:00Z",
+    "tags": [
+      "new_customer"
+    ],
+    "accepts_marketing": false,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-05T11:45:00Z",
+    "cart_value": 234.5,
+    "lifetime_value": 45.99,
+    "segment": "new_customer",
+    "timezone": "Europe/London",
+    "device_preference": "desktop",
+    "social_platforms": [
+      "pinterest",
+      "instagram"
+    ],
+    "optimal_send_times": [
+      9,
+      15,
+      18
+    ],
+    "engagement_frequency": "weekly",
+    "seasonal_activity": {
+      "peak_months": [
+        "September",
+        "October"
+      ],
+      "low_months": [
+        "February",
+        "March"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "spring"
+      ]
+    },
+    "preferred_channels": [
+      "email",
+      "ads",
+      "sms",
+      "whatsapp"
+    ],
+    "channel_performance": {
+      "email": 0.23,
+      "sms": 0.52,
+      "whatsapp": 0.64,
+      "ads": 0.07
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 3,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 4
+    }
+  },
+  {
+    "customer_id": "shop_050",
+    "email": "xenia.cox@email.com",
+    "first_name": "Xenia",
+    "last_name": "Cox",
+    "phone": "+1234567839",
+    "total_spent": 0,
+    "orders_count": 0,
+    "last_order_date": null,
+    "created_at": "2024-10-15T16:25:00Z",
+    "tags": [
+      "prospect"
+    ],
+    "accepts_marketing": true,
+    "state": "enabled",
+    "cart_abandoned_at": "2024-10-20T12:50:00Z",
+    "cart_value": 89.99,
+    "lifetime_value": 0,
+    "segment": "prospect",
+    "timezone": "Europe/Paris",
+    "device_preference": "mobile",
+    "social_platforms": [
+      "twitter",
+      "linkedin"
+    ],
+    "optimal_send_times": [
+      9,
+      13,
+      17
+    ],
+    "engagement_frequency": "monthly",
+    "seasonal_activity": {
+      "peak_months": [
+        "November",
+        "December"
+      ],
+      "low_months": [
+        "January",
+        "February"
+      ],
+      "preferred_seasons": [
+        "fall",
+        "winter"
+      ]
+    },
+    "preferred_channels": [
+      "sms",
+      "whatsapp",
+      "email",
+      "ads"
+    ],
+    "channel_performance": {
+      "email": 0.27,
+      "sms": 0.43,
+      "whatsapp": 0.62,
+      "ads": 0.1
+    },
+    "communication_limits": {
+      "email_per_week": 4,
+      "sms_per_week": 1,
+      "whatsapp_per_week": 3,
+      "ads_per_day": 6
+    }
+  }
+]
