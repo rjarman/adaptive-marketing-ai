@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "adaptive-marketing-ai"
+version = "0.2.0"
+description = "Adaptive marketing engine that connects to multiple platforms to generate campaign queries and answer natural language questions across channels."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Rafsun Jany Arman" }
+]
+keywords = ["marketing", "ai", "fastapi", "automation"]
+
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "sqlalchemy",
+    "openai",
+    "python-dotenv",
+    "psycopg2-binary",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "httpx",
+    "black",
+    "isort",
+    "flake8",
+]
+
+[project.urls]
+Homepage = "https://github.com/rjarman/adaptive-marketing-ai"
+Repository = "https://github.com/rjarman/adaptive-marketing-ai.git"
+Documentation = "https://github.com/rjarman/adaptive-marketing-ai#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["apis", "core", "models", "repositories", "services"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
