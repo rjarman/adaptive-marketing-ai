@@ -66,26 +66,27 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 overflow-x-hidden">
-      <header className="bg-white border-b border-gray-200 p-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">AI Assistant</h1>
-          <div className="flex items-center space-x-4">
+    <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">
+      <header className="flex-shrink-0 bg-white border-b border-gray-200 p-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800">AI Assistant</h1>
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {integrations.length > 0 && (
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
+              <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-600">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>{integrations.length} source{integrations.length !== 1 ? 's' : ''} connected</span>
+                <span className="hidden sm:inline">{integrations.length} source{integrations.length !== 1 ? 's' : ''} connected</span>
+                <span className="sm:hidden">{integrations.length} connected</span>
               </div>
             )}
             <button
               onClick={handleClearChat}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
             >
-              Clear Chat
+              Clear
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               Connect
             </button>
@@ -93,10 +94,8 @@ function App() {
         </div>
       </header>
 
-      <main className="flex-1 max-w-7xl mx-auto w-full h-full overflow-hidden">
-        <div className="h-[calc(100vh-80px)]">
-          <Chat chatHistory={chatHistory} onNewMessage={handleNewMessage} />
-        </div>
+      <main className="flex-1 min-h-0 max-w-7xl mx-auto w-full px-2 sm:px-4">
+        <Chat chatHistory={chatHistory} onNewMessage={handleNewMessage} />
       </main>
 
       <ConnectModal
