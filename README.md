@@ -1,6 +1,7 @@
 # Adaptive Marketing AI - Full Stack Application
 
-🚀 **Live Demo**: [https://adaptive-marketing-ai.vercel.app](https://adaptive-marketing-ai.vercel.app)
+🚀 **Live Demo**: [https://adaptive-marketing-ai.vercel.app](https://adaptive-marketing-ai.vercel.app)  
+📚 **API Documentation**: [https://adaptive-marketing-ai-backend.vercel.app/docs](https://adaptive-marketing-ai-backend.vercel.app/docs)
 
 An intelligent marketing AI engine that connects to multiple platforms to generate targeted campaign strategies and provide natural language insights across customer touchpoints.
 
