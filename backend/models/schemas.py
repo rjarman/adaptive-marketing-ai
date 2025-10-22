@@ -11,7 +11,7 @@ class LlmResponseTypes(str, Enum):
     END_OF_STREAM = "END_OF_STREAM"
     AGENT_STATUS = "AGENT_STATUS"
     AGENT_THINKING = "AGENT_THINKING"
-    SQL_QUERY_GENERATED = "SQL_QUERY_GENERATED"
+    SQL_QUERY = "SQL_QUERY"
     QUERY_PROCESSING_RESULT = "QUERY_PROCESSING_RESULT"
 
 
@@ -79,8 +79,10 @@ class GeneratedQuery(BaseModel):
 
 class QueryProcessingResult(BaseModel):
     success: bool
-    final_query: Optional[str] = None
+    sql_query: Optional[str] = None
     explanation: Optional[str] = None
     validation_result: Optional[QueryValidationResult] = None
     error_message: Optional[str] = None
     processing_steps: List[str] = []
+    sample_data: Optional[List[Dict[str, Any]]] = None
+    confidence_score: Optional[float] = None
