@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 from queue import Queue, Empty
 from typing import AsyncGenerator, Dict, Any, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
+from pydantic.alias_generators import to_camel
 
 from models.schemas import LlmResponseTypes
 
@@ -14,6 +15,20 @@ class StreamMessage(BaseModel):
     content: str
     data: Optional[Dict[str, Any]] = None
     timestamp: Optional[str] = datetime.now(tz=timezone.utc)
+
+    model_config = ConfigDict(
+        alias_generator=to_camel,
+        validate_by_name=True,
+        validate_by_alias=True,
+    )
+
+    def model_dump(self, *args, **kwargs):
+        kwargs.setdefault("by_alias", True)
+        return super().model_dump(*args, **kwargs)
+
+    def model_dump_json(self, *args, **kwargs):
+        kwargs.setdefault("by_alias", True)
+        return super().model_dump_json(*args, **kwargs)
 
 
 class StreamService:
