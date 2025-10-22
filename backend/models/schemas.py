@@ -1,13 +1,18 @@
 from datetime import datetime
 from enum import Enum
-from typing import List
+from typing import List, Optional, Dict, Any
 
 from pydantic import BaseModel
 
 
 class LlmResponseTypes(str, Enum):
     LLM_RESPONSE = "LLM_RESPONSE"
+    SERVER_ERROR = "SERVER_ERROR"
     END_OF_STREAM = "END_OF_STREAM"
+    AGENT_STATUS = "AGENT_STATUS"
+    AGENT_THINKING = "AGENT_THINKING"
+    SQL_QUERY_GENERATED = "SQL_QUERY_GENERATED"
+    QUERY_PROCESSING_RESULT = "QUERY_PROCESSING_RESULT"
 
 
 class DataSourceTypes(str, Enum):
@@ -47,3 +52,35 @@ class IntegrationDeleteResponse(BaseModel):
     message: str
     customers_removed: int
     data_cleanup: str
+
+
+class QueryRequest(BaseModel):
+    user_message: str
+    session_id: Optional[str] = None
+
+
+class QueryValidationResult(BaseModel):
+    is_valid: bool
+    confidence_score: float
+    validation_details: str
+    sample_data: Optional[List[Dict[str, Any]]] = None
+    error_message: Optional[str] = None
+    low_confidence_explanation: Optional[str] = None
+    improvement_suggestions: Optional[List[str]] = None
+
+
+class GeneratedQuery(BaseModel):
+    sql_query: str
+    explanation: str
+    confidence_score: float
+    tables_used: List[str]
+    estimated_rows: Optional[int] = None
+
+
+class QueryProcessingResult(BaseModel):
+    success: bool
+    final_query: Optional[str] = None
+    explanation: Optional[str] = None
+    validation_result: Optional[QueryValidationResult] = None
+    error_message: Optional[str] = None
+    processing_steps: List[str] = []

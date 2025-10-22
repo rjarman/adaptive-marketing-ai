@@ -17,7 +17,7 @@ class ChatRepository:
         return chat_message
 
     def get_history(self, limit: int = None) -> List[ChatMessage]:
-        query = self.db.query(ChatMessage).order_by(ChatMessage.created_at.desc())
+        query = self.db.query(ChatMessage).order_by(ChatMessage.created_at.asc())
         if limit:
             query = query.limit(limit)
         return query.all()
