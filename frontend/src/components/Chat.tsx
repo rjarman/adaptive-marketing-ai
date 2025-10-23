@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { apiService } from '../services/api';
-import { ResponseType, StreamResponse, ChatMessage } from '../types';
+import { ResponseType, StreamResponse, ChatMessage, StatusMessage } from '../types';
 
 interface ChatProps {
   chatHistory: ChatMessage[];
@@ -23,20 +23,53 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
   const [currentResponse, setCurrentResponse] = useState('');
   const [currentMessageId, setCurrentMessageId] = useState<string | null>(null);
   const [sentMessage, setSentMessage] = useState('');
+  const [statusMessages, setStatusMessages] = useState<StatusMessage[]>([]);
+  const [hasServerError, setHasServerError] = useState<boolean>(false);
+  const [animatedMessageIds, setAnimatedMessageIds] = useState<Set<string>>(new Set());
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const currentResponseRef = useRef<string>('');
   const sentMessageRef = useRef<string>('');
+  const messageSentTimeRef = useRef<number>(0);
+  const previousStatusLengthRef = useRef<number>(0);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
   };
 
   useEffect(() => {
     scrollToBottom();
-  }, [chatHistory, currentResponse]);
+  }, [chatHistory, currentResponse, statusMessages]);
+
+  const parseISO = (s: string) => new Date(s.replace(/(\.\d{3})\d+/, '$1'));
 
   const handleSuggestionClick = (suggestion: string) => {
     setMessage(suggestion);
+  };
+
+  const StatusDisplay: React.FC<{ statusMessage: StatusMessage; isNew: boolean }> = ({ statusMessage, isNew }) => {
+    const shouldAnimate = isNew && !animatedMessageIds.has(statusMessage.id);
+    if (shouldAnimate) {
+      setTimeout(() => {
+        setAnimatedMessageIds(prev => new Set(prev).add(statusMessage.id));
+      }, 0);
+    }
+
+    return (
+      <div 
+        className={`text-gray-600 text-sm ${shouldAnimate ? 'animate-fade-in-up' : ''}`}
+      >
+        <div className="flex items-center space-x-1">
+          <span>{statusMessage.content}</span>
+          {statusMessage.timeTaken !== undefined && (
+            <span className="text-gray-400">
+              {(statusMessage.timeTaken / 1000).toFixed(1)}s
+            </span>
+          )}
+        </div>
+      </div>
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,6 +84,11 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
     setIsStreaming(true);
     setCurrentResponse('');
     currentResponseRef.current = '';
+    setStatusMessages([]);
+    messageSentTimeRef.current = Date.now();
+    setHasServerError(false);
+    setAnimatedMessageIds(new Set());
+    previousStatusLengthRef.current = 0;
 
     try {
       const eventSource = apiService.createChatStream(messageToSend);
@@ -58,29 +96,90 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
       eventSource.onmessage = (event) => {
         try {
           const data: StreamResponse = JSON.parse(event.data);
-          
-          if (data.responseType === ResponseType.LLM_RESPONSE) {
-            currentResponseRef.current += data.data;
-            setCurrentResponse(currentResponseRef.current);
-          } else if (data.responseType === ResponseType.END_OF_STREAM) {
-            eventSource.close();
-            
-            const finalResponse = currentResponseRef.current + (data.data || '');
-            const completeMessage: ChatMessage = {
-              id: messageId,
-              message: sentMessageRef.current,
-              response: finalResponse,
-              createdAt: new Date().toISOString(),
-            };
-            
-            onNewMessage(completeMessage);
-            
-            setIsStreaming(false);
-            setCurrentResponse('');
-            setCurrentMessageId(null);
-            setSentMessage('');
-            currentResponseRef.current = '';
-            sentMessageRef.current = '';
+          switch (data.responseType) {
+            case ResponseType.LLM_RESPONSE:
+              if (!hasServerError) {
+                currentResponseRef.current += data.content || '';
+                setCurrentResponse(currentResponseRef.current);
+                scrollToBottom();
+              }
+              break;
+              
+            case ResponseType.AGENT_STATUS:
+            case ResponseType.AGENT_THINKING:
+              if (!hasServerError) {
+                const content = data.content || '';
+                const serverTimestamp = parseISO(data.timestamp).getTime();
+                let timeTaken: number;
+                if (statusMessages.length === 0) {
+                  timeTaken = serverTimestamp - messageSentTimeRef.current;
+                } else {
+                  const lastMessage = statusMessages[statusMessages.length - 1];
+                  timeTaken = serverTimestamp - lastMessage.timestamp;
+                }
+                
+                const statusMessage: StatusMessage = {
+                  id: `${messageId}-${statusMessages.length}`,
+                  type: data.responseType as ResponseType.AGENT_STATUS | ResponseType.AGENT_THINKING,
+                  content,
+                  timestamp: serverTimestamp,
+                  timeTaken
+                };
+                
+                setStatusMessages(prev => [...prev, statusMessage]);
+                scrollToBottom();
+              }
+              break;
+              
+            case ResponseType.SERVER_ERROR:
+              const errorContent = data.content || 'Server Error';
+              const errorTimestamp = parseISO(data.timestamp).getTime();
+              let errorTimeTaken: number;
+              if (statusMessages.length === 0) {
+                errorTimeTaken = errorTimestamp - messageSentTimeRef.current;
+              } else {
+                const lastMessage = statusMessages[statusMessages.length - 1];
+                errorTimeTaken = errorTimestamp - lastMessage.timestamp;
+              }
+              
+              const errorMessage: StatusMessage = {
+                id: `${messageId}-error`,
+                type: ResponseType.SERVER_ERROR,
+                content: errorContent,
+                timestamp: errorTimestamp,
+                timeTaken: errorTimeTaken
+              };
+              
+              setStatusMessages(prev => [...prev, errorMessage]);
+              setHasServerError(true);
+              scrollToBottom();
+              break;
+              
+            case ResponseType.END_OF_STREAM:
+              eventSource.close();
+              const finalResponse = currentResponseRef.current;
+              const completeMessage: ChatMessage = {
+                id: messageId,
+                message: sentMessageRef.current,
+                response: finalResponse,
+                createdAt: new Date().toISOString(),
+              };
+              
+              onNewMessage(completeMessage);
+              
+              setIsStreaming(false);
+              setCurrentResponse('');
+              setCurrentMessageId(null);
+              setSentMessage('');
+              setStatusMessages([]);
+              setHasServerError(false);
+              setAnimatedMessageIds(new Set());
+              previousStatusLengthRef.current = 0;
+              currentResponseRef.current = '';
+              sentMessageRef.current = '';
+              break;
+            default:
+              break;
           }
         } catch (error) {
           console.error('Error parsing SSE data:', error);
@@ -94,6 +193,10 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
         setCurrentResponse('');
         setCurrentMessageId(null);
         setSentMessage('');
+        setStatusMessages([]);
+        setHasServerError(false);
+        setAnimatedMessageIds(new Set());
+        previousStatusLengthRef.current = 0;
         currentResponseRef.current = '';
         sentMessageRef.current = '';
       };
@@ -105,6 +208,10 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
       setCurrentResponse('');
       setCurrentMessageId(null);
       setSentMessage('');
+      setStatusMessages([]);
+      setHasServerError(false);
+      setAnimatedMessageIds(new Set());
+      previousStatusLengthRef.current = 0;
       currentResponseRef.current = '';
       sentMessageRef.current = '';
     }
@@ -176,22 +283,66 @@ const Chat: React.FC<ChatProps> = ({ chatHistory, onNewMessage }) => {
             </div>
             
             <div className="flex justify-start">
-              <div className="max-w-[90%] sm:max-w-3xl bg-gray-100 p-2 sm:p-3 rounded-lg prose prose-sm break-words overflow-hidden">
-                <ReactMarkdown
-                  components={{
-                    code: ({ className, children, ...props }) => {
-                      const isInline = !className || !className.includes('language-');
-                      if (isInline) {
-                        return <code className="bg-gray-200 px-1 py-0.5 rounded text-xs sm:text-sm break-all" {...props}>{children}</code>
+              <div className="max-w-[90%] sm:max-w-3xl">
+                {statusMessages.length > 0 && (
+                  <div className="mb-6 space-y-2">
+                    {statusMessages.map((statusMessage, index) => {
+                      const isNew = index >= previousStatusLengthRef.current;
+                      if (index === statusMessages.length - 1) {
+                        previousStatusLengthRef.current = statusMessages.length;
                       }
-                      return <code className="break-all whitespace-pre-wrap text-xs sm:text-sm" {...props}>{children}</code>
-                    },
-                    pre: ({ children }) => <div className="bg-gray-800 text-white p-2 sm:p-3 rounded overflow-x-auto text-xs sm:text-sm">{children}</div>
-                  }}
-                >
-                  {currentResponse}
-                </ReactMarkdown>
-                {currentResponse && <span className="animate-pulse">▊</span>}
+                      return (
+                        <StatusDisplay key={statusMessage.id} statusMessage={statusMessage} isNew={isNew} />
+                      );
+                    })}
+                  </div>
+                )}
+
+                {currentResponse && (
+                  <div className="prose prose-sm max-w-none break-words overflow-hidden">
+                    <ReactMarkdown
+                      components={{
+                        code: ({ className, children, ...props }) => {
+                          const isInline = !className || !className.includes('language-');
+                          if (isInline) {
+                            return <code className="bg-gray-200 px-1 py-0.5 rounded text-xs sm:text-sm break-all" {...props}>{children}</code>
+                          }
+                          return <code className="break-all whitespace-pre-wrap text-xs sm:text-sm" {...props}>{children}</code>
+                        },
+                        pre: ({ children }) => <div className="bg-gray-800 text-white p-2 sm:p-3 rounded overflow-x-auto text-xs sm:text-sm">{children}</div>,
+                        table: ({ children }) => (
+                          <div className="overflow-x-auto">
+                            <table className="min-w-full divide-y divide-gray-200 border border-gray-300 rounded-lg">
+                              {children}
+                            </table>
+                          </div>
+                        ),
+                        thead: ({ children }) => (
+                          <thead className="bg-gray-50">{children}</thead>
+                        ),
+                        tbody: ({ children }) => (
+                          <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>
+                        ),
+                        tr: ({ children }) => (
+                          <tr className="hover:bg-gray-50">{children}</tr>
+                        ),
+                        th: ({ children }) => (
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">
+                            {children}
+                          </th>
+                        ),
+                        td: ({ children }) => (
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-100">
+                            {children}
+                          </td>
+                        )
+                      }}
+                    >
+                      {currentResponse}
+                    </ReactMarkdown>
+                    <span className="animate-pulse">▊</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
