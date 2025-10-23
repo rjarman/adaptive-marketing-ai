@@ -74,7 +74,6 @@ class GeneratedQuery(BaseModel):
     explanation: str
     confidence_score: float
     tables_used: List[str]
-    estimated_rows: Optional[int] = None
 
 
 class QueryProcessingResult(BaseModel):
