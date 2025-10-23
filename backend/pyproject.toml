@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "adaptive-marketing-ai"
-version = "0.2.0"
+version = "0.3.0"
 description = "Adaptive marketing engine that connects to multiple platforms to generate campaign queries and answer natural language questions across channels."
 readme = "README.md"
 requires-python = ">=3.10"
