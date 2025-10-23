@@ -2,6 +2,7 @@ import asyncio
 import json
 from typing import AsyncGenerator
 
+from rich import print
 from sqlalchemy.orm import Session
 
 from models.schemas import LlmResponseTypes, QueryRequest, QueryProcessingResult
@@ -51,13 +52,13 @@ class ChatService:
                             yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.LLM_RESPONSE, content=result.explanation).model_dump())}\n\n"
                             response_chunks.append(result.explanation)
                     elif stream_msg.response_type == LlmResponseTypes.END_OF_STREAM:
-                        print(f"🎯 END_OF_STREAM received! Breaking loop...")
+                        print("[green]END_OF_STREAM received! Breaking loop...[/green]")
                         break
                     else:
                         yield f"data: {json.dumps(stream_msg.model_dump())}\n\n"
 
                 except Exception as parse_error:
-                    print(f"Failed to parse stream message: {parse_error}")
+                    print(f"[yellow]Failed to parse stream message: {parse_error}[/yellow]")
                     yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.SERVER_ERROR, content=f"Stream message parse error: {str(parse_error)}").model_dump())}\n\n"
 
             if response_chunks:
@@ -69,7 +70,7 @@ class ChatService:
                         self.db.rollback()
                         self.repository.create(request.user_message, full_response)
                     except:
-                        print(f"Failed to save chat history: {str(save_error)}")
+                        print(f"[red]Failed to save chat history: {str(save_error)}[/red]")
                         yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.SERVER_ERROR, content=f"Failed to save chat history: {str(save_error)}").model_dump())}\n\n"
         except Exception as e:
             yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.SERVER_ERROR, content=f"Agentic response error: {str(e)}").model_dump())}\n\n"

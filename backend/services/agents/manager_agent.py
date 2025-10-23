@@ -1,6 +1,7 @@
 import json
 
 from pydantic import BaseModel
+from rich import print
 
 from core.llm_handler import openai_client
 from core.prompt_hanlder import SYSTEM_PROMPT
@@ -60,7 +61,7 @@ Respond in JSON format with your decision and reasoning."""
         # @todo make sure query has read only operation
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
-            content=f"🧠 Manager analyzing query: '{request.user_message[:50]}...'"
+            content=f"Manager analyzing query: '{request.user_message[:50]}...'"
         ))
 
         try:
@@ -103,10 +104,10 @@ Respond with a JSON object containing:
             decision = ManagerDecision(**decision_data)
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_STATUS,
-                content=f"📊 Decision: {'SQL Agent' if decision.should_use_sql_agent else 'General Response'} "
+                content=f"Decision: {'SQL Agent' if decision.should_use_sql_agent else 'General Response'} "
                         f"(confidence: {decision.confidence_score:.2f})"
             ))
-            print(f"Manager decision: {decision.model_dump()}")
+            print(f"[green]Manager decision: {decision.model_dump()}[/green]")
             return decision
 
         except Exception as e:
@@ -120,7 +121,7 @@ Respond with a JSON object containing:
         # @todo from manager decision explain if there any operation except read only
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
-            content="💬 Manager Agent handling general query"
+            content="Manager Agent handling general query"
         ))
 
         try:
@@ -135,7 +136,7 @@ Respond with a JSON object containing:
                 temperature=self._MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE
             )
             result = response.choices[0].message.content
-            print(f"Manager response: {result}")
+            print(f"[blue]Manager response: {result}[/blue]")
             return result
 
         except Exception as e:

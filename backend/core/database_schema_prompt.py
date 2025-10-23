@@ -160,14 +160,14 @@ The `customers` table is the central entity for customer campaign analysis and s
    - Targeting: `segment`, `purchase_intent`, `device_preference`
    - Timing: `timezone`, `optimal_send_times`, `engagement_frequency`
 
-**⚠️ CRITICAL WARNING - DO NOT USE THESE NON-EXISTENT FIELDS:**
+**CRITICAL WARNING - DO NOT USE THESE NON-EXISTENT FIELDS:**
 - `cart_additions` - DOES NOT EXIST (use `cart_abandoned_at` from SHOPIFY source_data)
 - `purchases` - DOES NOT EXIST (use `orders_count`, `last_order_date` from SHOPIFY source_data)
 - `transactions` - DOES NOT EXIST (use `total_spent` from SHOPIFY source_data)
 - `events` - DOES NOT EXIST (use actual source_data fields listed above)
 - `activities` - DOES NOT EXIST (use `last_visit`, `last_contact` from source_data)
 
-**✅ ONLY USE FIELDS THAT ACTUALLY EXIST IN THE SCHEMA ABOVE**"""
+**ONLY USE FIELDS THAT ACTUALLY EXIST IN THE SCHEMA ABOVE**"""
 
 
 def get_database_schema_prompt() -> str:

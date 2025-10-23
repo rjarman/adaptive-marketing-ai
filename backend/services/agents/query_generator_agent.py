@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional, List
 
 from pydantic import BaseModel
+from rich import print
 from sqlalchemy.orm import Session
 
 from core.database_schema_prompt import get_database_schema_prompt
@@ -105,7 +106,7 @@ Example response format:
     async def generate_query(self, request: QueryGenerationRequest) -> GeneratedQuery:
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
-            content=f"🔧 Query Generator analyzing: '{request.user_message[:50]}...'"
+            content=f"Query Generator analyzing: '{request.user_message[:50]}...'"
         ))
         try:
             recent_results = self.get_recent_validation_results()
@@ -134,7 +135,7 @@ Respond with a valid JSON object containing the query details.
 
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content="🤖 Generating query..."
+                content="Generating query..."
             ))
 
             response = await openai_client.chat.completions.create(
@@ -153,7 +154,7 @@ Respond with a valid JSON object containing the query details.
                     raise ValueError("No JSON found in response")
 
             except (json.JSONDecodeError, ValueError) as e:
-                print(f"Warning: Failed to parse JSON from response: {e}")
+                print(f"[yellow]Warning: Failed to parse JSON from response: {e}[/yellow]")
                 raise ValueError("Failed to parse JSON from response") from e
 
             if "sql_query" not in query_data:
@@ -167,10 +168,10 @@ Respond with a valid JSON object containing the query details.
             )
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content=f"✅ Query generated (confidence: {generated_query.confidence_score:.2f})",
+                content=f"Query generated (confidence: {generated_query.confidence_score:.2f})",
                 data={"sql_preview": generated_query.sql_query}
             ))
-            print(f"Generated query: {generated_query}")
+            print(f"[green]Generated query: {generated_query}[/green]")
             return generated_query
 
         except Exception as e:
@@ -179,7 +180,7 @@ Respond with a valid JSON object containing the query details.
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))
-            print(error_msg)
+            print(f"[red]{error_msg}[/red]")
             raise Exception("Failed to generate query") from e
 
     @staticmethod
@@ -190,7 +191,7 @@ Respond with a valid JSON object containing the query details.
         feedback_section = "\n**FEEDBACK FROM PREVIOUS ATTEMPT:**\n"
 
         if request.execution_error:
-            feedback_section += f"❌ SQL EXECUTION ERROR (CRITICAL): {request.execution_error}\n"
+            feedback_section += f"SQL EXECUTION ERROR (CRITICAL): {request.execution_error}\n"
             feedback_section += "This query failed to execute. You MUST fix this error in your new query.\n\n"
 
         if request.validation_feedback:
@@ -214,7 +215,7 @@ Respond with a valid JSON object containing the query details.
         for i, result in enumerate(recent_results[-self._MAX_RECENT_RESULTS:], 1):
             validation_result = result['validation_result']
             section += f"{i}. Query: {result['generated_query']}...\n"
-            section += f"   Result: {'✅ Valid' if validation_result.is_valid else '❌ Invalid'} "
+            section += f"   Result: {'Valid' if validation_result.is_valid else 'Invalid'} "
             section += f"(confidence: {validation_result.confidence_score:.2f})\n"
 
             if validation_result.error_message:

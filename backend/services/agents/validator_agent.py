@@ -3,6 +3,7 @@ import re
 from typing import Dict, Any, List, Optional, Tuple
 
 from pydantic import BaseModel
+from rich import print
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
@@ -89,7 +90,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
     async def validate_query(self, request: ValidationRequest) -> QueryValidationResult:
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
-            content=f"🔍 Validator analyzing query for: '{request.user_message[:50]}...'"
+            content=f"Validator analyzing query for: '{request.user_message[:50]}...'"
         ))
 
         try:
@@ -97,7 +98,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
                 request.generated_query.sql_query,
             )
             if execution_error:
-                print(f"Warning: Query execution failed: {execution_error}")
+                print(f"[yellow]Warning: Query execution failed: {execution_error}[/yellow]")
                 stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.SERVER_ERROR,
                     content=f"Query execution failed: {execution_error}"
@@ -109,20 +110,20 @@ Focus on practical campaign usability and customer targeting accuracy."""
                     sample_data=None,
                     error_message=execution_error
                 )
-            print(f"Sample data: {sample_data}")
+            print(f"[cyan]Sample data: {sample_data}[/cyan]")
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content=f"📊 Retrieved {len(sample_data) if sample_data else 0} sample records"
+                content=f"Retrieved {len(sample_data) if sample_data else 0} sample records"
             ))
             validation_result = await self._analyze_query_intent(
                 request.user_message,
                 request.generated_query,
                 sample_data
             )
-            print(f"Validation result: {validation_result}")
+            print(f"[green]Validation result: {validation_result}[/green]")
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content=f"✅ Validation complete (confidence: {validation_result.confidence_score:.2f})",
+                content=f"Validation complete (confidence: {validation_result.confidence_score:.2f})",
                 data={
                     "is_valid": validation_result.is_valid,
                     "sample_count": len(sample_data) if sample_data else 0
@@ -177,10 +178,10 @@ Focus on practical campaign usability and customer targeting accuracy."""
 
         except Exception as e:
             try:
-                print(f"Warning: Query execution failed with error: {e}")
+                print(f"[yellow]Warning: Query execution failed with error: {e}[/yellow]")
                 self.db.rollback()
             except Exception as rollback_error:
-                print(f"Warning: Failed to rollback transaction: {rollback_error}")
+                print(f"[yellow]Warning: Failed to rollback transaction: {rollback_error}[/yellow]")
             return None, str(e)
 
     async def _analyze_query_intent(
@@ -242,7 +243,7 @@ Provide a detailed validation assessment in JSON format with confidence score.
                     raise ValueError("No JSON found in response")
 
             except (json.JSONDecodeError, ValueError):
-                print("Warning: Failed to parse JSON from response, falling back to rule-based analysis")
+                print("[yellow]Warning: Failed to parse JSON from response, falling back to rule-based analysis[/yellow]")
                 raise ValueError("Failed to parse JSON from response")
 
             return QueryValidationResult(
@@ -256,5 +257,5 @@ Provide a detailed validation assessment in JSON format with confidence score.
             )
 
         except Exception as e:
-            print(f"Warning: Validation failed with error: {e}")
+            print(f"[red]Warning: Validation failed with error: {e}[/red]")
             raise e

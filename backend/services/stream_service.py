@@ -6,6 +6,7 @@ from typing import AsyncGenerator, Dict, Any, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 from pydantic.alias_generators import to_camel
+from rich import print
 
 from models.schemas import LlmResponseTypes
 
@@ -64,13 +65,13 @@ class StreamService:
                         timestamp=None
                     )
                     self.message_queue.put(message)
-                    print(f"🔚 StreamService: Queue size after END_OF_STREAM: {self.message_queue.qsize()}")
+                    print(f"[cyan]StreamService: Queue size after END_OF_STREAM: {self.message_queue.qsize()}[/cyan]")
                     self.is_streaming = False
-                    print(f"🔚 StreamService: Set is_streaming = False")
+                    print("[cyan]StreamService: Set is_streaming = False[/cyan]")
                 else:
-                    print(f"⚠️ StreamService: end_streaming() called but not streaming!")
+                    print("[yellow]StreamService: end_streaming() called but not streaming![/yellow]")
         except Exception as e:
-            print(f"❌ StreamService: Exception in end_streaming(): {e}")
+            print(f"[red]StreamService: Exception in end_streaming(): {e}[/red]")
             import traceback
             traceback.print_exc()
 
@@ -84,10 +85,10 @@ class StreamService:
 
                     try:
                         message = self.message_queue.get_nowait()
-                        print(f"🔄 StreamService: Dequeued message: {message}")
+                        print(f"[blue]StreamService: Dequeued message: {message}[/blue]")
                     except Empty:
                         if not self.is_streaming and self.message_queue.empty():
-                            print(f"🔄 StreamService: Streaming stopped and queue empty, exiting")
+                            print("[green]StreamService: Streaming stopped and queue empty, exiting[/green]")
                             break
                         continue
 
@@ -97,7 +98,7 @@ class StreamService:
                     yield sse_data
 
                 except Exception as e:
-                    print(f"❌ StreamService: Exception in stream_messages loop: {e}")
+                    print(f"[red]StreamService: Exception in stream_messages loop: {e}[/red]")
                     break
         finally:
             with self._lock:

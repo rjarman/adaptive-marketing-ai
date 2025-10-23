@@ -2,6 +2,7 @@ import json
 from typing import List, Optional
 
 from pydantic import BaseModel
+from rich import print
 
 from core.llm_handler import openai_client
 from core.settings import settings
@@ -166,7 +167,7 @@ class ParaphraseAgent:
         try:
             dependency_analysis = await self._analyze_dependency(user_message)
             print(
-                f"🧠 Dependency analysis: {dependency_analysis.reasoning} (confidence: {dependency_analysis.confidence:.2f}, needs context: {dependency_analysis.needs_context})")
+                f"[blue]Dependency analysis: {dependency_analysis.reasoning} (confidence: {dependency_analysis.confidence:.2f}, needs context: {dependency_analysis.needs_context})[/blue]")
             if not dependency_analysis['needs_context'] or not chat_history or len(chat_history) == 0:
                 return await self._enhance_standalone_query(user_message)
             relevant_context = await self._extract_smart_context(user_message, chat_history, dependency_analysis)
@@ -176,7 +177,7 @@ class ParaphraseAgent:
             return enhanced_query
 
         except Exception as e:
-            print(f"Error in paraphrase_query: {e}")
+            print(f"[red]Error in paraphrase_query: {e}[/red]")
             return user_message
 
     async def _analyze_dependency(self, user_message: str) -> DependencyAnalysisResult:
@@ -247,22 +248,22 @@ JSON Response:"""
                 if all(key in result for key in ['needs_context', 'confidence', 'reasoning']):
                     return DependencyAnalysisResult(**result)
                 else:
-                    print(f"Invalid JSON structure in dependency analysis: {result}")
+                    print(f"[yellow]Invalid JSON structure in dependency analysis: {result}[/yellow]")
                     return DependencyAnalysisResult(
                         needs_context=False,
                         confidence=0.5,
                         reasoning="Failed to parse LLM response properly"
                     )
             except json.JSONDecodeError as e:
-                print(f"Failed to parse JSON from dependency analysis: {e}")
-                print(f"Raw response: {result_text}")
+                print(f"[yellow]Failed to parse JSON from dependency analysis: {e}[/yellow]")
+                print(f"[dim]Raw response: {result_text}[/dim]")
                 return DependencyAnalysisResult(
                     needs_context=False,
                     confidence=0.5,
                     reasoning="Failed to parse LLM response as JSON"
                 )
         except Exception as e:
-            print(f"Error in LLM dependency analysis: {e}")
+            print(f"[red]Error in LLM dependency analysis: {e}[/red]")
             return DependencyAnalysisResult(
                 needs_context=False,
                 confidence=0.3,
@@ -352,17 +353,17 @@ RELEVANT CONTEXT:"""
             extracted_context = response.choices[0].message.content.strip()
 
             if extracted_context == "NO_RELEVANT_CONTEXT" or not extracted_context:
-                print(f"No relevant context found for user message: {user_message}")
+                print(f"[dim]No relevant context found for user message: {user_message}[/dim]")
                 return ""
-            print(f"Relevant context extracted for user message: {user_message}")
-            print(f"Relevant context: {extracted_context}")
+            print(f"[green]Relevant context extracted for user message: {user_message}[/green]")
+            print(f"[cyan]Relevant context: {extracted_context}[/cyan]")
             return extracted_context
 
         except Exception as e:
-            print(f"Error in smart context extraction: {e}")
+            print(f"[red]Error in smart context extraction: {e}[/red]")
             simple_context = self._extract_simple_context(chat_history, max_context_messages=3)
-            print(f"Simple context extracted for user message: {user_message}")
-            print(f"Simple context: {simple_context}")
+            print(f"[blue]Simple context extracted for user message: {user_message}[/blue]")
+            print(f"[cyan]Simple context: {simple_context}[/cyan]")
             return simple_context
 
     @staticmethod
@@ -439,14 +440,14 @@ Generate the enhanced query:"""
 
             enhanced_query = response.choices[0].message.content.strip()
             if not enhanced_query:
-                print(f"Error generating context-aware query: Empty response from LLM")
+                print(f"[yellow]Error generating context-aware query: Empty response from LLM[/yellow]")
                 return user_message
-            print(f"Enhanced query generated for user message: {user_message}")
-            print(f"Enhanced query: {enhanced_query}")
+            print(f"[green]Enhanced query generated for user message: {user_message}[/green]")
+            print(f"[cyan]Enhanced query: {enhanced_query}[/cyan]")
             return enhanced_query
 
         except Exception as e:
-            print(f"Error generating context-aware query: {e}")
+            print(f"[red]Error generating context-aware query: {e}[/red]")
             return user_message
 
     async def _enhance_standalone_query(self, user_message: str) -> str:
@@ -489,11 +490,11 @@ Enhanced query:"""
             )
             enhanced_query = response.choices[0].message.content.strip()
             if not enhanced_query:
-                print("Enhanced standalone query is empty, returning original message.")
+                print("[yellow]Enhanced standalone query is empty, returning original message.[/yellow]")
                 return user_message
-            print(f"Enhanced standalone query: {enhanced_query}")
+            print(f"[green]Enhanced standalone query: {enhanced_query}[/green]")
             return enhanced_query
 
         except Exception as e:
-            print(f"Error enhancing standalone query: {e}")
+            print(f"[red]Error enhancing standalone query: {e}[/red]")
             return user_message

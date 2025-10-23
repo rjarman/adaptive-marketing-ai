@@ -1,5 +1,6 @@
 import asyncio
 
+from rich import print
 from sqlalchemy.orm import Session
 
 from models.schemas import (
@@ -32,17 +33,17 @@ class OrchestratorService:
         try:
             self._processing_steps = []
             self.query_generator_agent.cleanup_historical_data()
-            print("🧹 Historical data cleaned up on orchestrator destruction")
+            print("[green]Historical data cleaned up on orchestrator destruction[/green]")
         except Exception as e:
-            print(f"Warning: Failed to cleanup historical data in orchestrator destructor: {e}")
+            print(f"[yellow]Warning: Failed to cleanup historical data in orchestrator destructor: {e}[/yellow]")
 
     async def _process_sql_query(
             self,
             request: QueryRequest,
             manager_decision: ManagerDecision,
     ) -> QueryProcessingResult:
-        message = "🔧 Starting query generation..."
-        print(message)
+        message = "Starting query generation..."
+        print(f"[blue]{message}[/blue]")
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=message
@@ -57,10 +58,10 @@ class OrchestratorService:
 
         while iteration < self._MAX_ITERATIONS:
             iteration += 1
-            print(f"🔄 SQL Generation Attempt {iteration}/{self._MAX_ITERATIONS}")
+            print(f"[cyan]SQL Generation Attempt {iteration}/{self._MAX_ITERATIONS}[/cyan]")
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content="🔄 Generating query..."
+                content="Generating query..."
             ))
 
             try:
@@ -107,19 +108,19 @@ class OrchestratorService:
                     )
                     stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
-                        content=f"✅ Query validated successfully on attempt {iteration}",
+                        content=f"Query validated successfully on attempt {iteration}",
                         data=result.model_dump()
                     ))
                     self._processing_steps.append(f"Success on iteration {iteration}")
                     await asyncio.sleep(0.1)
-                    print(f"🔚 Orchestrator calling end_streaming() - SUCCESS case")
+                    print("[green]Orchestrator calling end_streaming() - SUCCESS case[/green]")
                     stream_service.end_streaming()
                     await asyncio.sleep(0.1)
                     return result
 
                 else:
                     print(
-                        f"⚠️ Validation failed (confidence: {validation_result.confidence_score:.2f}). " + f"{'Retrying...' if iteration < self._MAX_ITERATIONS else 'Using best attempt.'}")
+                        f"[yellow]Validation failed (confidence: {validation_result.confidence_score:.2f}). " + f"{'Retrying...' if iteration < self._MAX_ITERATIONS else 'Using best attempt.'}[/yellow]")
                     stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.AGENT_THINKING,
                         content="Evaluating query..."
@@ -134,10 +135,10 @@ class OrchestratorService:
                             f"Iteration {iteration} failed: {validation_result.validation_details}...")
 
                         if previous_validation_feedback:
-                            print(f"🔍 Feedback for next attempt: {previous_validation_feedback}...")
+                            print(f"[magenta]Feedback for next attempt: {previous_validation_feedback}...[/magenta]")
 
                         if previous_execution_error:
-                            print(f"⚠️ SQL execution error to fix: {previous_execution_error}...")
+                            print(f"[red]SQL execution error to fix: {previous_execution_error}...[/red]")
 
                         await asyncio.sleep(0.5)
 
@@ -166,7 +167,7 @@ class OrchestratorService:
             )
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
-                content=f"📊 Using best query from {self._MAX_ITERATIONS} attempts (confidence: {best_validation.confidence_score:.2f})",
+                content=f"Using best query from {self._MAX_ITERATIONS} attempts (confidence: {best_validation.confidence_score:.2f})",
                 data=result.model_dump()
             ))
 
@@ -193,7 +194,7 @@ class OrchestratorService:
     ) -> QueryProcessingResult:
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
-            content="💬 Processing as general query..."
+            content="Processing as general query..."
         ))
 
         try:
@@ -210,7 +211,7 @@ class OrchestratorService:
             )
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
-                content="✅ General query handled successfully",
+                content="General query handled successfully",
                 data=result.model_dump()
             ))
 
@@ -242,15 +243,15 @@ class OrchestratorService:
                 generated_query=generated_query.sql_query,
                 validation_result=validation_result
             )
-            print(f"📝 Validation result stored for learning (Iteration {iteration})")
+            print(f"[green]Validation result stored for learning (Iteration {iteration})[/green]")
 
         except Exception as e:
-            print(f"Warning: Failed to store validation result: {e}")
+            print(f"[yellow]Warning: Failed to store validation result: {e}[/yellow]")
 
     def _handle_processing_step(self):
-        print("\n\n🔄 Process flow steps\n")
+        print("\n[bold blue]Process flow steps[/bold blue]\n")
         for i, step in enumerate(self._processing_steps, start=1):
-            print(f"➡️ Step {i}/{len(self._processing_steps)}: {step}")
+            print(f"[cyan]Step {i}/{len(self._processing_steps)}:[/cyan] {step}")
 
     async def process_query(self, request: QueryRequest):
         """
@@ -263,16 +264,16 @@ class OrchestratorService:
         4. Return final result
 
         """
-        message = f"🚀 Start processing query: '{request.user_message[:50]}...'"
-        print(message)
+        message = f"Start processing query: '{request.user_message[:50]}...'"
+        print(f"[bold green]{message}[/bold green]")
         stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=message
         ))
 
         try:
-            message = "📋 Analyzing query intent..."
-            print(message)
+            message = "Analyzing query intent..."
+            print(f"[blue]{message}[/blue]")
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=message
@@ -282,8 +283,8 @@ class OrchestratorService:
             request.user_message = await self.paraphrase_agent.paraphrase_query(request.user_message, chat_history)
 
             if request.user_message != original_message:
-                message = f"🔄 Enhanced query with LLM-analyzed conversation context"
-                print(message)
+                message = f"Enhanced query with LLM-analyzed conversation context"
+                print(f"[cyan]{message}[/cyan]")
                 stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.AGENT_THINKING,
                     content=message
@@ -291,8 +292,8 @@ class OrchestratorService:
                 self._processing_steps.append(
                     f"LLM-enhanced query: '{original_message}' → '{request.user_message[:100]}...'")
             else:
-                message = f"📝 LLM analyzed query - determined no context needed"
-                print(message)
+                message = f"LLM analyzed query - determined no context needed"
+                print(f"[blue]{message}[/blue]")
                 stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.AGENT_THINKING,
                     content=message
@@ -311,7 +312,7 @@ class OrchestratorService:
 
         except Exception as e:
             error_msg = f"Orchestrator error: {str(e)}"
-            print(error_msg)
+            print(f"[red]{error_msg}[/red]")
             stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
