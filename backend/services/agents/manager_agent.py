@@ -21,7 +21,7 @@ class ManagerAgent:
     _MANAGER_AGENT_TEMPERATURE = 0.7
     _MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE = 0.3
 
-    _MANAGER_AGENT_MAX_TOKENS = 128
+    _MANAGER_AGENT_MAX_TOKENS = 200
 
     @staticmethod
     def _get_system_prompt() -> str:
