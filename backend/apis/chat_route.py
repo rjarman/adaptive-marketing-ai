@@ -32,7 +32,8 @@ def get_chat_history(db: Session = Depends(get_db)):
                 id=msg.id,
                 message=msg.message,
                 response=msg.response,
-                createdAt=msg.created_at
+                createdAt=msg.created_at,
+                sources=msg.sources,
             )
             for msg in messages
         ]

@@ -39,6 +39,7 @@ class ChatMessageResponse(BaseModel):
     id: str
     message: str
     response: str
+    sources: Optional[List[Dict[str, Any]]] = []
     createdAt: datetime
 
     class Config:

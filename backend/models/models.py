@@ -27,7 +27,7 @@ class ChatMessage(Base):
     Represents a chat message entity within the system.
 
     This class is used to store and manage chat message data. It includes
-    information such as the message content, response, and the creation timestamp.
+    information such as the message content, response, sources used, and the creation timestamp.
     It is intended to be used as a database model for storing data related to
     chat interactions.
 
@@ -35,6 +35,7 @@ class ChatMessage(Base):
         id: A unique identifier for the chat message.
         message: The content of the chat message provided by the user.
         response: The response generated for the given chat message.
+        sources: JSON array of data sources used to generate the response.
         created_at: The timestamp indicating when the message was created.
 
     """
@@ -43,6 +44,7 @@ class ChatMessage(Base):
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     message = Column(Text, nullable=False)
     response = Column(Text, nullable=False)
+    sources = Column(JSON, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 

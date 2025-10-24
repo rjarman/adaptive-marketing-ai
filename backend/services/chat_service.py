@@ -31,6 +31,7 @@ class ChatService:
 
     async def _stream_agentic_response(self, request: QueryRequest) -> AsyncGenerator[str, None]:
         response_chunks = []
+        sources = []
 
         try:
             asyncio.create_task(
@@ -43,13 +44,15 @@ class ChatService:
 
                     if stream_msg.response_type == LlmResponseTypes.QUERY_PROCESSING_RESULT:
                         result = QueryProcessingResult(**stream_msg.data)
-                        if result.success and result.sql_query:
+                        if result.success and result.all_data:
                             yield f"data: {json.dumps(StreamMessage(
                                 response_type=LlmResponseTypes.RETRIEVED_DATA,
                                 content="Sources used for the response.",
-                                data=result.all_data
+                                data={
+                                    "sources": result.all_data
+                                }
                             ).model_dump())}\n\n"
-                            response_chunks.append(f"```sql\n{result.sql_query}\n```\n\n")
+                            sources = result.all_data
                         if result and result.success and result.explanation:
                             yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.LLM_RESPONSE, content=result.explanation).model_dump())}\n\n"
                             response_chunks.append(result.explanation)
@@ -66,11 +69,14 @@ class ChatService:
             if response_chunks:
                 full_response = " ".join(response_chunks)
                 try:
-                    self.repository.create(request.user_message, full_response)
+                    self.repository.create(request.user_message, full_response, sources)
                 except Exception as save_error:
                     try:
                         self.db.rollback()
-                        self.repository.create(request.user_message, full_response)
+                        self.repository.create(request.user_message, full_response, sources)
+                        print(
+                            f"[green]Chat history saved successfully after rollback.[/green]"
+                        )
                     except:
                         print(f"[red]Failed to save chat history: {str(save_error)}[/red]")
                         yield f"data: {json.dumps(StreamMessage(response_type=LlmResponseTypes.SERVER_ERROR, content=f"Failed to save chat history: {str(save_error)}").model_dump())}\n\n"

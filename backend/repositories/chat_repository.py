@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict, Any
 
 from sqlalchemy.orm import Session
 
@@ -9,8 +9,12 @@ class ChatRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, message: str, response: str) -> ChatMessage:
-        chat_message = ChatMessage(message=message, response=response)
+    def create(self, message: str, response: str, sources: List[Dict[str, Any]]) -> ChatMessage:
+        chat_message = ChatMessage(
+            message=message, 
+            response=response, 
+            sources=sources if sources else []
+        )
         self.db.add(chat_message)
         self.db.commit()
         self.db.refresh(chat_message)
