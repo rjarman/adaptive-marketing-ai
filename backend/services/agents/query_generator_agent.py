@@ -24,6 +24,7 @@ class QueryGenerationRequest(BaseModel):
 
 class QueryGeneratorAgent:
     _QUERY_GENERATOR_TEMPERATURE = 0.7
+    _QUERY_GENERATOR_MAX_TOKENS = 1000
     _MAX_RECENT_RESULTS = 10
     _validation_history: deque = deque(maxlen=50)
 
@@ -140,7 +141,8 @@ Respond with a valid JSON object containing the query details.
             response = await openai_client.chat.completions.create(
                 model=settings.openai_model,
                 messages=messages,
-                temperature=self._QUERY_GENERATOR_TEMPERATURE
+                temperature=self._QUERY_GENERATOR_TEMPERATURE,
+                max_tokens=self._QUERY_GENERATOR_MAX_TOKENS
             )
             response_content = response.choices[0].message.content
             try:

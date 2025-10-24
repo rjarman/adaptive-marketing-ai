@@ -22,6 +22,7 @@ class ValidationRequest(BaseModel):
 
 class ValidatorAgent:
     _VALIDATOR_TEMPERATURE = 0.7
+    _VALIDATOR_MAX_TOKENS = 1500
     _MAX_SAMPLES = 10
 
     def __init__(self, db: Session):
@@ -231,6 +232,7 @@ Provide a detailed validation assessment in JSON format with confidence score.
                 model=settings.openai_model,
                 messages=messages,
                 temperature=self._VALIDATOR_TEMPERATURE,
+                max_tokens=self._VALIDATOR_MAX_TOKENS
             )
             response_content = response.choices[0].message.content
             try:
