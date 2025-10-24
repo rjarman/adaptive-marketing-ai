@@ -4,6 +4,9 @@ import ConnectModal from './components/ConnectModal';
 import { apiService } from './services/api';
 import { DataSource, Integration, ChatMessage } from './types';
 
+const packageJson = require('../package.json');
+const VERSION = packageJson.version;
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
@@ -81,9 +84,14 @@ function App() {
                 </svg>
               </div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-transparent">
-                  Marketing AI
-                </h1>
+                <div className="flex items-center space-x-2">
+                  <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-transparent">
+                    Marketing AI
+                  </h1>
+                  <span className="text-[10px] sm:text-xs px-1.5 py-0.5 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 font-semibold rounded border border-blue-200/50">
+                    v{VERSION}
+                  </span>
+                </div>
                 <p className="text-xs text-gray-500 hidden sm:block">Adaptive Campaign Assistant</p>
               </div>
             </div>
