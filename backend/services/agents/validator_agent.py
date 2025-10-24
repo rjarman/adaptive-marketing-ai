@@ -47,6 +47,12 @@ Your role is to:
 3. **Relevance**: Are the selected columns appropriate for the use case?
 4. **Marketing Focus**: Does it properly filter for accepts_marketing = true?
 5. **Data Quality**: Are the sample results meaningful and expected?
+6. **MANDATORY COLUMNS**: The SELECT clause MUST include these required columns:
+   - email
+   - data_source
+   - first_name
+   - last_name
+   If ANY of these columns are missing, the query is INVALID (confidence_score = 0.0)
 
 **Sample Analysis Guidelines:**
 - Check if customer profiles match the requested criteria
@@ -71,15 +77,17 @@ Provide JSON response with:
 
 **Low Confidence Analysis:**
 When confidence < {CONFIDENCE_THRESHOLD}, provide detailed explanations covering:
+- Missing mandatory columns (email, data_source, first_name, last_name) - these MUST be present
 - Missing or incorrect filters (dates, segments, conditions) - reference actual schema columns
 - Inappropriate column selections for campaign use - suggest better columns from schema
 - Sample data quality issues (empty results, irrelevant customers)
 - Marketing focus problems (missing accepts_marketing filter)
 - Query structure issues (ordering, limits, joins)
 - Schema compliance (using non-existent columns, wrong data types)
-- Missing key campaign columns (email, engagement_score, total_value, lifecycle_stage, etc.)
+- Missing key campaign columns (engagement_score, total_value, lifecycle_stage, etc.)
 
 **Improvement Suggestions Guidelines:**
+- Always ensure mandatory columns are present: email, data_source, first_name, last_name
 - Only suggest columns that exist in the schema
 - Recommend appropriate data types and formats
 - Consider campaign-specific columns (engagement_score, total_value, accepts_marketing)
@@ -212,10 +220,12 @@ Validate this customer campaign query against the user's intent:
 **Total Sample Count:** {len(sample_data) if sample_data else 0}
 
 Analyze:
-1. Does the query correctly interpret the user's campaign intent?
-2. Are the sample results appropriate for the requested customer segment?
-3. Do the filters and conditions align with the user's requirements?
-4. Is this query suitable for creating a marketing campaign?
+1. Does the query include ALL mandatory columns (email, data_source, first_name, last_name)?
+   - If ANY mandatory column is missing, set is_valid=false and confidence_score=0.0
+2. Does the query correctly interpret the user's campaign intent?
+3. Are the sample results appropriate for the requested customer segment?
+4. Do the filters and conditions align with the user's requirements?
+5. Is this query suitable for creating a marketing campaign?
 
 If confidence score < {CONFIDENCE_THRESHOLD}, provide:
 - low_confidence_explanation: Detailed explanation of why the query doesn't fully match intent

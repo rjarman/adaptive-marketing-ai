@@ -71,6 +71,12 @@ Your role is to generate syntactically correct PostgreSQL queries based on user 
 4. Use proper PostgreSQL syntax and functions
 5. Include ORDER BY for meaningful result ordering
 6. Never use INSERT, UPDATE, DELETE, or DROP statements
+7. **MANDATORY COLUMNS**: ALWAYS include these columns in every SELECT statement:
+   - email
+   - data_source
+   - first_name
+   - last_name
+   These columns MUST be present regardless of the query type or user request
 
 **Feedback Integration:**
 When validation feedback is provided from previous attempts:
@@ -98,11 +104,13 @@ Generate a JSON response with:
 
 Example response format:
 {{
-    "sql_query": "SELECT email, first_name, total_value FROM customers WHERE...",
+    "sql_query": "SELECT email, data_source, first_name, last_name, total_value, engagement_score FROM customers WHERE...",
     "explanation": "This query finds customers who...",
     "confidence_score": 0.95,
-    "tables_used": ["customers"],
-}}"""
+    "tables_used": ["customers"]
+}}
+
+IMPORTANT: The SELECT clause MUST include email, data_source, first_name, and last_name at minimum."""
 
     async def generate_query(self, request: QueryGenerationRequest) -> GeneratedQuery:
         self.stream_service.add_message(StreamMessage(
@@ -129,6 +137,7 @@ Focus on creating a query that:
 2. Uses appropriate date filters for time-based criteria
 3. Selects relevant customer information for campaign use
 4. Includes proper ordering for best results first
+5. **MUST include these mandatory columns in SELECT: email, data_source, first_name, last_name**
 
 Respond with a valid JSON object containing the query details.
 """}
