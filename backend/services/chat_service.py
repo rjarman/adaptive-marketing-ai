@@ -8,14 +8,15 @@ from sqlalchemy.orm import Session
 from models.schemas import LlmResponseTypes, QueryRequest, QueryProcessingResult
 from repositories.chat_repository import ChatRepository
 from services.agents.orchestrator_service import OrchestratorService
-from services.stream_service import stream_service, StreamMessage
+from services.stream_service import StreamMessage, StreamService
 
 
 class ChatService:
     def __init__(self, db: Session):
+        self.stream_service = StreamService()
         self.repository = ChatRepository(db)
         self.db = db
-        self.orchestrator_service = OrchestratorService(db)
+        self.orchestrator_service = OrchestratorService(db, self.stream_service)
 
     async def stream_chat_response(self, message: str) -> AsyncGenerator[str, None]:
         try:
@@ -35,7 +36,7 @@ class ChatService:
             asyncio.create_task(
                 self.orchestrator_service.process_query(request)
             )
-            async for sse_message in stream_service.stream_messages():
+            async for sse_message in self.stream_service.stream_messages():
                 try:
                     message_data = json.loads(sse_message.replace("data: ", "").strip())
                     stream_msg = StreamMessage(**message_data)

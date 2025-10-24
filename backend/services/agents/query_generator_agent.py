@@ -11,7 +11,7 @@ from core.database_schema_prompt import get_database_schema_prompt
 from core.llm_handler import openai_client
 from core.settings import settings
 from models.schemas import GeneratedQuery, LlmResponseTypes
-from services.stream_service import stream_service, StreamMessage
+from services.stream_service import StreamService, StreamMessage
 
 
 class QueryGenerationRequest(BaseModel):
@@ -28,8 +28,9 @@ class QueryGeneratorAgent:
     _MAX_RECENT_RESULTS = 10
     _validation_history: deque = deque(maxlen=50)
 
-    def __init__(self, db: Session):
+    def __init__(self, db: Session, stream_service: StreamService):
         self.db = db
+        self.stream_service = stream_service
 
     @classmethod
     def add_validation_result(cls, user_message: str, generated_query: str, validation_result):
@@ -104,7 +105,7 @@ Example response format:
 }}"""
 
     async def generate_query(self, request: QueryGenerationRequest) -> GeneratedQuery:
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=f"Query Generator analyzing: '{request.user_message[:50]}...'"
         ))
@@ -133,7 +134,7 @@ Respond with a valid JSON object containing the query details.
 """}
             ]
 
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content="Generating query..."
             ))
@@ -167,7 +168,7 @@ Respond with a valid JSON object containing the query details.
                 confidence_score=query_data.get("confidence_score", 0.0),
                 tables_used=query_data.get("tables_used", []),
             )
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=f"Query generated (confidence: {generated_query.confidence_score:.2f})",
                 data={"sql_preview": generated_query.sql_query}
@@ -177,7 +178,7 @@ Respond with a valid JSON object containing the query details.
 
         except Exception as e:
             error_msg = f"Query generation error: {str(e)}"
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))

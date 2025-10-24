@@ -12,7 +12,7 @@ from core.llm_handler import openai_client
 from core.settings import settings
 from models.schemas import QueryValidationResult, GeneratedQuery, LlmResponseTypes
 from services.agents import CONFIDENCE_THRESHOLD
-from services.stream_service import stream_service, StreamMessage
+from services.stream_service import StreamService, StreamMessage
 
 
 class ValidationRequest(BaseModel):
@@ -25,8 +25,9 @@ class ValidatorAgent:
     _VALIDATOR_MAX_TOKENS = 1500
     _MAX_SAMPLES = 10
 
-    def __init__(self, db: Session):
+    def __init__(self, db: Session, stream_service: StreamService):
         self.db = db
+        self.stream_service = stream_service
 
     @staticmethod
     def _get_system_prompt() -> str:
@@ -89,7 +90,7 @@ When confidence < {CONFIDENCE_THRESHOLD}, provide detailed explanations covering
 Focus on practical campaign usability and customer targeting accuracy."""
 
     async def validate_query(self, request: ValidationRequest) -> QueryValidationResult:
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=f"Validator analyzing query for: '{request.user_message[:50]}...'"
         ))
@@ -100,7 +101,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
             )
             if execution_error:
                 print(f"[yellow]Warning: Query execution failed: {execution_error}[/yellow]")
-                stream_service.add_message(StreamMessage(
+                self.stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.SERVER_ERROR,
                     content=f"Query execution failed: {execution_error}"
                 ))
@@ -112,7 +113,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
                     error_message=execution_error
                 )
             print(f"[cyan]Sample data: {sample_data}[/cyan]")
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=f"Retrieved {len(sample_data) if sample_data else 0} sample records"
             ))
@@ -122,7 +123,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
                 sample_data
             )
             print(f"[green]Validation result: {validation_result}[/green]")
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=f"Validation complete (confidence: {validation_result.confidence_score:.2f})",
                 data={
@@ -134,7 +135,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
 
         except Exception as e:
             error_msg = f"Validation error: {str(e)}"
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))
@@ -245,7 +246,8 @@ Provide a detailed validation assessment in JSON format with confidence score.
                     raise ValueError("No JSON found in response")
 
             except (json.JSONDecodeError, ValueError):
-                print("[yellow]Warning: Failed to parse JSON from response, falling back to rule-based analysis[/yellow]")
+                print(
+                    "[yellow]Warning: Failed to parse JSON from response, falling back to rule-based analysis[/yellow]")
                 raise ValueError("Failed to parse JSON from response")
 
             return QueryValidationResult(

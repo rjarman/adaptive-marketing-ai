@@ -12,7 +12,7 @@ from services.agents.manager_agent import ManagerAgent, ManagerDecision
 from services.agents.paraphrase_agent import ParaphraseAgent
 from services.agents.query_generator_agent import QueryGeneratorAgent, QueryGenerationRequest
 from services.agents.validator_agent import ValidatorAgent, ValidationRequest
-from services.stream_service import stream_service, StreamMessage
+from services.stream_service import StreamService, StreamMessage
 
 
 class OrchestratorService:
@@ -20,12 +20,13 @@ class OrchestratorService:
     _MAX_ITERATIONS = 10
     _FALLBACK_CONFIDENCE_THRESHOLD = 0.5
 
-    def __init__(self, db: Session):
+    def __init__(self, db: Session, stream_service: StreamService):
         self.db = db
+        self.stream_service = stream_service
         self.paraphrase_agent = ParaphraseAgent()
-        self.manager_agent = ManagerAgent()
-        self.query_generator_agent = QueryGeneratorAgent(db)
-        self.validator_agent = ValidatorAgent(db)
+        self.manager_agent = ManagerAgent(stream_service)
+        self.query_generator_agent = QueryGeneratorAgent(db, stream_service)
+        self.validator_agent = ValidatorAgent(db, stream_service)
         self.chat_repository = ChatRepository(db)
         self._processing_steps = []
 
@@ -44,7 +45,7 @@ class OrchestratorService:
     ) -> QueryProcessingResult:
         message = "Starting query generation..."
         print(f"[blue]{message}[/blue]")
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=message
         ))
@@ -59,7 +60,7 @@ class OrchestratorService:
         while iteration < self._MAX_ITERATIONS:
             iteration += 1
             print(f"[cyan]SQL Generation Attempt {iteration}/{self._MAX_ITERATIONS}[/cyan]")
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content="Generating query..."
             ))
@@ -106,7 +107,7 @@ class OrchestratorService:
                         processing_steps=self._processing_steps,
                         sample_data=validation_result.sample_data
                     )
-                    stream_service.add_message(StreamMessage(
+                    self.stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
                         content=f"Query validated successfully on attempt {iteration}",
                         data=result.model_dump()
@@ -114,14 +115,14 @@ class OrchestratorService:
                     self._processing_steps.append(f"Success on iteration {iteration}")
                     await asyncio.sleep(0.1)
                     print("[green]Orchestrator calling end_streaming() - SUCCESS case[/green]")
-                    stream_service.end_streaming()
+                    self.stream_service.end_streaming()
                     await asyncio.sleep(0.1)
                     return result
 
                 else:
                     print(
                         f"[yellow]Validation failed (confidence: {validation_result.confidence_score:.2f}). " + f"{'Retrying...' if iteration < self._MAX_ITERATIONS else 'Using best attempt.'}[/yellow]")
-                    stream_service.add_message(StreamMessage(
+                    self.stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.AGENT_THINKING,
                         content="Evaluating query..."
                     ))
@@ -145,7 +146,7 @@ class OrchestratorService:
             except Exception as e:
                 error_msg = f"Iteration {iteration} error: {str(e)}"
                 self._processing_steps.append(error_msg)
-                stream_service.add_message(StreamMessage(
+                self.stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.SERVER_ERROR,
                     content=error_msg
                 ))
@@ -165,7 +166,7 @@ class OrchestratorService:
                 error_message=f"Query generated with moderate confidence after {self._MAX_ITERATIONS} attempts" if best_validation.confidence_score < CONFIDENCE_THRESHOLD else None,
                 processing_steps=self._processing_steps
             )
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
                 content=f"Using best query from {self._MAX_ITERATIONS} attempts (confidence: {best_validation.confidence_score:.2f})",
                 data=result.model_dump()
@@ -173,11 +174,11 @@ class OrchestratorService:
 
             self._processing_steps.append(f"Final result: Best query from {self._MAX_ITERATIONS} attempts")
             await asyncio.sleep(0.1)
-            stream_service.end_streaming()
+            self.stream_service.end_streaming()
             return result
 
         self._processing_steps.append("Failed to generate valid query after all attempts")
-        stream_service.end_streaming()
+        self.stream_service.end_streaming()
         return QueryProcessingResult(
             success=False,
             sql_query=None,
@@ -192,7 +193,7 @@ class OrchestratorService:
             request: QueryRequest,
             manager_decision: ManagerDecision,
     ) -> QueryProcessingResult:
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content="Processing as general query..."
         ))
@@ -209,20 +210,20 @@ class OrchestratorService:
                 error_message=None,
                 processing_steps=self._processing_steps
             )
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
                 content="General query handled successfully",
                 data=result.model_dump()
             ))
 
             await asyncio.sleep(0.1)
-            stream_service.end_streaming()
+            self.stream_service.end_streaming()
             return result
 
         except Exception as e:
             error_msg = f"General query processing error: {str(e)}"
             self._processing_steps.append(error_msg)
-            stream_service.end_streaming()
+            self.stream_service.end_streaming()
             return QueryProcessingResult(
                 success=False,
                 sql_query=None,
@@ -266,7 +267,7 @@ class OrchestratorService:
         """
         message = f"Start processing query: '{request.user_message[:50]}...'"
         print(f"[bold green]{message}[/bold green]")
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=message
         ))
@@ -274,7 +275,7 @@ class OrchestratorService:
         try:
             message = "Analyzing query intent..."
             print(f"[blue]{message}[/blue]")
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=message
             ))
@@ -285,7 +286,7 @@ class OrchestratorService:
             if request.user_message != original_message:
                 message = f"Enhanced query with LLM-analyzed conversation context"
                 print(f"[cyan]{message}[/cyan]")
-                stream_service.add_message(StreamMessage(
+                self.stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.AGENT_THINKING,
                     content=message
                 ))
@@ -294,7 +295,7 @@ class OrchestratorService:
             else:
                 message = f"LLM analyzed query - determined no context needed"
                 print(f"[blue]{message}[/blue]")
-                stream_service.add_message(StreamMessage(
+                self.stream_service.add_message(StreamMessage(
                     response_type=LlmResponseTypes.AGENT_THINKING,
                     content=message
                 ))
@@ -313,8 +314,8 @@ class OrchestratorService:
         except Exception as e:
             error_msg = f"Orchestrator error: {str(e)}"
             print(f"[red]{error_msg}[/red]")
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))
-            stream_service.end_streaming()
+            self.stream_service.end_streaming()

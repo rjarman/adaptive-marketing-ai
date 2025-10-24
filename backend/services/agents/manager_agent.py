@@ -7,7 +7,7 @@ from core.llm_handler import openai_client
 from core.prompt_hanlder import SYSTEM_PROMPT
 from core.settings import settings
 from models.schemas import QueryRequest, LlmResponseTypes
-from services.stream_service import stream_service, StreamMessage
+from services.stream_service import StreamService, StreamMessage
 
 
 class ManagerDecision(BaseModel):
@@ -22,6 +22,9 @@ class ManagerAgent:
     _MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE = 0.3
 
     _MANAGER_AGENT_MAX_TOKENS = 200
+
+    def __init__(self, stream_service: StreamService):
+        self.stream_service = stream_service
 
     @staticmethod
     def _get_system_prompt() -> str:
@@ -59,7 +62,7 @@ Respond in JSON format with your decision and reasoning."""
 
     async def analyze_query(self, request: QueryRequest) -> ManagerDecision:
         # @todo make sure query has read only operation
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=f"Manager analyzing query: '{request.user_message[:50]}...'"
         ))
@@ -102,7 +105,7 @@ Respond with a JSON object containing:
                 raise ValueError("Failed to parse JSON from response")
 
             decision = ManagerDecision(**decision_data)
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_STATUS,
                 content=f"Decision: {'SQL Agent' if decision.should_use_sql_agent else 'General Response'} "
                         f"(confidence: {decision.confidence_score:.2f})"
@@ -111,7 +114,7 @@ Respond with a JSON object containing:
             return decision
 
         except Exception as e:
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=f"Manager Agent analysis error: {str(e)}"
             ))
@@ -119,7 +122,7 @@ Respond with a JSON object containing:
 
     async def handle_general_query(self, request: QueryRequest, manager_decision: ManagerDecision) -> str:
         # @todo from manager decision explain if there any operation except read only
-        stream_service.add_message(StreamMessage(
+        self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content="Manager Agent handling general query"
         ))
@@ -141,7 +144,7 @@ Respond with a JSON object containing:
 
         except Exception as e:
             error_msg = f"Error handling general query: {str(e)}"
-            stream_service.add_message(StreamMessage(
+            self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))

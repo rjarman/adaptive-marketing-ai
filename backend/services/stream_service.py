@@ -103,6 +103,3 @@ class StreamService:
         finally:
             with self._lock:
                 self.is_streaming = False
-
-
-stream_service = StreamService()
