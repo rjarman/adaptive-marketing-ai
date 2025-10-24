@@ -121,16 +121,26 @@ Respond with a JSON object containing:
             raise Exception("Failed to analyze query") from e
 
     async def handle_general_query(self, request: QueryRequest, manager_decision: ManagerDecision) -> str:
-        # @todo from manager decision explain if there any operation except read only
         self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content="Manager Agent handling general query"
         ))
 
         try:
+            context_message = f"""
+Manager Analysis Context:
+- Query Type: {manager_decision.query_type}
+- Reasoning: {manager_decision.reasoning}
+- Confidence: {manager_decision.confidence_score:.2f}
+
+User Query: {request.user_message}
+
+Please provide a helpful response that takes into account the analysis above. If the query was close to being a campaign/SQL query, guide the user on how to rephrase it for better results.
+"""
+            
             messages = [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": request.user_message}
+                {"role": "user", "content": context_message}
             ]
             # @todo make query streamable in chunk
             response = await openai_client.chat.completions.create(
