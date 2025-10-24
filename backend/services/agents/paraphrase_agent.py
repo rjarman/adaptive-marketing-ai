@@ -21,10 +21,12 @@ class ParaphraseAgent:
     _ENHANCE_STANDALONE_QUERY_TEMPERATURE = 0.1
     _GENERATE_CONTEXT_AWARE_QUERY_TEMPERATURE = 0.1
 
-    _ANALYZE_DEPENDENCY_MAX_TOKENS = 200
-    _EXTRACT_SMART_CONTEXT_MAX_TOKENS = 600
-    _ENHANCE_STANDALONE_QUERY_MAX_TOKENS = 200
-    _GENERATE_CONTEXT_AWARE_QUERY_MAX_TOKENS = 500
+    _ANALYZE_DEPENDENCY_MAX_TOKENS = 3000
+    _EXTRACT_SMART_CONTEXT_MAX_TOKENS = 5000
+    _ENHANCE_STANDALONE_QUERY_MAX_TOKENS = 3000
+    _GENERATE_CONTEXT_AWARE_QUERY_MAX_TOKENS = 3000
+
+    _MAX_HISTORY_LENGTH = 1500
 
     def __init__(self):
         self.dependency_analysis_examples = [
@@ -168,7 +170,7 @@ class ParaphraseAgent:
             dependency_analysis = await self._analyze_dependency(user_message)
             print(
                 f"[blue]Dependency analysis: {dependency_analysis.reasoning} (confidence: {dependency_analysis.confidence:.2f}, needs context: {dependency_analysis.needs_context})[/blue]")
-            if not dependency_analysis['needs_context'] or not chat_history or len(chat_history) == 0:
+            if not dependency_analysis.needs_context or not chat_history or len(chat_history) == 0:
                 return await self._enhance_standalone_query(user_message)
             relevant_context = await self._extract_smart_context(user_message, chat_history, dependency_analysis)
             if not relevant_context:
@@ -295,7 +297,8 @@ JSON Response:"""
             conversation_history = []
             for i, msg in enumerate(reversed(recent_messages)):
                 if msg.message and msg.response:
-                    response_preview = msg.response[:300] + "..." if len(msg.response) > 300 else msg.response
+                    response_preview = msg.response[:self._MAX_HISTORY_LENGTH] + "..." if len(
+                        msg.response) > self._MAX_HISTORY_LENGTH else msg.response
                     conversation_history.append({
                         "index": len(recent_messages) - i,
                         "user_message": msg.message,

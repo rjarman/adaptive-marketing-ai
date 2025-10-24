@@ -21,7 +21,7 @@ class ManagerAgent:
     _MANAGER_AGENT_TEMPERATURE = 0.7
     _MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE = 0.3
 
-    _MANAGER_AGENT_MAX_TOKENS = 200
+    _MANAGER_AGENT_MAX_TOKENS = 1000
 
     def __init__(self, stream_service: StreamService):
         self.stream_service = stream_service
@@ -137,7 +137,7 @@ User Query: {request.user_message}
 
 Please provide a helpful response that takes into account the analysis above. If the query was close to being a campaign/SQL query, guide the user on how to rephrase it for better results.
 """
-            
+
             messages = [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": context_message}

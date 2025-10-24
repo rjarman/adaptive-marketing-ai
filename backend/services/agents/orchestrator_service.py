@@ -105,7 +105,7 @@ class OrchestratorService:
                         validation_result=validation_result,
                         error_message=None,
                         processing_steps=self._processing_steps,
-                        sample_data=validation_result.sample_data
+                        all_data=validation_result.all_data,
                     )
                     self.stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,

@@ -13,6 +13,7 @@ class LlmResponseTypes(str, Enum):
     AGENT_THINKING = "AGENT_THINKING"
     SQL_QUERY = "SQL_QUERY"
     QUERY_PROCESSING_RESULT = "QUERY_PROCESSING_RESULT"
+    RETRIEVED_DATA = "RETRIEVED_DATA"
 
 
 class DataSourceTypes(str, Enum):
@@ -63,7 +64,7 @@ class QueryValidationResult(BaseModel):
     is_valid: bool
     confidence_score: float
     validation_details: str
-    sample_data: Optional[List[Dict[str, Any]]] = None
+    all_data: Optional[List[Dict[str, Any]]] = None
     error_message: Optional[str] = None
     low_confidence_explanation: Optional[str] = None
     improvement_suggestions: Optional[List[str]] = None
@@ -83,5 +84,5 @@ class QueryProcessingResult(BaseModel):
     validation_result: Optional[QueryValidationResult] = None
     error_message: Optional[str] = None
     processing_steps: List[str] = []
-    sample_data: Optional[List[Dict[str, Any]]] = None
+    all_data: Optional[List[Dict[str, Any]]] = None
     confidence_score: Optional[float] = None

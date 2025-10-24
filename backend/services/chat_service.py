@@ -45,8 +45,9 @@ class ChatService:
                         result = QueryProcessingResult(**stream_msg.data)
                         if result.success and result.sql_query:
                             yield f"data: {json.dumps(StreamMessage(
-                                response_type=LlmResponseTypes.SQL_QUERY,
-                                content=f"```sql\n{result.sql_query}\n```"
+                                response_type=LlmResponseTypes.RETRIEVED_DATA,
+                                content="Sources used for the response.",
+                                data=result.all_data
                             ).model_dump())}\n\n"
                             response_chunks.append(f"```sql\n{result.sql_query}\n```\n\n")
                         if result and result.success and result.explanation:

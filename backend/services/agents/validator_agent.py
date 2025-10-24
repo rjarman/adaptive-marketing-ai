@@ -22,7 +22,7 @@ class ValidationRequest(BaseModel):
 
 class ValidatorAgent:
     _VALIDATOR_TEMPERATURE = 0.7
-    _VALIDATOR_MAX_TOKENS = 1500
+    _VALIDATOR_MAX_TOKENS = 3000
     _MAX_SAMPLES = 10
 
     def __init__(self, db: Session, stream_service: StreamService):
@@ -65,7 +65,6 @@ Provide JSON response with:
 - is_valid: boolean (true if confidence >= 0.6)
 - confidence_score: float (0-1)
 - validation_details: detailed explanation
-- sample_data: array of sample records (limited)
 - error_message: any issues found (optional)
 - low_confidence_explanation: detailed explanation when confidence < {CONFIDENCE_THRESHOLD} (why the query doesn't fully match intent)
 - improvement_suggestions: array of specific suggestions for query improvement
@@ -96,7 +95,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
         ))
 
         try:
-            sample_data, execution_error = await self._execute_query_safely(
+            all_data, execution_error = await self._execute_query_safely(
                 request.generated_query.sql_query,
             )
             if execution_error:
@@ -109,26 +108,26 @@ Focus on practical campaign usability and customer targeting accuracy."""
                     is_valid=False,
                     confidence_score=0.0,
                     validation_details=f"Query execution failed: {execution_error}",
-                    sample_data=None,
                     error_message=execution_error
                 )
-            print(f"[cyan]Sample data: {sample_data}[/cyan]")
+            print(f"[cyan]Sample data: {all_data}[/cyan]")
             self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
-                content=f"Retrieved {len(sample_data) if sample_data else 0} sample records"
+                content=f"Retrieved {len(all_data) if all_data else 0} sample records"
             ))
             validation_result = await self._analyze_query_intent(
                 request.user_message,
                 request.generated_query,
-                sample_data
+                all_data
             )
+            validation_result.all_data = all_data
             print(f"[green]Validation result: {validation_result}[/green]")
             self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_THINKING,
                 content=f"Validation complete (confidence: {validation_result.confidence_score:.2f})",
                 data={
                     "is_valid": validation_result.is_valid,
-                    "sample_count": len(sample_data) if sample_data else 0
+                    "sample_count": len(all_data) if all_data else 0
                 }
             ))
             return validation_result
@@ -144,11 +143,8 @@ Focus on practical campaign usability and customer targeting accuracy."""
                 is_valid=False,
                 confidence_score=0.0,
                 validation_details=error_msg,
-                sample_data=None,
                 error_message=str(e)
             )
-
-            # Historical data will be recorded by orchestrator
             return validation_result
 
     async def _execute_query_safely(self, sql_query: str) -> Tuple[Optional[List[Dict[str, Any]]], Optional[str]]:
@@ -254,7 +250,6 @@ Provide a detailed validation assessment in JSON format with confidence score.
                 is_valid=validation_data.get("is_valid", False),
                 confidence_score=validation_data.get("confidence_score", 0),
                 validation_details=validation_data.get("validation_details", "Query validation completed"),
-                sample_data=sample_data,
                 error_message=validation_data.get("error_message"),
                 low_confidence_explanation=validation_data.get("low_confidence_explanation"),
                 improvement_suggestions=validation_data.get("improvement_suggestions")

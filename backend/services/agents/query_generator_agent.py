@@ -24,7 +24,7 @@ class QueryGenerationRequest(BaseModel):
 
 class QueryGeneratorAgent:
     _QUERY_GENERATOR_TEMPERATURE = 0.7
-    _QUERY_GENERATOR_MAX_TOKENS = 1000
+    _QUERY_GENERATOR_MAX_TOKENS = 5000
     _MAX_RECENT_RESULTS = 10
     _validation_history: deque = deque(maxlen=50)
 
