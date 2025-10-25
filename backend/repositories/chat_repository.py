@@ -9,9 +9,10 @@ class ChatRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, message: str, response: str, sources: List[Dict[str, Any]],
+    def create(self, msg_id: str, message: str, response: str, sources: List[Dict[str, Any]],
                channel_messages: List[Dict[str, Any]]) -> ChatMessage:
         chat_message = ChatMessage(
+            id=msg_id,
             message=message,
             response=response,
             sources=sources if sources else [],
