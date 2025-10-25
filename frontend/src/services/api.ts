@@ -33,5 +33,19 @@ export const apiService = {
   createChatStream: (message: string): EventSource => {
     const encodedMessage = encodeURIComponent(message);
     return new EventSource(`${config.backendHost}/api/chat/stream?message=${encodedMessage}`);
+  },
+
+  downloadChannelMessages: async (chatId: string, channel: string): Promise<void> => {
+    const response = await api.get(`/api/chat/channel-messages/${chatId}/${channel}`, {
+      responseType: 'blob'
+    });
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${channel}_messages_${chatId}.json`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
   }
 };
