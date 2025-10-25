@@ -24,7 +24,25 @@ The AI assistant specializes in marketing campaign generation, customer segmenta
 - 50 Website visitors (analytics data)  
 - 50 CRM contacts (sales pipeline data)
 
-## 📈 Improvements & Future Enhancements
+## 🏗️ Architecture Diagram
+
+For detailed architecture documentation, see [architecture-mermaid.md](architecture-mermaid.md)
+
+![Architecture Diagram](architecture.png)
+
+## � Key Considerations
+
+### Feedback Mechanism
+- **Iterative Decision Making**: The system uses a sophisticated feedback loop where validation results inform subsequent query generation attempts
+- **Learning from Mistakes**: Each failed validation provides specific feedback to the Query Generator, enabling continuous improvement within a single session
+- **Confidence-Based Refinement**: Agents iterate up to 10 times, using confidence scores and error messages to refine outputs for better results
+
+### Current Architecture Design
+- **Multi-Agent Orchestration**: Specialized agents handle distinct tasks with proper separation of concerns
+- **Real-time Streaming**: Server-Sent Events (SSE) provide live updates throughout the processing pipeline
+- **Context-Aware Processing**: Chat history integration enables conversational continuity and context enhancement
+
+## �📈 Improvements & Future Enhancements
 
 ### Current Architecture Benefits
 - **Serverless-Ready**: Designed for Vercel deployment without background workers
@@ -37,6 +55,19 @@ The AI assistant specializes in marketing campaign generation, customer segmenta
 - **Celery Integration**: Could implement sync API with Celery for more robust background processing
 - **Real-time Webhooks**: Direct integration with source APIs for instant updates
 - **Conflict Resolution**: Advanced merge strategies for duplicate customer data
+- **Cron Job Automation**: Add scheduled cron processes for automatic data syncing at regular intervals
+- **Message Broker Integration**: Replace current `stream_service` with enterprise-grade message brokers (RabbitMQ, Kafka) for better scalability
+
+#### 🔐 Authentication & Security
+- **SSO Integration**: Replace dummy business integrations with real-life Single Sign-On (OAuth2, SAML)
+- **Multi-tenant Support**: Proper organization and user management with role-based access control
+- **API Authentication**: Enhanced security layers for production-grade API access
+
+#### 🧠 AI & Learning Improvements
+- **Extended Context Window**: Increase context limit beyond current 50 messages for deeper conversation understanding
+- **Auto-Learning System**: Implement persistent learning from previous errors (infrastructure ready, easily integratable)
+- **Agent Behavior Optimization**: Fine-tune agent prompts and decision logic through iterative testing and A/B experiments
+- **Historical Pattern Recognition**: Leverage stored validation results for improved SQL generation accuracy
 
 #### 📊 Advanced Analytics Engine
 - **Customer Sync Service Enhancement**: Leverage `customer_sync_service.py` for deeper data analysis
@@ -51,6 +82,7 @@ The AI assistant specializes in marketing campaign generation, customer segmenta
 - **Website Analytics**: Google Analytics, Adobe Analytics, or Mixpanel integration for real visitor data
 - **Webhook Support**: Real-time data updates via webhooks from connected platforms
 - **Data Validation**: Enhanced data quality checks and duplicate detection for live data sources
+- **Remove Data Restrictions**: Current dummy data has many ingestion restrictions that can be lifted for production use
 
 ## 🔧 Technical Considerations
 
