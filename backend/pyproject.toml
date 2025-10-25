@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "adaptive-marketing-ai"
-version = "0.2.0"
+version = "0.3.0"
 description = "Adaptive marketing engine that connects to multiple platforms to generate campaign queries and answer natural language questions across channels."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -22,6 +22,9 @@ dependencies = [
     "openai",
     "python-dotenv",
     "psycopg2-binary",
+    "langchain-community",
+    "langchain-core",
+    "langchain",
 ]
 
 [project.optional-dependencies]
@@ -50,6 +53,7 @@ dev-dependencies = [
     "black>=23.0.0",
     "isort>=5.12.0",
     "flake8>=6.0.0",
+    "rich>=14.2.0",
 ]
 
 [tool.black]

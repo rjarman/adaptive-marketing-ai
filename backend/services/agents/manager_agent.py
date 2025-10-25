@@ -1,0 +1,162 @@
+from typing import AsyncGenerator
+
+from pydantic import BaseModel
+from rich import print
+
+from core.llm_handler import openai_client
+from core.prompt_hanlder import SYSTEM_PROMPT
+from core.settings import settings
+from core.utils import parse_json
+from models.schemas import QueryRequest, LlmResponseTypes
+from services.stream_service import StreamService, StreamMessage
+
+
+class ManagerDecision(BaseModel):
+    should_use_sql_agent: bool
+    reasoning: str
+    confidence_score: float
+    query_type: str
+
+
+class ManagerAgent:
+    _MANAGER_AGENT_TEMPERATURE = 0.7
+    _MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE = 0.3
+
+    _MANAGER_AGENT_MAX_TOKENS = 1000
+
+    def __init__(self, stream_service: StreamService):
+        self.stream_service = stream_service
+
+    @staticmethod
+    def _get_system_prompt() -> str:
+        return """You are the Manager Agent in a customer campaign analysis system.
+
+Your primary role is to analyze user queries and determine the appropriate action:
+
+1. **Campaign/SQL Queries**: These are queries about customer segmentation, campaigns, marketing analysis, or database queries.
+   Examples:
+   - "Create a campaign for customers who added items to cart but didn't buy in last 7 days"
+   - "Find high-value customers who haven't purchased recently"  
+   - "Show me customers with high engagement scores"
+   - "Get customers who accept marketing from Shopify"
+
+2. **General Queries**: These are conversational queries not related to customer data analysis.
+   Examples:
+   - "What is your purpose?"
+   - "How does this system work?"
+   - "What can you help me with?"
+
+For campaign/SQL queries, you should orchestrate the Query Generator and Validator agents.
+For general queries, provide a helpful response based on your system knowledge.
+
+**System Context:**
+- You have access to a customer database with comprehensive customer data
+- The system specializes in customer segmentation and campaign creation
+- Available data sources: Website, Shopify, CRMS systems
+- Customer data includes: engagement scores, purchase history, lifecycle stages, preferences
+
+**Decision Criteria:**
+- Use SQL agents for: campaigns, customer analysis, segmentation, marketing queries, database requests
+- Handle directly for: system questions, general conversation, help requests
+
+Respond in JSON format with your decision and reasoning."""
+
+    async def analyze_query(self, request: QueryRequest) -> ManagerDecision:
+        self.stream_service.add_message(StreamMessage(
+            response_type=LlmResponseTypes.AGENT_STATUS,
+            content=f"Manager analyzing query: '{request.user_message[:50]}...'"
+        ))
+
+        try:
+            messages = [
+                {"role": "system", "content": self._get_system_prompt()},
+                {"role": "user", "content": f"""
+Analyze this user query and determine if it should be handled by SQL agents or as a general query:
+
+Query: "{request.user_message}"
+
+Respond with a JSON object containing:
+- should_use_sql_agent: boolean
+- reasoning: string explaining your decision
+- confidence_score: float between 0-1
+- query_type: "campaign", "general", or "sql_direct"
+"""}
+            ]
+
+            response = await openai_client.chat.completions.create(
+                model=settings.openai_model,
+                messages=messages,
+                temperature=self._MANAGER_AGENT_TEMPERATURE,
+                max_tokens=self._MANAGER_AGENT_MAX_TOKENS
+            )
+            try:
+                response_content = response.choices[0].message.content
+                json_response = parse_json(response_content)
+                decision = ManagerDecision(**json_response)
+            except Exception:
+                raise
+
+            self.stream_service.add_message(StreamMessage(
+                response_type=LlmResponseTypes.AGENT_STATUS,
+                content=f"Decision: {'SQL Agent' if decision.should_use_sql_agent else 'General Response'} "
+                        f"(confidence: {decision.confidence_score:.2f})"
+            ))
+            print(f"[green]Manager decision: {decision.model_dump()}[/green]")
+            return decision
+
+        except Exception as e:
+            self.stream_service.add_message(StreamMessage(
+                response_type=LlmResponseTypes.SERVER_ERROR,
+                content=f"Manager Agent analysis error: {str(e)}"
+            ))
+            raise Exception("Failed to analyze query") from e
+
+    async def handle_general_query(self, request: QueryRequest, manager_decision: ManagerDecision) -> AsyncGenerator[
+        str, None]:
+        self.stream_service.add_message(StreamMessage(
+            response_type=LlmResponseTypes.AGENT_STATUS,
+            content="Manager Agent handling general query"
+        ))
+
+        try:
+            context_message = f"""
+Manager Analysis Context:
+- Query Type: {manager_decision.query_type}
+- Reasoning: {manager_decision.reasoning}
+- Confidence: {manager_decision.confidence_score:.2f}
+
+User Query: {request.user_message}
+
+Please provide a helpful response that takes into account the analysis above. If the query was close to being a campaign/SQL query, guide the user on how to rephrase it for better results.
+"""
+
+            messages = [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": context_message}
+            ]
+
+            print("[cyan]Manager Agent streaming general query response...[/cyan]")
+            self.stream_service.add_message(StreamMessage(
+                response_type=LlmResponseTypes.AGENT_THINKING,
+                content="Generating response..."
+            ))
+            response = await openai_client.chat.completions.create(
+                model=settings.openai_model,
+                messages=messages,
+                temperature=self._MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE,
+                stream=True
+            )
+            async for chunk in response:
+                if chunk.choices[0].delta.content:
+                    content = chunk.choices[0].delta.content
+                    yield content
+            print("[green]Manager Agent general query response completed[/green]")
+
+        except Exception as e:
+            error_msg = f"Error handling general query: {str(e)}"
+            print(f"[red]{error_msg}[/red]")
+            self.stream_service.add_message(StreamMessage(
+                response_type=LlmResponseTypes.SERVER_ERROR,
+                content=error_msg
+            ))
+            yield "I apologize, but I encountered an error while processing your request. Please try again or rephrase your question."

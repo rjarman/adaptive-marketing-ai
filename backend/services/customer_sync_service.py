@@ -33,7 +33,7 @@ class CustomerSyncService:
             return self._normalize_shopify_data(raw_data)
         elif data_source.upper() == "WEBSITE":
             return self._normalize_website_data(raw_data)
-        elif data_source.upper() == "CRM":
+        elif data_source.upper() == "CRMS":
             return self._normalize_crm_data(raw_data)
         else:
             raise ValueError(f"Unknown data source: {data_source}")
@@ -106,7 +106,7 @@ class CustomerSyncService:
     def _normalize_crm_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "source_customer_id": data["customer_id"],
-            "data_source": "CRM",
+            "data_source": "CRMS",
             "email": data["email"],
             "first_name": data["first_name"],
             "last_name": data["last_name"],
