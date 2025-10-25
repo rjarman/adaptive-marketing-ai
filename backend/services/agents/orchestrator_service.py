@@ -3,12 +3,16 @@ import asyncio
 from rich import print
 from sqlalchemy.orm import Session
 
+from models import Customer
 from models.schemas import (
     QueryRequest, QueryProcessingResult, LlmResponseTypes
 )
 from repositories.chat_repository import ChatRepository
+from repositories.customer_repository import CustomerRepository
 from services.agents import CONFIDENCE_THRESHOLD
+from services.agents.business_analyst_agent import BusinessAnalystAgent
 from services.agents.manager_agent import ManagerAgent, ManagerDecision
+from services.agents.marketing_agent import MarketingAgent
 from services.agents.paraphrase_agent import ParaphraseAgent
 from services.agents.query_generator_agent import QueryGeneratorAgent, QueryGenerationRequest
 from services.agents.validator_agent import ValidatorAgent, ValidationRequest
@@ -27,7 +31,10 @@ class OrchestratorService:
         self.manager_agent = ManagerAgent(stream_service)
         self.query_generator_agent = QueryGeneratorAgent(db, stream_service)
         self.validator_agent = ValidatorAgent(db, stream_service)
+        self.business_analyst = BusinessAnalystAgent(stream_service)
+        self.marketing_agent = MarketingAgent()
         self.chat_repository = ChatRepository(db)
+        self.customer_repository = CustomerRepository(db)
         self._processing_steps = []
 
     def __del__(self):
@@ -51,8 +58,6 @@ class OrchestratorService:
         ))
 
         iteration = 0
-        best_query = None
-        best_validation = None
         previous_validation_feedback = None
         previous_improvement_suggestions = None
         previous_execution_error = None
@@ -93,11 +98,8 @@ class OrchestratorService:
                     iteration=iteration
                 )
 
-                if best_validation is None or validation_result.confidence_score > best_validation.confidence_score:
-                    best_query = generated_query
-                    best_validation = validation_result
-
-                if validation_result.is_valid and validation_result.confidence_score >= CONFIDENCE_THRESHOLD:
+                if validation_result.has_security_error or (
+                        validation_result.is_valid and validation_result.confidence_score >= CONFIDENCE_THRESHOLD):
                     result = QueryProcessingResult(
                         success=True,
                         sql_query=generated_query.sql_query,
@@ -106,7 +108,47 @@ class OrchestratorService:
                         error_message=None,
                         processing_steps=self._processing_steps,
                         all_data=validation_result.all_data,
+                        confidence_score=validation_result.confidence_score
                     )
+                    async for analysis_chunk in self.business_analyst.analyze_result(result, request.user_message):
+                        self.stream_service.add_message(StreamMessage(
+                            response_type=LlmResponseTypes.LLM_RESPONSE,
+                            content=analysis_chunk
+                        ))
+
+                    if result.all_data:
+                        self.stream_service.add_message(StreamMessage(
+                            response_type=LlmResponseTypes.RETRIEVED_DATA,
+                            content="Sources used for the response.",
+                            data={"sources": result.all_data}
+                        ))
+                        all_customer_ids = [data.get("id", "") for data in result.all_data]
+                        customer_data = self.customer_repository.get_customer_by_id(all_customer_ids)
+                        if customer_data:
+                            self.stream_service.add_message(StreamMessage(
+                                response_type=LlmResponseTypes.AGENT_STATUS,
+                                content="Generating marketing campaign messages..."
+                            ))
+                            is_marketing_messages_needed = await self.marketing_agent.is_marketing_messages_needed(
+                                request.user_message,
+                            )
+                            if is_marketing_messages_needed:
+                                properties = Customer.get_referable_properties()
+                                self.stream_service.add_message(StreamMessage(
+                                    response_type=LlmResponseTypes.GENERATING_CHANNEL_MESSAGE,
+                                    content="Generating messages for marketing channels..."
+                                ))
+                                campaign_messages = await self.marketing_agent.generate_campaign_messages(result,
+                                                                                                          request.user_message,
+                                                                                                          properties)
+                                enriched_messages = self.marketing_agent.enrich_messages_with_customer_data(
+                                    campaign_messages, customer_data, [p[0] for p in properties]
+                                )
+                                self.stream_service.add_message(StreamMessage(
+                                    response_type=LlmResponseTypes.CHANNEL_MESSAGE,
+                                    content="Marketing campaign messages generated",
+                                    data={"channels": enriched_messages}
+                                ))
                     self.stream_service.add_message(StreamMessage(
                         response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
                         content=f"Query validated successfully on attempt {iteration}",
@@ -155,38 +197,7 @@ class OrchestratorService:
                     break
 
                 await asyncio.sleep(0.5)
-
-        if best_query and best_validation:
-            result = QueryProcessingResult(
-                # comparing the final result with a lower score than CONFIDENCE_THRESHOLD is a fallback for cases where the validation failed for some reason
-                success=best_validation.confidence_score >= self._FALLBACK_CONFIDENCE_THRESHOLD,
-                sql_query=best_query.sql_query,
-                explanation=best_query.explanation,
-                validation_result=best_validation,
-                error_message=f"Query generated with moderate confidence after {self._MAX_ITERATIONS} attempts" if best_validation.confidence_score < CONFIDENCE_THRESHOLD else None,
-                processing_steps=self._processing_steps
-            )
-            self.stream_service.add_message(StreamMessage(
-                response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
-                content=f"Using best query from {self._MAX_ITERATIONS} attempts (confidence: {best_validation.confidence_score:.2f})",
-                data=result.model_dump()
-            ))
-
-            self._processing_steps.append(f"Final result: Best query from {self._MAX_ITERATIONS} attempts")
-            await asyncio.sleep(0.1)
-            self.stream_service.end_streaming()
-            return result
-
-        self._processing_steps.append("Failed to generate valid query after all attempts")
-        self.stream_service.end_streaming()
-        return QueryProcessingResult(
-            success=False,
-            sql_query=None,
-            explanation=None,
-            validation_result=None,
-            error_message=f"Failed to generate valid query after {self._MAX_ITERATIONS} attempts",
-            processing_steps=self._processing_steps
-        )
+        raise Exception(f"Failed to generate valid SQL query after {self._MAX_ITERATIONS} attempts")
 
     async def _process_general_query(
             self,
@@ -199,19 +210,26 @@ class OrchestratorService:
         ))
 
         try:
-            response = await self.manager_agent.handle_general_query(request, manager_decision)
+            response_chunks = []
+            async for chunk in self.manager_agent.handle_general_query(request, manager_decision):
+                self.stream_service.add_message(StreamMessage(
+                    response_type=LlmResponseTypes.LLM_RESPONSE,
+                    content=chunk
+                ))
+                response_chunks.append(chunk)
+            full_response = "".join(response_chunks)
             self._processing_steps.append("Manager handled general query successfully")
 
             result = QueryProcessingResult(
                 success=True,
                 sql_query=None,
-                explanation=response,
+                explanation=full_response,
                 validation_result=None,
                 error_message=None,
                 processing_steps=self._processing_steps
             )
             self.stream_service.add_message(StreamMessage(
-                response_type=LlmResponseTypes.QUERY_PROCESSING_RESULT,
+                response_type=LlmResponseTypes.GENERAL_QUERY_RESPONSE,
                 content="General query handled successfully",
                 data=result.model_dump()
             ))

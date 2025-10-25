@@ -1,4 +1,4 @@
-import json
+from typing import AsyncGenerator
 
 from pydantic import BaseModel
 from rich import print
@@ -6,6 +6,7 @@ from rich import print
 from core.llm_handler import openai_client
 from core.prompt_hanlder import SYSTEM_PROMPT
 from core.settings import settings
+from core.utils import parse_json
 from models.schemas import QueryRequest, LlmResponseTypes
 from services.stream_service import StreamService, StreamMessage
 
@@ -51,7 +52,7 @@ For general queries, provide a helpful response based on your system knowledge.
 **System Context:**
 - You have access to a customer database with comprehensive customer data
 - The system specializes in customer segmentation and campaign creation
-- Available data sources: Website, Shopify, CRM systems
+- Available data sources: Website, Shopify, CRMS systems
 - Customer data includes: engagement scores, purchase history, lifecycle stages, preferences
 
 **Decision Criteria:**
@@ -61,7 +62,6 @@ For general queries, provide a helpful response based on your system knowledge.
 Respond in JSON format with your decision and reasoning."""
 
     async def analyze_query(self, request: QueryRequest) -> ManagerDecision:
-        # @todo make sure query has read only operation
         self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content=f"Manager analyzing query: '{request.user_message[:50]}...'"
@@ -89,22 +89,13 @@ Respond with a JSON object containing:
                 temperature=self._MANAGER_AGENT_TEMPERATURE,
                 max_tokens=self._MANAGER_AGENT_MAX_TOKENS
             )
-
-            response_content = response.choices[0].message.content
-
             try:
-                start_idx = response_content.find('{')
-                end_idx = response_content.rfind('}') + 1
-                if start_idx != -1 and end_idx != -1:
-                    json_str = response_content[start_idx:end_idx]
-                    decision_data = json.loads(json_str)
-                else:
-                    raise ValueError("No JSON found in response")
+                response_content = response.choices[0].message.content
+                json_response = parse_json(response_content)
+                decision = ManagerDecision(**json_response)
+            except Exception:
+                raise
 
-            except (json.JSONDecodeError, ValueError):
-                raise ValueError("Failed to parse JSON from response")
-
-            decision = ManagerDecision(**decision_data)
             self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.AGENT_STATUS,
                 content=f"Decision: {'SQL Agent' if decision.should_use_sql_agent else 'General Response'} "
@@ -120,7 +111,8 @@ Respond with a JSON object containing:
             ))
             raise Exception("Failed to analyze query") from e
 
-    async def handle_general_query(self, request: QueryRequest, manager_decision: ManagerDecision) -> str:
+    async def handle_general_query(self, request: QueryRequest, manager_decision: ManagerDecision) -> AsyncGenerator[
+        str, None]:
         self.stream_service.add_message(StreamMessage(
             response_type=LlmResponseTypes.AGENT_STATUS,
             content="Manager Agent handling general query"
@@ -142,20 +134,29 @@ Please provide a helpful response that takes into account the analysis above. If
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": context_message}
             ]
-            # @todo make query streamable in chunk
+
+            print("[cyan]Manager Agent streaming general query response...[/cyan]")
+            self.stream_service.add_message(StreamMessage(
+                response_type=LlmResponseTypes.AGENT_THINKING,
+                content="Generating response..."
+            ))
             response = await openai_client.chat.completions.create(
                 model=settings.openai_model,
                 messages=messages,
-                temperature=self._MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE
+                temperature=self._MANAGER_AGENT_GENERAL_QUERY_TEMPERATURE,
+                stream=True
             )
-            result = response.choices[0].message.content
-            print(f"[blue]Manager response: {result}[/blue]")
-            return result
+            async for chunk in response:
+                if chunk.choices[0].delta.content:
+                    content = chunk.choices[0].delta.content
+                    yield content
+            print("[green]Manager Agent general query response completed[/green]")
 
         except Exception as e:
             error_msg = f"Error handling general query: {str(e)}"
+            print(f"[red]{error_msg}[/red]")
             self.stream_service.add_message(StreamMessage(
                 response_type=LlmResponseTypes.SERVER_ERROR,
                 content=error_msg
             ))
-            return "I apologize, but I encountered an error while processing your request. Please try again or rephrase your question."
+            yield "I apologize, but I encountered an error while processing your request. Please try again or rephrase your question."

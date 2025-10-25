@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from core.database_schema_prompt import get_database_schema_prompt
 from core.llm_handler import openai_client
 from core.settings import settings
+from core.utils import parse_json
 from models.schemas import GeneratedQuery, LlmResponseTypes
 from services.stream_service import StreamService, StreamMessage
 
@@ -51,32 +52,26 @@ class QueryGeneratorAgent:
 
     @staticmethod
     def _get_system_prompt() -> str:
-        return f"""You are a PostgreSQL Query Generator Agent specialized in customer campaign analysis.
+        return f"""You are a PostgreSQL Query Generator Agent that generates syntactically correct PostgreSQL queries based on user requests and specialized in customer campaign analysis.
 
 Your role is to generate syntactically correct PostgreSQL queries based on user requests for customer segmentation and campaign targeting.
 
 {get_database_schema_prompt()}
 
-**Common Campaign Patterns:**
-1. **Cart Abandonment**: engagement_score < 50 AND last_interaction >= NOW() - INTERVAL '7 days'
-2. **High-Value Customers**: total_value >= 500 AND engagement_score >= 70
-3. **Inactive Customers**: last_interaction < NOW() - INTERVAL '30 days'
-4. **New Customers**: created_at >= NOW() - INTERVAL '14 days'
-5. **Re-engagement**: last_engagement_time < NOW() - INTERVAL '14 days' AND accepts_marketing = true
-
 **Query Generation Rules:**
-1. Always include accepts_marketing = true for campaign queries
-2. Use appropriate date intervals (INTERVAL '7 days', '30 days', etc.)
-3. Select relevant columns for the use case
+1. **CRITICAL**: Generate the appropriate SQL query type based on user intention
+2. **CRITICAL**: Only add constraints/filters that the user explicitly requests
+3. For SELECT queries: Include relevant columns based on the use case
 4. Use proper PostgreSQL syntax and functions
-5. Include ORDER BY for meaningful result ordering
-6. Never use INSERT, UPDATE, DELETE, or DROP statements
-7. **MANDATORY COLUMNS**: ALWAYS include these columns in every SELECT statement:
-   - email
-   - data_source
-   - first_name
-   - last_name
-   These columns MUST be present regardless of the query type or user request
+5. Include appropriate ORDER BY, or other clauses when beneficial
+
+**SELECT Query Specific Rules:**
+- **MANDATORY COLUMNS for customer queries**: When selecting from customers table, ALWAYS include:
+  - id, email, data_source, first_name, last_name
+- Only add accepts_marketing = true filter for campaign-related SELECT queries
+- Include ORDER BY for meaningful result ordering
+
+**IMPORTANT**: Generate queries that match the user's exact intention. Do NOT automatically add filters or constraints that the user did not explicitly request.
 
 **Feedback Integration:**
 When validation feedback is provided from previous attempts:
@@ -97,20 +92,20 @@ When execution_error is provided from previous attempts:
 
 **Response Format:**
 Generate a JSON response with:
-- sql_query: The PostgreSQL query
+- sql_query: The PostgreSQL query (any valid SQL operation)
 - explanation: Clear explanation of what the query does
 - confidence_score: Your confidence in the query (0-1)
 - tables_used: List of tables used
 
 Example response format:
 {{
-    "sql_query": "SELECT email, data_source, first_name, last_name, total_value, engagement_score FROM customers WHERE...",
+    "sql_query": "SELECT id, email, data_source, first_name, last_name, total_value FROM customers WHERE...",
     "explanation": "This query finds customers who...",
     "confidence_score": 0.95,
     "tables_used": ["customers"]
 }}
 
-IMPORTANT: The SELECT clause MUST include email, data_source, first_name, and last_name at minimum."""
+IMPORTANT: The SELECT clause MUST include id, email, data_source, first_name, and last_name at minimum."""
 
     async def generate_query(self, request: QueryGenerationRequest) -> GeneratedQuery:
         self.stream_service.add_message(StreamMessage(
@@ -122,7 +117,7 @@ IMPORTANT: The SELECT clause MUST include email, data_source, first_name, and la
             messages = [
                 {"role": "system", "content": self._get_system_prompt()},
                 {"role": "user", "content": f"""
-Generate a PostgreSQL query for this customer campaign request:
+Generate a PostgreSQL query based on this user request:
 
 User Request: "{request.user_message}"
 
@@ -135,9 +130,9 @@ Additional Context: {json.dumps(request.context) if request.context else "None"}
 Focus on creating a query that:
 1. Targets customers who accept marketing (accepts_marketing = true)
 2. Uses appropriate date filters for time-based criteria
-3. Selects relevant customer information for campaign use
+3. Selects relevant customer information analysing user intent
 4. Includes proper ordering for best results first
-5. **MUST include these mandatory columns in SELECT: email, data_source, first_name, last_name**
+5. **MUST include these mandatory columns in SELECT: id, email, data_source, first_name, last_name**
 
 Respond with a valid JSON object containing the query details.
 """}
@@ -156,20 +151,13 @@ Respond with a valid JSON object containing the query details.
             )
             response_content = response.choices[0].message.content
             try:
-                start_idx = response_content.find('{')
-                end_idx = response_content.rfind('}') + 1
-                if start_idx != -1 and end_idx != -1:
-                    json_str = response_content[start_idx:end_idx]
-                    query_data = json.loads(json_str)
-                else:
-                    raise ValueError("No JSON found in response")
-
+                query_data = parse_json(response_content)
             except (json.JSONDecodeError, ValueError) as e:
                 print(f"[yellow]Warning: Failed to parse JSON from response: {e}[/yellow]")
-                raise ValueError("Failed to parse JSON from response") from e
+                raise
 
             if "sql_query" not in query_data:
-                raise ValueError("Generated response missing sql_query field")
+                query_data["sql_query"] = ""
 
             generated_query = GeneratedQuery(
                 sql_query=query_data["sql_query"],

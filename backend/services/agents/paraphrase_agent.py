@@ -6,6 +6,7 @@ from rich import print
 
 from core.llm_handler import openai_client
 from core.settings import settings
+from core.utils import parse_json
 from models.models import ChatMessage
 
 
@@ -52,9 +53,9 @@ class ParaphraseAgent:
                 "reasoning": "Complete query with specific segment (enterprise) and value criteria ($50k+)."
             },
             {
-                "user_message": "Show me all CRM customers with lifecycle stage 'customer' and high purchase intent",
+                "user_message": "Show me all CRMS customers with lifecycle stage 'customer' and high purchase intent",
                 "needs_context": False,
-                "reasoning": "Standalone query specifying data source (CRM), lifecycle stage, and purchase intent criteria."
+                "reasoning": "Standalone query specifying data source (CRMS), lifecycle stage, and purchase intent criteria."
             },
             # === CONTEXT-DEPENDENT QUERIES (Need Previous Context) ===
             {
@@ -128,7 +129,7 @@ class ParaphraseAgent:
                 "reasoning": "Uses 'those customers' referring to specific customer set from previous query for tag updates."
             },
             {
-                "user_message": "Export the same data for the CRM integration",
+                "user_message": "Export the same data for the CRMS integration",
                 "needs_context": True,
                 "reasoning": "Uses 'same data' referring to previous data export or analysis for different integration source."
             },
@@ -152,6 +153,93 @@ class ParaphraseAgent:
                 "user_message": "Identify VIP customers with declining engagement scores over the past 6 months",
                 "needs_context": False,
                 "reasoning": "Complete standalone request with specific customer tier (VIP), metric (engagement), and timeframe (6 months)."
+            },
+            # === MARKETING CAMPAIGN CONTEXT-DEPENDENT QUERIES ===
+            {
+                "user_message": "Can you create a marketing campaign for him?",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'him' referring to a specific customer mentioned in previous conversation."
+            },
+            {
+                "user_message": "can you create a marketing campeign for him?",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'him' referring to a specific customer mentioned in previous conversation (misspelling doesn't change context dependency)."
+            },
+            {
+                "user_message": "can you create a marketing campeign for him? depening on his data that suits most",
+                "needs_context": True,
+                "reasoning": "Uses pronouns 'him' and 'his' referring to specific customer from previous context, needs customer data."
+            },
+            {
+                "user_message": "Create a campaign for them",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'them' referring to previously identified customer group or segment."
+            },
+            {
+                "user_message": "Generate marketing messages for these customers",
+                "needs_context": True,
+                "reasoning": "Uses demonstrative 'these customers' referring to specific customer set from previous analysis."
+            },
+            {
+                "user_message": "Send a promotional email to him",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'him' referring to specific customer from previous context."
+            },
+            {
+                "user_message": "Create ads targeting those users",
+                "needs_context": True,
+                "reasoning": "Uses 'those users' referring to previously identified customer segment."
+            },
+            {
+                "user_message": "what type of campeign should I create for her?",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'her' referring to specific female customer from previous conversation context."
+            },
+            {
+                "user_message": "Send this offer to everyone who purchased recently",
+                "needs_context": True,
+                "reasoning": "Uses demonstrative 'this offer' and indefinite 'everyone' referring to specific offer and customer segment from previous context."
+            },
+            {
+                "user_message": "What about those customers we discussed?",
+                "needs_context": True,
+                "reasoning": "Uses demonstrative 'those customers' referring to specific customer group from previous conversation."
+            },
+            {
+                "user_message": "Can someone help me understand their buying patterns?",
+                "needs_context": True,
+                "reasoning": "Uses indefinite 'someone' and possessive 'their' referring to previously mentioned customer group."
+            },
+            {
+                "user_message": "Each of them needs a different approach",
+                "needs_context": True,
+                "reasoning": "Uses distributive 'each' and pronoun 'them' referring to previously identified customer segments."
+            },
+            {
+                "user_message": "Show me whose engagement scores are declining",
+                "needs_context": False,
+                "reasoning": "Complete standalone query with specific metric (engagement scores) and criteria (declining) - 'whose' here is interrogative, not referential."
+            },
+            # === ADDITIONAL CUSTOMER IDENTIFIER EXAMPLES ===
+            {
+                "user_message": "Create a campaign for her based on her purchase history",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'her' (twice) referring to specific female customer from previous context - could be identified by email, name, or ID."
+            },
+            {
+                "user_message": "Send him a personalized offer",
+                "needs_context": True,
+                "reasoning": "Uses pronoun 'him' referring to specific male customer from previous context - could be identified by email, name, customer ID, or other identifier."
+            },
+            {
+                "user_message": "What's their lifetime value?",
+                "needs_context": True,
+                "reasoning": "Uses possessive 'their' referring to previously mentioned customer(s) - could reference individuals or groups identified by various means."
+            },
+            {
+                "user_message": "Update his contact preferences",
+                "needs_context": True,
+                "reasoning": "Uses possessive 'his' referring to specific male customer from previous context - needs customer identification to update records."
             }
         ]
 
@@ -213,13 +301,20 @@ TASK: Analyze the given user message and determine if it needs context from prev
 EXAMPLES:
 {examples_text}
 
-ANALYSIS CRITERIA FOR CRM/E-COMMERCE/MARKETING QUERIES:
-- Messages with pronouns (it, that, they, them, their, those, etc.) referring to customers, segments, or data usually need context
+ANALYSIS CRITERIA FOR CRMS/E-COMMERCE/MARKETING QUERIES:
+- Messages with pronouns or referential expressions referring to customers, segments, or data usually need context:
+  * Personal: he, she, him, her, his, hers, they, them, their, theirs, it, its
+  * Demonstrative: this, that, these, those
+  * Possessive: mine, yours, ours, theirs
+  * Reflexive: himself, herself, themselves, itself
+  * Indefinite: someone, somebody, anyone, anybody, everyone, everybody, one, some, any, all, each, either, neither, none
+  * Relative: who, whom, whose, which, that (when referring to previously mentioned entities)
 - Follow-up questions (what about, how about, and what, etc.) typically build on previous customer analysis
 - Messages starting with conjunctions (and, but, also, etc.) often continue previous analysis workflows
 - Comparative references (similar to, different from, compared to) need baseline context from previous queries
 - Action words without clear subjects (filter, segment, update, export) often need context about what to act upon
 - References to "the data", "those customers", "same analysis" clearly need previous context
+- Marketing campaign requests with pronouns (create campaign for him/her/them, send email to him/them) need customer context
 - Complete requests with specific criteria (data source, timeframe, metrics, segments) are usually standalone
 - Business terms like "high-value", "VIP", "enterprise", "abandoned cart" with clear parameters are standalone
 
@@ -246,31 +341,15 @@ JSON Response:"""
             result_text = response.choices[0].message.content.strip()
 
             try:
-                result = json.loads(result_text)
-                if all(key in result for key in ['needs_context', 'confidence', 'reasoning']):
-                    return DependencyAnalysisResult(**result)
-                else:
-                    print(f"[yellow]Invalid JSON structure in dependency analysis: {result}[/yellow]")
-                    return DependencyAnalysisResult(
-                        needs_context=False,
-                        confidence=0.5,
-                        reasoning="Failed to parse LLM response properly"
-                    )
+                result = parse_json(result_text)
+                return DependencyAnalysisResult(**result)
             except json.JSONDecodeError as e:
                 print(f"[yellow]Failed to parse JSON from dependency analysis: {e}[/yellow]")
                 print(f"[dim]Raw response: {result_text}[/dim]")
-                return DependencyAnalysisResult(
-                    needs_context=False,
-                    confidence=0.5,
-                    reasoning="Failed to parse LLM response as JSON"
-                )
+                raise Exception("Failed to parse JSON from dependency analysis") from e
         except Exception as e:
             print(f"[red]Error in LLM dependency analysis: {e}[/red]")
-            return DependencyAnalysisResult(
-                needs_context=False,
-                confidence=0.3,
-                reasoning="Error in analysis: " + str(e)
-            )
+            raise Exception("Error in LLM dependency analysis") from e
 
     async def _extract_smart_context(self, user_message: str, chat_history: List[ChatMessage],
                                      dependency_analysis: DependencyAnalysisResult,
@@ -297,20 +376,21 @@ JSON Response:"""
             conversation_history = []
             for i, msg in enumerate(reversed(recent_messages)):
                 if msg.message and msg.response:
-                    response_preview = msg.response[:self._MAX_HISTORY_LENGTH] + "..." if len(
-                        msg.response) > self._MAX_HISTORY_LENGTH else msg.response
                     conversation_history.append({
                         "index": len(recent_messages) - i,
                         "user_message": msg.message,
-                        "assistant_response": response_preview
                     })
             if not conversation_history:
                 return ""
 
             conversation_text = "\n".join([
-                f"[{conv['index']}] User: {conv['user_message']}\n[{conv['index']}] Assistant: {conv['assistant_response']}"
+                f"[{conv['index']}] User: {conv['user_message']}\n"
                 for conv in conversation_history
             ])
+
+            chronological_note = f"""
+NOTE: Messages are numbered from MOST RECENT ([{len(conversation_history)}]) to OLDEST ([1]). 
+When resolving pronouns, prioritize entities mentioned in higher-numbered (more recent) messages first."""
             prompt = f"""You are an expert at extracting relevant context from conversation history to help understand a current user message.
 
 CURRENT USER MESSAGE: "{user_message}"
@@ -318,6 +398,7 @@ CURRENT USER MESSAGE: "{user_message}"
 DEPENDENCY ANALYSIS: {dependency_analysis.reasoning}
 
 CONVERSATION HISTORY (most recent first):
+{chronological_note}
 {conversation_text}
 
 TASK: Extract ONLY the most relevant business context needed to understand the current user message. Focus on:
@@ -325,20 +406,41 @@ TASK: Extract ONLY the most relevant business context needed to understand the c
 - Previous analysis results, metrics, or reports that the current message builds upon
 - Specific customer criteria, filters, or business parameters from previous queries
 - Campaign data, engagement metrics, or performance indicators being referenced
+- PRONOUN RESOLUTION: Identify what specific customers, segments, or entities pronouns and referential expressions refer to (personal: he, she, him, her, his, hers, they, them, their, theirs, it, its; demonstrative: this, that, these, those; possessive: mine, yours, ours, theirs; reflexive: himself, herself, themselves, itself; indefinite: someone, somebody, anyone, anybody, everyone, everybody, one, some, any, all, each, either, neither, none; relative: who, whom, whose, which, that)
 
 BUSINESS CONTEXT PRIORITIES:
-- Customer identification: Which customers/segments were previously discussed
-- Data source context: Which integrations (Shopify, Website, CRM) were analyzed
+- Customer identification: Which customers/segments were previously discussed (include ALL customer identifiers: email addresses, full names, first names, last names, customer IDs, phone numbers, usernames, account numbers, etc.)
+- Data source context: Which integrations (Shopify, Website, CRMS) were analyzed
 - Metric context: What KPIs, engagement scores, or business metrics were shown
 - Time context: What date ranges or periods were being analyzed
 - Filter context: What criteria or segments were applied in previous queries
+- Pronoun references: What specific entities do pronouns and referential expressions in the current message refer to
+
+SPECIAL INSTRUCTIONS FOR PRONOUN RESOLUTION:
+- If the current message contains ANY pronouns or referential expressions, ALWAYS identify what they refer to from the conversation history
+- CHRONOLOGICAL PRIORITY: Search for antecedents from MOST RECENT to OLDEST messages first
+- Look for ALL types of customer identifiers in recent messages: email addresses (john@email.com), full names (John Doe), first names (John), last names (Doe), customer IDs (#12345), phone numbers, usernames, account numbers, etc.
+- For marketing campaign requests with pronouns, identify the specific customer(s) being referenced using the most recent relevant mention
+- Even if the pronoun reference seems obvious, explicitly state what it refers to and include all available customer details
+- Pronouns to resolve include: he, she, him, her, his, hers, they, them, their, theirs, it, its, this, that, these, those, mine, yours, ours, theirs, himself, herself, themselves, itself, someone, somebody, anyone, anybody, everyone, everybody, one, some, any, all, each, either, neither, none, who, whom, whose, which, that (when referential)
 
 INSTRUCTIONS:
 - Be selective - only include business context directly relevant to the current message
 - Prioritize customer segment and data source information
 - Include key metrics or criteria from previous analysis
+- ALWAYS resolve pronouns to specific entities when present
+- COMPREHENSIVE CUSTOMER SCANNING: When pronouns are present, scan ALL previous messages for ANY customer identifiers including:
+  * Email addresses (example@email.com)
+  * Full names (John Doe)
+  * First names only (John)
+  * Last names (Doe)
+  * Customer IDs (#12345, CUST_001)
+  * Phone numbers (+1234567890)
+  * Usernames (@johndoe)
+  * Account numbers or any other unique identifiers
+- When multiple identifiers exist for the same customer in the same message, include all available information
 - Summarize complex business data to keep context actionable
-- If no business context is relevant, return "NO_RELEVANT_CONTEXT"
+- Only return "NO_RELEVANT_CONTEXT" if there is truly no relevant context AND no pronouns to resolve
 
 RELEVANT CONTEXT:"""
 
@@ -376,7 +478,7 @@ RELEVANT CONTEXT:"""
         recent_messages = chat_history[-max_context_messages:] if len(
             chat_history) > max_context_messages else chat_history
         context_parts = []
-        for i, msg in enumerate(reversed(recent_messages)):  # Most recent first
+        for i, msg in enumerate(reversed(recent_messages)):
             if i >= max_context_messages:
                 break
             if msg.message and msg.response:
@@ -411,7 +513,7 @@ RELEVANT CONTEXT:"""
 TASK: Take the current user message and the previous conversation context, then generate a new, comprehensive query that:
 1. Preserves the user's original intention completely
 2. Includes necessary context from previous messages to make the query self-contained
-3. Resolves any pronouns or references (it, that, they, etc.) with specific entities
+3. Resolves any pronouns or referential expressions with specific entities (personal: he, she, him, her, his, hers, they, them, their, theirs, it, its; demonstrative: this, that, these, those; possessive: mine, yours, ours, theirs; reflexive: himself, herself, themselves, itself; indefinite: someone, somebody, anyone, anybody, everyone, everybody, one, some, any, all, each, either, neither, none; relative: who, whom, whose, which, that when referential)
 4. Makes the query clear and unambiguous for an AI assistant to understand
 
 PREVIOUS CONVERSATION CONTEXT:
@@ -421,12 +523,24 @@ CURRENT USER MESSAGE:
 {user_message}
 
 INSTRUCTIONS:
-- If the user message refers to "it", "that", "they", etc., replace with specific entities from context
+- If the user message contains ANY pronouns or referential expressions, replace with specific entities from context
+- CHRONOLOGICAL PRIORITY: When resolving pronouns, use the most recent relevant entity mentioned first
+- For marketing campaign requests, ensure the target customer(s) are explicitly identified using the most recent relevant identifier from context
 - If the user asks a follow-up question, include the relevant topic from previous discussion
 - Keep the user's tone and intent intact
 - Make the query standalone - someone reading just this query should understand what's being asked
 - If the user message is already clear and complete, you may return it unchanged
 - Do not add unnecessary details or change the scope of the question
+- CRITICAL: Always replace pronouns with customer identifiers from the most recent relevant context when creating marketing campaigns
+- Look for ALL customer identifier types: emails (john@email.com), full names (John Doe), first names (John), last names (Doe), customer IDs (#12345), phone numbers (+1234567890), usernames (@johndoe), account numbers, etc.
+- Pronouns to resolve: he, she, him, her, his, hers, they, them, their, theirs, it, its, this, that, these, those, mine, yours, ours, theirs, himself, herself, themselves, itself, someone, somebody, anyone, anybody, everyone, everybody, one, some, any, all, each, either, neither, none, who, whom, whose, which, that (when referential)
+
+EXAMPLES:
+- "can you create a marketing campaign for him?" + context about example@email.com → "can you create a marketing campaign for the customer example@email.com?"
+- "can you create a marketing campaign for him?" + context about customer "Example" (first name) → "can you create a marketing campaign for the customer Example?"
+- "can you create a marketing campaign for him?" + context about Example Name (full name) mentioned most recently → "can you create a marketing campaign for the customer John Doe?"
+- "send them a promotional email" + context about high-value Shopify customers → "send the high-value Shopify customers a promotional email"
+- "what's his purchase history?" + context about customer ID #12345 → "what's the purchase history for customer #12345?"
 
 Generate the enhanced query:"""
 

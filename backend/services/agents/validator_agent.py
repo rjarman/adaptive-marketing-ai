@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from core.database_schema_prompt import get_database_schema_prompt
 from core.llm_handler import openai_client
 from core.settings import settings
+from core.utils import parse_json
 from models.schemas import QueryValidationResult, GeneratedQuery, LlmResponseTypes
 from services.agents import CONFIDENCE_THRESHOLD
 from services.stream_service import StreamService, StreamMessage
@@ -34,7 +35,7 @@ class ValidatorAgent:
         return f"""You are a Validator Agent specialized in validating PostgreSQL queries against user intent for customer campaign analysis.
 
 Your role is to:
-1. Execute the generated SQL query safely (with LIMIT to get sample data)
+1. Execute the generated SQL query safely
 2. Analyze the sample results against the user's original request
 3. Determine if the query correctly addresses the user's intent
 4. Provide validation feedback with confidence score
@@ -48,6 +49,7 @@ Your role is to:
 4. **Marketing Focus**: Does it properly filter for accepts_marketing = true?
 5. **Data Quality**: Are the sample results meaningful and expected?
 6. **MANDATORY COLUMNS**: The SELECT clause MUST include these required columns:
+   - id
    - email
    - data_source
    - first_name
@@ -77,7 +79,7 @@ Provide JSON response with:
 
 **Low Confidence Analysis:**
 When confidence < {CONFIDENCE_THRESHOLD}, provide detailed explanations covering:
-- Missing mandatory columns (email, data_source, first_name, last_name) - these MUST be present
+- Missing mandatory columns (id, email, data_source, first_name, last_name) - these MUST be present
 - Missing or incorrect filters (dates, segments, conditions) - reference actual schema columns
 - Inappropriate column selections for campaign use - suggest better columns from schema
 - Sample data quality issues (empty results, irrelevant customers)
@@ -87,7 +89,7 @@ When confidence < {CONFIDENCE_THRESHOLD}, provide detailed explanations covering
 - Missing key campaign columns (engagement_score, total_value, lifecycle_stage, etc.)
 
 **Improvement Suggestions Guidelines:**
-- Always ensure mandatory columns are present: email, data_source, first_name, last_name
+- Always ensure mandatory columns are present: id, email, data_source, first_name, last_name
 - Only suggest columns that exist in the schema
 - Recommend appropriate data types and formats
 - Consider campaign-specific columns (engagement_score, total_value, accepts_marketing)
@@ -103,7 +105,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
         ))
 
         try:
-            all_data, execution_error = await self._execute_query_safely(
+            all_data, execution_error, has_security_error = await self._execute_query_safely(
                 request.generated_query.sql_query,
             )
             if execution_error:
@@ -116,7 +118,8 @@ Focus on practical campaign usability and customer targeting accuracy."""
                     is_valid=False,
                     confidence_score=0.0,
                     validation_details=f"Query execution failed: {execution_error}",
-                    error_message=execution_error
+                    error_message=execution_error,
+                    has_security_error=has_security_error
                 )
             print(f"[cyan]Sample data: {all_data}[/cyan]")
             self.stream_service.add_message(StreamMessage(
@@ -155,18 +158,30 @@ Focus on practical campaign usability and customer targeting accuracy."""
             )
             return validation_result
 
-    async def _execute_query_safely(self, sql_query: str) -> Tuple[Optional[List[Dict[str, Any]]], Optional[str]]:
-        try:
-            query_upper = sql_query.upper().strip()
-            if 'LIMIT' not in query_upper:
-                sql_query = sql_query.rstrip(';') + f' LIMIT {self._MAX_SAMPLES}'
-            else:
-                limit_match = re.search(r'LIMIT\s+(\d+)', sql_query, re.IGNORECASE)
-                if limit_match:
-                    existing_limit = int(limit_match.group(1))
-                    if existing_limit > self._MAX_SAMPLES:
-                        sql_query = re.sub(r'LIMIT\s+\d+', f'LIMIT {self._MAX_SAMPLES}', sql_query, flags=re.IGNORECASE)
+    @staticmethod
+    def _validate_query_security(sql_query: str) -> Optional[str]:
+        dangerous_patterns = [
+            r'\bINSERT\b', r'\bUPDATE\b', r'\bDELETE\b', r'\bDROP\b',
+            r'\bALTER\b', r'\bCREATE\b', r'\bTRUNCATE\b', r'\bREPLACE\b',
+            r'\bMERGE\b', r'\bGRANT\b', r'\bREVOKE\b',
+        ]
 
+        for pattern in dangerous_patterns:
+            match = re.search(pattern, sql_query, re.IGNORECASE)
+            if match:
+                operation = match.group().strip()
+                return f"SECURITY VIOLATION: {operation} operation is not allowed. Only SELECT queries are permitted for customer campaign analysis."
+        if not sql_query.strip().upper().startswith('SELECT'):
+            return "SECURITY VIOLATION: Only SELECT queries are allowed. Query must start with SELECT."
+
+        return None
+
+    async def _execute_query_safely(self, sql_query: str) -> Tuple[Optional[List[Dict[str, Any]]], Optional[str], bool]:
+        try:
+            sql_query = sql_query.strip()
+            security_error = self._validate_query_security(sql_query)
+            if security_error:
+                return None, security_error, True
             result = self.db.execute(text(sql_query))
             columns = result.keys()
             rows = result.fetchall()
@@ -180,7 +195,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
                     row_dict[column] = value
                 sample_data.append(row_dict)
 
-            return sample_data, None
+            return sample_data, None, False
 
         except Exception as e:
             try:
@@ -188,7 +203,7 @@ Focus on practical campaign usability and customer targeting accuracy."""
                 self.db.rollback()
             except Exception as rollback_error:
                 print(f"[yellow]Warning: Failed to rollback transaction: {rollback_error}[/yellow]")
-            return None, str(e)
+            return None, str(e), False
 
     async def _analyze_query_intent(
             self,
@@ -197,7 +212,6 @@ Focus on practical campaign usability and customer targeting accuracy."""
             sample_data: List[Dict[str, Any]]
     ) -> QueryValidationResult:
         try:
-            # @todo make sure query has read only operation
             analysis_sample = sample_data[:self._MAX_SAMPLES] if sample_data else []
 
             messages = [
@@ -220,7 +234,7 @@ Validate this customer campaign query against the user's intent:
 **Total Sample Count:** {len(sample_data) if sample_data else 0}
 
 Analyze:
-1. Does the query include ALL mandatory columns (email, data_source, first_name, last_name)?
+1. Does the query include ALL mandatory columns (id, email, data_source, first_name, last_name)?
    - If ANY mandatory column is missing, set is_valid=false and confidence_score=0.0
 2. Does the query correctly interpret the user's campaign intent?
 3. Are the sample results appropriate for the requested customer segment?
@@ -243,18 +257,11 @@ Provide a detailed validation assessment in JSON format with confidence score.
             )
             response_content = response.choices[0].message.content
             try:
-                start_idx = response_content.find('{')
-                end_idx = response_content.rfind('}') + 1
-                if start_idx != -1 and end_idx != -1:
-                    json_str = response_content[start_idx:end_idx]
-                    validation_data = json.loads(json_str)
-                else:
-                    raise ValueError("No JSON found in response")
-
-            except (json.JSONDecodeError, ValueError):
+                validation_data = parse_json(response_content)
+            except Exception:
                 print(
                     "[yellow]Warning: Failed to parse JSON from response, falling back to rule-based analysis[/yellow]")
-                raise ValueError("Failed to parse JSON from response")
+                raise
 
             return QueryValidationResult(
                 is_valid=validation_data.get("is_valid", False),
