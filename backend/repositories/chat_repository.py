@@ -9,11 +9,13 @@ class ChatRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, message: str, response: str, sources: List[Dict[str, Any]]) -> ChatMessage:
+    def create(self, message: str, response: str, sources: List[Dict[str, Any]],
+               channel_messages: List[Dict[str, Any]]) -> ChatMessage:
         chat_message = ChatMessage(
-            message=message, 
-            response=response, 
-            sources=sources if sources else []
+            message=message,
+            response=response,
+            sources=sources if sources else [],
+            channel_messages=channel_messages if channel_messages else [],
         )
         self.db.add(chat_message)
         self.db.commit()
@@ -29,3 +31,11 @@ class ChatRepository:
     def clear_history(self) -> None:
         self.db.query(ChatMessage).delete()
         self.db.commit()
+
+    def get_channel_messages(self, chat_id: str, channel: str):
+        chat_message = self.db.query(ChatMessage).filter(ChatMessage.id == chat_id).first()
+        if not chat_message:
+            return []
+        channel_messages = chat_message.channel_messages or []
+        matched = [cm for cm in channel_messages if cm.get("channel") == channel]
+        return matched

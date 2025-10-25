@@ -14,6 +14,9 @@ class LlmResponseTypes(str, Enum):
     SQL_QUERY = "SQL_QUERY"
     QUERY_PROCESSING_RESULT = "QUERY_PROCESSING_RESULT"
     RETRIEVED_DATA = "RETRIEVED_DATA"
+    GENERAL_QUERY_RESPONSE = "GENERAL_QUERY_RESPONSE"
+    CHANNEL_MESSAGE = "CHANNEL_MESSAGE"
+    GENERATING_CHANNEL_MESSAGE = "GENERATING_CHANNEL_MESSAGE"
 
 
 class DataSourceTypes(str, Enum):
@@ -41,6 +44,7 @@ class ChatMessageResponse(BaseModel):
     response: str
     sources: Optional[List[Dict[str, Any]]] = []
     createdAt: datetime
+    channelMessages: Optional[List[Dict[str, Any]]] = []
 
     class Config:
         from_attributes = True
@@ -69,6 +73,7 @@ class QueryValidationResult(BaseModel):
     error_message: Optional[str] = None
     low_confidence_explanation: Optional[str] = None
     improvement_suggestions: Optional[List[str]] = None
+    has_security_error: Optional[bool] = None
 
 
 class GeneratedQuery(BaseModel):

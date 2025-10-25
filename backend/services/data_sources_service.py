@@ -35,7 +35,7 @@ class DataSourcesService:
         source_map = {
             "SHOPIFY": self._get_shopify_customers,
             "WEBSITE": self._get_website_customers,
-            "CRM": self._get_crm_customers
+            "CRMS": self._get_crm_customers
         }
 
         if source.upper() in source_map:

@@ -52,3 +52,6 @@ class CustomerRepository:
             count = self.db.query(Customer).filter(Customer.data_source == source[0]).count()
             counts[source[0]] = count
         return counts
+
+    def get_customer_by_id(self, customer_ids: List[str]) -> List[Customer]:
+        return self.db.query(Customer).filter(Customer.id.in_(customer_ids)).all()

@@ -34,6 +34,7 @@ def get_chat_history(db: Session = Depends(get_db)):
                 response=msg.response,
                 createdAt=msg.created_at,
                 sources=msg.sources,
+                channelMessages=msg.channel_messages,
             )
             for msg in messages
         ]
@@ -45,3 +46,10 @@ def clear_chat_history(db: Session = Depends(get_db)):
     service = ChatService(db)
     service.clear_chat_history()
     return {"message": "Chat history cleared successfully"}
+
+
+@router.get("/channel-messages/{chat_id}/{channel}")
+def get_channel_messages(chat_id: str, channel: str, db: Session = Depends(get_db)):
+    service = ChatService(db)
+    messages = service.get_channel_messages(chat_id, channel)
+    return messages

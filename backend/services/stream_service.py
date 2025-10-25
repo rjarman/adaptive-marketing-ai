@@ -16,6 +16,7 @@ class StreamMessage(BaseModel):
     content: str
     data: Optional[Dict[str, Any]] = None
     timestamp: Optional[str] = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    message_id: Optional[str] = None
 
     model_config = ConfigDict(
         alias_generator=to_camel,

@@ -27,7 +27,7 @@ class ChatMessage(Base):
     Represents a chat message entity within the system.
 
     This class is used to store and manage chat message data. It includes
-    information such as the message content, response, sources used, and the creation timestamp.
+    information such as the message content, response, sources used, channel messages, and the creation timestamp.
     It is intended to be used as a database model for storing data related to
     chat interactions.
 
@@ -36,6 +36,7 @@ class ChatMessage(Base):
         message: The content of the chat message provided by the user.
         response: The response generated for the given chat message.
         sources: JSON array of data sources used to generate the response.
+        channel_messages: JSON array of marketing channel messages generated for the chat.
         created_at: The timestamp indicating when the message was created.
 
     """
@@ -45,6 +46,7 @@ class ChatMessage(Base):
     message = Column(Text, nullable=False)
     response = Column(Text, nullable=False)
     sources = Column(JSON, nullable=True)
+    channel_messages = Column(JSON, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 
@@ -158,3 +160,21 @@ class Customer(Base):
     device_preference = Column(String)
     social_platforms = Column(JSON)
     communication_limits = Column(JSON)
+
+    @classmethod
+    def get_referable_properties(cls) -> list[tuple[str, str]]:
+        return [
+            ("data_source", "Origin of the customer data (e.g., application, platform, or system)"),
+            ("email", "The email address of the customer"),
+            ("first_name", "The first name of the customer"),
+            ("last_name", "The last name of the customer"),
+            ("phone", "Contact phone number of the customer"),
+            ("total_value", "The total monetary value associated with the customer"),
+            ("engagement_score", "A calculated score representing the customer's level of engagement"),
+            ("lifecycle_stage", "Lifecycle stage of the customer (e.g., Lead, Customer, Subscriber)"),
+            ("last_interaction", "The timestamp of the last interaction with the customer"),
+            ("segment", "The segment to which the customer belongs"),
+            ("purchase_intent", "Purchase intent level of the customer (e.g., high, medium, low)"),
+            ("last_engagement_time", "The timestamp of the last meaningful engagement with the customer"),
+            ("engagement_frequency", "Frequency preference for communications (e.g., daily, weekly, monthly)"),
+        ]

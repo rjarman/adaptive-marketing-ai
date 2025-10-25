@@ -6,12 +6,12 @@ across validator_agent.py, query_generator_agent.py, and sql_agent_service.py.
 
 DATABASE_SCHEMA_PROMPT = """**Database Schema - customers table:**
 
-The `customers` table is the central entity for customer campaign analysis and segmentation. It consolidates data from multiple sources (WEBSITE, SHOPIFY, CRM) into a unified structure optimized for marketing operations.
+The `customers` table is the central entity for customer campaign analysis and segmentation. It consolidates data from multiple sources (WEBSITE, SHOPIFY, CRMS) into a unified structure optimized for marketing operations.
 
 **Core Identity & Contact Fields:**
 - `id` (UUID, Primary Key) - Unique system identifier for the customer record
 - `source_customer_id` (String, NOT NULL) - Original customer ID from the source system
-- `data_source` (String, NOT NULL) - Data source origin: 'WEBSITE', 'SHOPIFY', 'CRM'
+- `data_source` (String, NOT NULL) - Data source origin: 'WEBSITE', 'SHOPIFY', 'CRMS'
 - `email` (String, NOT NULL) - Customer email address (primary contact method)
 - `first_name` (String, Nullable) - Customer's first name
 - `last_name` (String, Nullable) - Customer's last name  
@@ -99,7 +99,7 @@ The `customers` table is the central entity for customer campaign analysis and s
 - `lifetime_value` (Float) - Customer lifetime value
 - `segment` (String) - Customer segment: "high_value", "new_customer", "at_risk"
 
-*CRM source_data contains:*
+*CRMS source_data contains:*
 - `company` (String) - Company name
 - `job_title` (String) - Job title
 - `industry` (String) - Industry sector
@@ -125,11 +125,11 @@ The `customers` table is the central entity for customer campaign analysis and s
 - `tags` include customer status: ["VIP", "repeat_customer"] 
 - `lifecycle_stage` based on purchase history: "prospect", "customer", "lead"
 
-*CRM Source:*
+*CRMS Source:*
 - `total_value` from `deal_value`
 - `engagement_score` directly provided or calculated
 - `tags` include business context: ["high_value", "decision_maker"]
-- `lifecycle_stage` from CRM status: "lead", "opportunity", "customer"
+- `lifecycle_stage` from CRMS status: "lead", "opportunity", "customer"
 
 **Query Best Practices:**
 
@@ -143,13 +143,13 @@ The `customers` table is the central entity for customer campaign analysis and s
    - Cart abandonment (SHOPIFY): `data_source = 'SHOPIFY' AND (source_data->>'cart_abandoned_at') IS NOT NULL AND accepts_marketing = true`
    - High-value customers: `total_value >= 500 AND engagement_score >= 70 AND accepts_marketing = true`
    - Website visitors (WEBSITE): `data_source = 'WEBSITE' AND (source_data->>'conversion_status') = 'browsing' AND accepts_marketing = true`
-   - CRM prospects: `data_source = 'CRM' AND (source_data->>'lead_status') = 'Qualified Lead' AND accepts_marketing = true`
+   - CRMS prospects: `data_source = 'CRMS' AND (source_data->>'lead_status') = 'Qualified Lead' AND accepts_marketing = true`
    - Re-engagement: `last_engagement_time < NOW() - INTERVAL '30 days' AND accepts_marketing = true`
 
 4. **JSON field querying with actual source_data fields:**
    - SHOPIFY cart abandonment: `(source_data->>'cart_abandoned_at') IS NOT NULL`
    - WEBSITE high engagement: `(source_data->>'behavior_score')::int >= 70`
-   - CRM deal value: `(source_data->>'deal_value')::float >= 10000`
+   - CRMS deal value: `(source_data->>'deal_value')::float >= 10000`
    - Array contains: `tags @> '["VIP"]'`
    - JSON key exists: `seasonal_activity ? 'peak_months'`
    - Channel performance: `(channel_performance->>'email')::float > 0.3`

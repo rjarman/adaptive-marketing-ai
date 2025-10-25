@@ -90,3 +90,6 @@ class ChatService:
 
     def clear_chat_history(self):
         return self.repository.clear_history()
+
+    def get_channel_messages(self, chat_id: str, channel: str):
+        return self.repository.get_channel_messages(chat_id, channel)
